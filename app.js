@@ -1,28 +1,13 @@
-/*
-<div id = "parent">
-    <div id="child">
-    <h1 id = "heading"> i am h1 tag</h1>
-    </div>
-        <div id="child2">
-    <h1 id = "heading"> i am h1 tag</h1>
-    </div>
-</div>
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-*/
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  [React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "I am h1 tag!"),
-    React.createElement("h1", {}, "I am h1 tag!"),
-  ]),   React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "I am h1 tag!"),
-    React.createElement("h1", {}, "I am h1 tag!"),
-  ])]
-);
+const heading = React.createElement("h1", { id: "heading" }, "Anand G 🚀");
 
-console.log(parent);
+// JSX code, JSX is looks like HTML not HTML, JSX is totally different
+const jsxheading = <h1 id="heading">Anand Gadagin🚀 </h1>;
 
-// const heading = React.createElement("h1", { id: "heading" }, "Js react");
+console.log(jsxheading)
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+
+root.render(jsxheading)
