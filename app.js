@@ -1,13 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-const heading = React.createElement("h1", { id: "heading" }, "Anand G 🚀");
+// React element
+const heading = (
+  <h1 className="head" tabIndex="5">
+    React using JSX{" "}
+  </h1>
+);
+
+// React functional component
+const HeadingComponent = () => (
+    <div id="container">
+    <h1 className="heading">React using functional component</h1>
+    </div>
+)
 
 // JSX code, JSX is looks like HTML not HTML, JSX is totally different
-const jsxheading = <h1 id="heading">Anand Gadagin🚀 </h1>;
-
-console.log(jsxheading)
+// const jsxheading = <h1 className="root">Anand Gadagin🚀 </h1>;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(jsxheading)
+// rendering functional component
+
+root.render(< HeadingComponent />)
