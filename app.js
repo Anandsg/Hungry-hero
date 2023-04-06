@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 
 // React element
 const heading = (
@@ -11,12 +11,12 @@ const heading = (
 // React functional component
 const HeadingComponent = () => (
     <div id="container">
-    <h1 className="heading">React using functional component</h1>
+    <h1 className="heading">React using functional component 🚀</h1>
     </div>
 )
 
 // JSX code, JSX is looks like HTML not HTML, JSX is totally different
-// const jsxheading = <h1 className="root">Anand Gadagin🚀 </h1>;
+// const jsxheading = <h1 className="root">Anand Gadagin 🚀</h1>;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
