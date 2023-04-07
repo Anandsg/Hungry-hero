@@ -51,7 +51,7 @@ const Header = () => {
 //       </div>
 //   );
 // };
-const RestruarantCards = () => {
+const RestruarantCards = () => { 
   return (
     <div className="res-card">
       <img
