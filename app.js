@@ -12,7 +12,7 @@ const Header = () =>{
         <ul>
           <li>Home</li>
           <li>About us</li>
-          <li>Contact</li>
+          <li>Contact</li> 
           <li>Cart</li>
         </ul>
       </div>
