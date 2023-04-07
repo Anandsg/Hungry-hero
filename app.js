@@ -16,7 +16,7 @@ const Header = () =>{
           <li>Cart</li>
         </ul>
       </div>
-    </div>
+    </div> 
   );
 };
 const AppLayout = () => {

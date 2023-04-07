@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/Anandsg/Namaste-react.git"
   },
-  "author": "Anand",
+  "author": "Anand",  
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Anandsg/Namaste-react/issues"

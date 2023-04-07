@@ -8,11 +8,11 @@
     width: 150px;
 }
 
-.nav-items > ul {
+.nav-items > ul { 
     display: flex;
     padding: 0pc 3pc;
     font-size: 18px;
-    list-style: none;
+    list-style: none; 
 }
 
 .nav-items > ul > li {
