@@ -1,0 +1,28 @@
+{
+  "name": "namaste-react",
+  "version": "1.0.0",
+  "description": "React project ",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anandsg/Namaste-react.git"
+  },
+  "author": "Anand",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anandsg/Namaste-react/issues"
+  },
+  "homepage": "https://github.com/Anandsg/Namaste-react#readme",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
