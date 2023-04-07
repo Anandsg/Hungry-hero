@@ -1,25 +1,34 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// React element
-const heading = (
-  <h1 className="head" tabIndex="5">
-    React using JSX{" "}
-  </h1>
-);
-
-// React functional component
-const HeadingComponent = () => (
-    <div id="container">
-    <h1 className="heading">React using functional component 🚀</h1>
+const Header = () =>{
+  return (
+    <div className="header">
+      <div>
+        <img className="logo"
+        src="https://img.freepik.com/premium-vector/good-food-logo-template_79169-17.jpg?w=2000"/>
+      </div> 
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About us</li>
+          <li>Contact</li>
+          <li>Cart</li>
+        </ul>
+      </div>
     </div>
-)
+  );
+};
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header/>
 
-// JSX code, JSX is looks like HTML not HTML, JSX is totally different
-// const jsxheading = <h1 className="root">Anand Gadagin 🚀</h1>;
+    </div>
+  )
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // rendering functional component
-
-root.render(< HeadingComponent />)
+root.render(< AppLayout />)
