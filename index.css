@@ -1,21 +1,123 @@
 .header {
     display: flex;
     justify-content: space-between;
-    border: solid black;
-}
-
-.logo {
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
     width: 150px;
-}
-
-.nav-items > ul {
+  }
+  
+  .nav-items > ul {
     display: flex;
-    padding: 0pc 3pc;
     font-size: 18px;
     list-style: none;
-}
-
-.nav-items > ul > li {
+  }
+  
+  .nav-items > ul > li {
     padding: 10px;
-    margin: 10px;
-}
+    margin: 0px 15px;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-items > ul > li:hover {
+    color: #f00;
+    transform: translateY(-3px);
+  }
+  
+  .nav-items > ul > li.active {
+    color: #f00;
+    border-bottom: 2px solid #f00;
+  }
+  
+  .nav-items > ul > li:last-child {
+    margin-right: 0;
+  }  
+
+/* BODy Restuarant Card */
+
+.res-card {
+    margin: 20px;
+    padding: 10px;
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+
+  .res-card:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .res-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .res-image {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .res-name {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .res-rating {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .res-rating i {
+    color: #f9c74f;
+    margin-right: 5px;
+  }
+  
+  .res-cuisine {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .res-price {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .res-order:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5)
+  }
+  
+  .res-price button {
+    background-color: #f9c74f;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .res-price span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #f9c74f;
+  }
+  
