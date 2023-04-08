@@ -10,7 +10,7 @@
   .logo {
     width: 150px;
   }
-  
+
   .nav-items > ul {
     display: flex;
     font-size: 18px;
@@ -28,6 +28,7 @@
   }
   
   .nav-items > ul > li:hover {
+    cursor: pointer;
     color: #f00;
     transform: translateY(-3px);
   }
@@ -41,6 +42,23 @@
     margin-right: 0;
   }  
 
+  .nav-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    top: -5px;
+    justify-content: flex-start;
+      
+  }
+  
+  
 /* BODy Restuarant Card */
 
 .res-card {
@@ -80,7 +98,7 @@
   .res-rating {
     display: flex;
     align-items: center;
-    margin-top: 5px;
+    margin-top: -10px;
   }
   
   .res-rating i {
