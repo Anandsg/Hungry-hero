@@ -32,7 +32,6 @@ const Header = () => {
           <li>Contact</li>
           <li className="nav-logo">
             <div className="nav-logo">&#128722;</div>
-            {/* </li> </a> */}
           </li>
         </ul>
       </div>
@@ -41,28 +40,177 @@ const Header = () => {
 };
 
 const RestruarantCards = (props) => {
-  console.log(props);
+  const { resData } = props;
   return (
     <div className="res-card">
-      <img className="res-image" alt="res-image" src={props.resImage} />
+      <img
+        className="res-image"
+        alt={resData.data.name}
+        src={
+          "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/" +
+          resData.data.cloudinaryImageId
+        }
+      />
       <div className="res-details">
-       
-        <h4 className="res-name">{props.resName}</h4>
+        <h4 className="res-name">{resData.data.name}</h4>
         <div className="res-rating">
           <i className="fa fa-star"></i>
-          <span>{props.resRating}</span>
+          <span>{resData.data.avgRating}★</span>
         </div>
         <div className="res-cuisine">
-          {props.resCuisine} - {props.deliveryTime} min
+          {resData.data.cuisines.join(", ")} - {resData.data.deliveryTime} min
         </div>
         <div className="res-price">
-          <span>{props.resPrice}</span>
+          <span>{resData.data.costForTwo / 100} For two</span>
           <button className="res-order">Order Online</button>
         </div>
       </div>
     </div>
   );
 };
+
+const resObj = {
+  type: "restaurant",
+  data: {
+    type: "F",
+    id: "30083",
+    name: "California Burrito",
+    uuid: "4d87d9aa-cf3f-450b-87d2-f5d9acfaa23d",
+    city: "1",
+    area: "Vasanth Nagar",
+    totalRatingsString: "10000+ ratings",
+    cloudinaryImageId: "omvhhltozlarzavg9d6g",
+    cuisines: ["Mexican", "Salads", "Healthy Food"],
+    tags: [],
+    costForTwo: 25000,
+    costForTwoString: "₹250 FOR TWO",
+    deliveryTime: 22,
+    minDeliveryTime: 22,
+    maxDeliveryTime: 22,
+    slaString: "22 MINS",
+    lastMileTravel: 2.799999952316284,
+    slugs: {
+      restaurant: "california-burrito-central-bangalore-central-bangalore",
+      city: "bangalore",
+    },
+    cityState: "1",
+    address:
+      "Sigma Central Mall, 15/16/17, Cunningham Rd, Vasanth Nagar, Bengaluru, Karnataka 560052",
+    locality: "Cunnigham road",
+    parentId: 1252,
+    unserviceable: false,
+    veg: false,
+    select: false,
+    favorite: false,
+    tradeCampaignHeaders: [],
+    aggregatedDiscountInfo: {
+      header: "20% off",
+      shortDescriptionList: [
+        {
+          meta: "20% off | Use TRYNEW",
+          discountType: "Percentage",
+          operationType: "RESTAURANT",
+        },
+      ],
+      descriptionList: [
+        {
+          meta: "20% off up to ₹50 | Use code TRYNEW",
+          discountType: "Percentage",
+          operationType: "RESTAURANT",
+        },
+      ],
+      subHeader: "",
+      headerType: 0,
+      superFreedel: "",
+    },
+    aggregatedDiscountInfoV2: {
+      header: "20% OFF",
+      shortDescriptionList: [
+        {
+          meta: "Use TRYNEW",
+          discountType: "Percentage",
+          operationType: "RESTAURANT",
+        },
+      ],
+      descriptionList: [
+        {
+          meta: "20% off up to ₹50 | Use code TRYNEW",
+          discountType: "Percentage",
+          operationType: "RESTAURANT",
+        },
+      ],
+      subHeader: "",
+      headerType: 0,
+      superFreedel: "",
+    },
+    ribbon: [
+      {
+        type: "PROMOTED",
+      },
+    ],
+    chain: [],
+    feeDetails: {
+      fees: [
+        {
+          name: "distance",
+          fee: 2900,
+          message: "",
+        },
+        {
+          name: "time",
+          fee: 0,
+          message: "",
+        },
+        {
+          name: "special",
+          fee: 0,
+          message: "",
+        },
+      ],
+      totalFees: 2900,
+      message: "",
+      title: "Delivery Charge",
+      amount: "2900",
+      icon: "",
+    },
+    availability: {
+      opened: true,
+      nextOpenMessage: "",
+      nextCloseMessage: "",
+    },
+    longDistanceEnabled: 0,
+    rainMode: "NONE",
+    thirdPartyAddress: false,
+    thirdPartyVendor: "",
+    adTrackingID: "cid=6417091~p=7~eid=00000187-5fe8-ef28-185b-427c00aa071e",
+    badges: {
+      imageBased: [],
+      textBased: [],
+      textExtendedBadges: [],
+    },
+    lastMileTravelString: "2.7 kms",
+    hasSurge: false,
+    sla: {
+      restaurantId: "30083",
+      deliveryTime: 22,
+      minDeliveryTime: 22,
+      maxDeliveryTime: 22,
+      lastMileTravel: 2.799999952316284,
+      lastMileDistance: 0,
+      serviceability: "SERVICEABLE",
+      rainMode: "NONE",
+      longDistance: "NOT_LONG_DISTANCE",
+      preferentialService: false,
+      iconType: "EMPTY",
+    },
+    promoted: true,
+    avgRating: "4.5",
+    totalRatings: 10000,
+    new: false,
+  },
+  subtype: "basic",
+};
+
 const Body = () => {
   return (
     <div className="body">
@@ -70,38 +218,7 @@ const Body = () => {
         <h3>Search</h3>
       </div>
       <div className="res-container">
-        <RestruarantCards
-          resName="Hotel Empire"
-          resCuisine="Snacks, fast food, Beverages"
-          resPrice="₹ 800 for two"
-          resRating="4.5 ★"
-          resImage="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/d06b7fa84cb8f8193f60d4c2de172347"
-          deliveryTime="23"
-        />
-        <RestruarantCards
-          resName="Sunny's chicken wings!"
-          resCuisine="American, Fast food"
-          resPrice="₹ 1200 for two"
-          resRating="4.3 ★"
-          resImage="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/5ba4ead0cbe4e39a9ed6beda5b94e5f6"
-          deliveryTime="46"
-        />
-        <RestruarantCards
-          resName="Wow! Momo"
-          resCuisine="Tibetan, Healthy food, Asian"
-          resPrice="₹ 540 for two"
-          resRating="4.1 ★"
-          resImage="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/b5mmszz2vfpdwegpaw5z"
-          deliveryTime="17"
-        />
-        <RestruarantCards
-          resName="Shri udupi Hotel"
-          resCuisine="South indian, snacks"
-          resPrice="₹ 170 for two"
-          resRating="3.9 ★"
-          resImage="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/jxp8y1chnqljwqylpkov"
-          deliveryTime="32"
-        />
+        <RestruarantCards resData={resObj} />
       </div>
     </div>
   );
