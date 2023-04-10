@@ -32,7 +32,7 @@ const RestruarantCards = (props) => {
             {resData.data.cuisines.join(", ")} - {deliveryTime} min
           </div>
           <div className="res-price">
-            <span>{costForTwo / 100} For two</span>
+            <span>₹{costForTwo / 100} For two</span>
             <button className="res-order">Order Now</button>
           </div>
         </div>

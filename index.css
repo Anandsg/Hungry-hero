@@ -64,7 +64,7 @@
     margin: 20px;
     padding: 10px;
     width: 250px;
-    /* height: 350px; */
+    /* height: 370px; */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -93,18 +93,57 @@
     font-size: 20px;
     font-weight: bold;
   }
+
+  .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    color: #777;
+    margin-top: 12px;
+    margin-left: 950px;
+    border: 1px solid #777;
+    border-radius: 5px;
+    padding: 6px 8px;
+    background-color: transparent;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .filter-btn:hover {
+    background-color: #f4f4f4;
+    color: #777;
+    border-color: #777;
+  }
+
   
+  
+  /* Ratings */
   .res-rating {
     display: flex;
     align-items: center;
-    margin-top: -10px;
+    margin-top: -50px;
   }
   
   .res-rating i {
     color: #f9c74f;
-    margin-right: 0px;
-    margin-top: 20px;
+    margin-left: 205px;
+    font-size: 0.0em;
   }
+  
+  .res-rating span {
+    font-size: 0.5em;
+    font-weight: 600;
+    /* margin-left: 5px; */
+    color: #fff;
+    padding: 3px 8px;
+    background-color: #4CAF50;
+    border-radius: 3px;
+    border: 1px solid #4CAF50;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: "Roboto", sans-serif;
+  }
+
   .deliveryTime {
     position: absolute;
     bottom: 0;
@@ -130,24 +169,24 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5)
   }
   .res-order {
-    width: 120px;
-    height: 40px;
+    width: 90px;
+    height: 30px;
   }
-  
   
   .res-price button {
     background-color: #f9c74f;
     color: white;
-    padding: 8px 12px;
+    padding: 2px 10px;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 1px;
+    font-size: 14px;
     cursor: pointer;
   }
   
+  
   .res-price span {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: bold;
-    color: #f9c74f;
+    color: #d5ab16;
   }
   
