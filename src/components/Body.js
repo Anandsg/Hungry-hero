@@ -12,7 +12,7 @@ const Body = () => {
     <div className="body">
       <div className="filter-btn">
         <span
-          className="filter-icon"
+          className="filter-icon" 
           onClick={() => {
             const filteredList = listOfRestuarants.filter(
               (res) => res.data.avgRating > 4
