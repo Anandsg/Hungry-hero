@@ -32,13 +32,13 @@
   transform: translateY(-3px);
 }
 
+.nav-items > ul > li:last-child {
+  margin-right: 0;
+}
+
 .nav-items > ul > li.active {
   color: #f00;
   border-bottom: 2px solid #f00;
-}
-
-.nav-items > ul > li:last-child {
-  margin-right: 0;
 }
 
 .nav-logo {

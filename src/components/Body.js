@@ -57,7 +57,7 @@ const Body = () => {
           {listOfRestuarants.map((restaurant) => (
             <RestruarantCards key={restaurant.data.id} resData={restaurant} />
           ))}
-        </div>
+        </div> 
       </div>
     </>
   );
