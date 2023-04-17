@@ -1,19 +1,21 @@
-import React from 'react';
+import React from "react";
 import RestruarantCards from "./RestruarantCards";
 import { useState, useEffect } from "react";
-import resList from "../utils/mockData";
+// import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
-    restaurant.data.name.includes(searchText)
+    restaurant?.data?.name.toLowerCase()?.includes(searchText.toLowerCase())
   );
   return filterData;
 }
 const Body = () => {
   // Making copy of a data
   const [AlllistOfRestuarants, setAlllistOfRestuarants] = useState([]);
-  const [filteredlistOfRestuarants, setfilteredlistOfRestuarants] = useState([]);
+  const [filteredlistOfRestuarants, setfilteredlistOfRestuarants] = useState(
+    []
+  );
   const [searchText, setSearchText] = useState("");
 
   // useEffect is HOOk it a call back function, this will be called not immediately but whenever useEffect wants to be called
@@ -36,8 +38,12 @@ const Body = () => {
     setAlllistOfRestuarants(json?.data?.cards[2]?.data?.data?.cards);
     setfilteredlistOfRestuarants(json?.data?.cards[2]?.data?.data?.cards);
   }
-  return (AlllistOfRestuarants.length === 0) ? (
-    <Shimmer />
+
+  // avoid rendering component (Early)
+  if (!AlllistOfRestuarants) return null;
+
+  return AlllistOfRestuarants.length === 0 ? (
+    <Shimmer/>
   ) : (
     <>
       <div className="search-container">
@@ -56,10 +62,16 @@ const Body = () => {
           onClick={() => {
             const data = filterData(searchText, AlllistOfRestuarants);
             setfilteredlistOfRestuarants(data);
+            if (data.length === 0 && searchText !== "") {
+              setfilteredlistOfRestuarants([]);
+            }
           }}
         >
           search
         </button>
+        {filteredlistOfRestuarants?.length === 0 && searchText !== "" && (
+          <h2> Oh! Your item did not found </h2>
+        )}
       </div>
 
       <div className="body">
