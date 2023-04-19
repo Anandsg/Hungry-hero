@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
+
 const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
   return (
@@ -11,6 +13,10 @@ const Header = () => {
         <ul>
           <li>Home</li>
           <li>Items</li>
+          <Link to="/About">
+            <li>About</li>
+          </Link>
+
           <li>Contact</li>
           <li className="nav-logo">
             <div className="nav-logo">&#128722;</div>
