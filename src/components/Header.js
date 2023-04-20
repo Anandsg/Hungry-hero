@@ -11,13 +11,17 @@ const Header = () => {
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
+          <Link to="Home">
+            {" "}
+            <li>Home</li>
+          </Link>
           <li>Items</li>
           <Link to="/About">
             <li>About</li>
           </Link>
-
-          <li>Contact</li>
+          <Link to="/Contact">
+            <li>Contact</li>
+          </Link>
           <li className="nav-logo">
             <div className="nav-logo">&#128722;</div>
           </li>
