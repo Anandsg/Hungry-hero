@@ -1,5 +1,6 @@
 # React project 
-/* 
+
+Basic raw plan design : 
 Header
   - Logo
   - Navigations(about,contact)
@@ -12,9 +13,17 @@ Footer
   - copyright
   - links
   - adress
-*/
 
-Two types of export and import
+ Main Features:
+1. Shimmer Ui
+2. Lazy Loading
+3. Responsive
+4. Real Time Data Fetch From Api
+5. Working Search Bar
+7. Cart Using Redux Tool Kit
+8. Error Page 
+
+Export and import :
 
 1. default export/import
 2. named export/import

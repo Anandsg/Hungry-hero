@@ -18,7 +18,7 @@ const Body = () => {
   );
   const [searchText, setSearchText] = useState("");
 
-  // useEffect is HOOk it a call back function, this will be called not immediately but whenever useEffect wants to be called
+  // useEffect is HOOk it's a call back function, this will be called not immediately but whenever useEffect wants to be called
   // when we have empty dependecy array => once after the render it will be called
   // dependecy array => once after initial changes render + everytime after render (my searchText changes)
 
@@ -88,7 +88,6 @@ const Body = () => {
             Rating: 4.0+
           </span>
         </div>
-
         <div className="res-container">
           {filteredlistOfRestuarants.map((restaurant) => (
             <RestruarantCards key={restaurant.data.id} resData={restaurant} />
