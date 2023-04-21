@@ -1,6 +1,7 @@
 # React project 
 
 Basic raw plan design : 
+
 Header
   - Logo
   - Navigations(about,contact)
