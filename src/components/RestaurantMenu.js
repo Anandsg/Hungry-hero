@@ -14,32 +14,49 @@ const RestruarantMenu = () => {
 
   async function getRestruarantInfo() {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.5270362&lng=77.13593279999999&restaurantId=" +
+      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.022505&lng=72.5713621&restaurantId=" +
         resId
     );
     const json = await data.json();
     console.log(json);
     setRestaurant(json.data?.cards[0]?.card?.card?.info);
+    if (restaurant) {
+      const { name, avgRating, cloudinaryImageId, city, costForTwoMessage } =
+        restaurant;
+      // destructured properties...
+    }
   }
-
-  //   return !restaurant ? (
-  //     <Shimmer />
-  //   ) : (
-  return (
-    <div>
-      <h2>restaurant id: {resId}</h2>
-      {restaurant ? (
-        <div>
-          <h1>{restaurant.name}</h1>
-          <img src={CDN_URL + restaurant.cloudinaryImageId}></img>
-          <h3>{restaurant.city}</h3>
-          <p>{restaurant.costForTwoMessage}</p>
-          <p>{restaurant.cuisines}</p>
-          <h5>{restaurant.avgRating}</h5>
-        </div>
-      ) : (
-        <Shimmer />
-      )}
+  return !restaurant ? (
+    <Shimmer />
+  ) : (
+    <div className="restaurant-menu">
+      <div>
+        <h1> Res-ID : {resId} </h1>
+        <h2> {restaurant.name} </h2>
+        <img
+          className="item-img"
+          src={CDN_URL + restaurant.cloudinaryImageId}
+        />
+        <h2> {restaurant.city} </h2>
+        <p> {restaurant.costForTwoMessage} </p>
+        <h2> {restaurant.avgRating} </h2>
+      </div>
+      <div className="res-menu">
+        <h2>
+          Menu
+          {console.log(
+            restaurant?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
+              ?.itemCards
+          )}
+          {restaurant?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
+            (card) => {
+              return (
+                <li key={card?.card?.info.id}>{card?.card?.info?.name} </li>
+              );
+            }
+          )}
+        </h2>
+      </div>
     </div>
   );
 };

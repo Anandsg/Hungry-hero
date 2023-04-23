@@ -13,8 +13,8 @@ const AppLayout = () => {
   return (
     <div className="app">
       <Header />
+      {/* out let is a place where below configuration fill in */}
       <Outlet/>
-      {/* <Contact/> */}
     </div>
   );
 };
