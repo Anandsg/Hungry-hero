@@ -1,52 +1,58 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Header from  "./components/Header";
+import Header from "./components/Header";
 import Body from "./components/Body";
 import About from "./components/About";
 import Error from "./components/error";
-import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Contact from "./components/Contact";
 import RestruarantCards from "./components/RestruarantCards";
 import RestruarantMenu from "./components/RestaurantMenu";
+import Profile from "./components/Profile";
 
 const AppLayout = () => {
   return (
     <div className="app">
       <Header />
       {/* out let is a place where below configuration fill in */}
-      <Outlet/>
+      <Outlet />
     </div>
   );
 };
 
-const appRouter = createBrowserRouter ([
+const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout/>,
-    errorElement: <Error/>,
+    element: <AppLayout />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
-        element: <Body/>
+        element: <Body />,
       },
       {
         path: "/About",
-        element: <About/>
+        element: <About />,
+        children: [
+          {
+            path: "Profile",
+            element: <Profile />,
+          },
+        ],
       },
       {
         path: "/Contact",
-        element: <Contact/>
+        element: <Contact />,
       },
       {
-      path: "/restaurants/:resId",
-      element: <RestruarantMenu/>
+        path: "/restaurants/:resId",
+        element: <RestruarantMenu />,
       },
-    ]
+    ],
   },
-
-])
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 // rendering functional component
-root.render(<RouterProvider router={appRouter}/>);
+root.render(<RouterProvider router={appRouter} />);
