@@ -18,7 +18,7 @@ const RestruarantMenu = () => {
         resId
     );
     const json = await data.json();
-    console.log(json);
+    console.log(json); 
     setRestaurant(json.data?.cards[0]?.card?.card?.info);
     if (restaurant) {
       const { name, avgRating, cloudinaryImageId, city, costForTwoMessage } =
