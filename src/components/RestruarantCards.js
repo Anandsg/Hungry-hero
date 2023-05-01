@@ -19,7 +19,7 @@ const RestruarantCards = (props) => {
           alt={resData.data.name}
           src={
             CDN_URL +
-            resData.data.cloudinaryImageId
+            resData.data.cloudinaryImageId 
           }
         />
         <div className="res-details">
