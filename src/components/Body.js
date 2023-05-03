@@ -4,13 +4,8 @@ import { useState, useEffect } from "react";
 // import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { filterData } from "../utils/helper";
 
-function filterData(searchText, restaurants) {
-  const filterData = restaurants.filter((restaurant) =>
-    restaurant?.data?.name.toLowerCase()?.includes(searchText.toLowerCase())
-  );
-  return filterData;
-}
 const Body = () => {
   // Making copy of a data
   const [AlllistOfRestuarants, setAlllistOfRestuarants] = useState([]);

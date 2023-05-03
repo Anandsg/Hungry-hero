@@ -6,26 +6,7 @@ import Shimmer from "./Shimmer";
 const RestruarantMenu = () => {
   // Read dynamic URL params
   const { resId } = useParams();
-  const [restaurant, setRestaurant] = useState(null);
 
-  useEffect(() => {
-    getRestruarantInfo();
-  }, []);
-
-  async function getRestruarantInfo() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=23.022505&lng=72.5713621&restaurantId=" +
-        resId
-    );
-    const json = await data.json();
-    console.log(json); 
-    setRestaurant(json.data?.cards[0]?.card?.card?.info);
-    if (restaurant) {
-      const { name, avgRating, cloudinaryImageId, city, costForTwoMessage } =
-        restaurant;
-      // destructured properties...
-    }
-  }
   return !restaurant ? (
     <Shimmer />
   ) : (
@@ -55,7 +36,7 @@ const RestruarantMenu = () => {
               );
             }
           )}
-        </h2> 
+        </h2>
       </div>
     </div>
   );

@@ -1,24 +1,45 @@
 import React from "react";
-
 class Profile extends React.Component {
   // creating a state
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
+      userInfo: {
+        name: "Dummy name",
+        location: "dummy loc",
+      },
     };
+    console.log("child constructor"); // 3rd this will be called
   }
+
+  async componentDidMount() {
+    const data = await fetch("https://api.github.com/users/Anandsg");
+    const json = await data.json();
+    console.log(json);
+    this.setState({
+      userInfo: json,
+    });
+    cons;
+    // Best place to make API calls
+    console.log("child componentdidamout"); // 5th this will be called
+  }
+
   render() {
+    console.log("child render"); // 4th this will be called
     return (
       <div>
         <h2>This is my profile class component</h2>
-        <h2>Name : {this.props.name}</h2>
-        <h2>Count : {this.state.count}</h2>
-        <button 
+        <img src={this.state.userInfo.avatar_url} />
+        <h2>Name : {this.state.userInfo.name}</h2>
+        <h2>location : {this.state.userInfo.location}</h2>
+        {/* <h2>Count : {this.state.count}</h2>
+        <button
           onClick={() => {
             this.setState({ count: 1 });
           }}
-        >Set count</button>
+        >
+          Set count
+        </button> */}
       </div>
     );
   }
