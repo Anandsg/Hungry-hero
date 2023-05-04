@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   // Making copy of a data
@@ -33,6 +34,11 @@ const Body = () => {
     //optional chaininng
     setAlllistOfRestuarants(json?.data?.cards[2]?.data?.data?.cards);
     setfilteredlistOfRestuarants(json?.data?.cards[2]?.data?.data?.cards);
+  }
+
+  const isOnline = useOnline();
+  if (!isOnline) {
+    return <h3> user is offline</h3>;
   }
 
   // avoid rendering component (Early)
