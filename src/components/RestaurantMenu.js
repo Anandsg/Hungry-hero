@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CDN_URL } from "../utils/constants";
+import useRestaurant from "../utils/useRestaurant";
 import Shimmer from "./Shimmer";
 
 const RestruarantMenu = () => {
   // Read dynamic URL params
   const { resId } = useParams();
-
+  const restaurant = useRestaurant(resId);
   return !restaurant ? (
     <Shimmer />
   ) : (

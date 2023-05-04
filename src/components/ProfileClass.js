@@ -19,7 +19,6 @@ class Profile extends React.Component {
     this.setState({
       userInfo: json,
     });
-    cons;
     // Best place to make API calls
     console.log("child componentdidamout"); // 5th this will be called
   }
