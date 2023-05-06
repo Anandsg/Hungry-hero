@@ -11,19 +11,19 @@ const RestruarantMenu = () => {
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className="restaurant-menu">
+    <div className="">
       <div>
         <h1> Res-ID : {resId} </h1>
         <h2> {restaurant.name} </h2>
         <img
-          className="item-img"
+          className="w-80"
           src={CDN_URL + restaurant.cloudinaryImageId}
         />
         <h2> {restaurant.city} </h2>
         <p> {restaurant.costForTwoMessage} </p>
         <h2> {restaurant.avgRating} </h2>
       </div>
-      <div className="res-menu">
+      <div className="">
         <h2>
           Menu
           {console.log(

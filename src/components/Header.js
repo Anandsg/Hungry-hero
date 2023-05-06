@@ -7,25 +7,25 @@ const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
   // const isOnline = useOnline();
   return (
-    <div className="header">
+    <div className="flex items-center justify-between bg-gradient-to-r px-4 shadow-md ">
       <div>
-        <img className="logo" src={LOGO_URL} />
+        <img className="h-28" src={LOGO_URL} />
       </div>
       <div className="nav-items">
-        <ul>
+        <ul className="flex py-9">
           <Link to="/">
             {" "}
-            <li>Home</li>
+            <li className="px-4">Home</li>
           </Link>
-          <li>Items</li>
+          <li className="px-4">Items</li>
           <Link to="/About">
-            <li>About</li>
+            <li className="px-4">About</li>
           </Link>
           <Link to="/Contact">
-            <li>Contact</li>
+            <li className="px-4">Contact</li>
           </Link>
           <Link to="/Instamart">
-            <li>Instamart</li>
+            <li className="px-4"> Instamart</li>
           </Link>
           <li className="nav-logo">
             <div className="nav-logo">&#128722;</div>
@@ -34,7 +34,7 @@ const Header = () => {
       </div>
       {/* <h3>{isOnline? "✅" : "⛔️"}</h3> */}
       {isLoggedIn ? (
-        <button onClick={() => setisLoggedIn(false)}>Logout</button>
+        <button className="px-4" onClick={() => setisLoggedIn(false)}>Logout</button>
       ) : (
         <button onClick={() => setisLoggedIn(true)}>Login</button>
       )}
