@@ -48,10 +48,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container p-5">
+      <div className="search-container p-3">
         <input
           type="text"
-          className="p-2 m-2"
+          className="p-1 m-2"
           placeholder="search"
           value={searchText}
           onChange={(e) => {
@@ -60,7 +60,7 @@ const Body = () => {
         />
 
         <button
-          className="bg-yellow-400 text-gray-800 p-2 px-4 m-3 rounded-md shadow-md hover:bg-yellow-500 transition duration-200 ease-in-out"
+          className="bg-yellow-400 text-gray-800 p-1 m-2 rounded-md shadow-md hover:bg-yellow-500 transition duration-200 ease-in-out"
           onClick={() => {
             const data = filterData(searchText, AlllistOfRestuarants);
             setfilteredlistOfRestuarants(data);
@@ -69,7 +69,6 @@ const Body = () => {
             }
           }}
         >
-          {/* console.loh)fetch) */}
           search 
         </button>
         {filteredlistOfRestuarants?.length === 0 && searchText !== "" && (

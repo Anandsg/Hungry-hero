@@ -13,24 +13,21 @@ const RestruarantCards = (props) => {
     costForTwo,
   } = resData?.data;
   return (
-    <div className="w-60 p-2 m-4 shadow-md hover:shadow-xl">
+    <div className="w-56 p-2 m-4 shadow-md hover:shadow-xl hover:scale-105 hover:shadow-slate-200 ransition duration-500 ease-in-out">
       <img
         alt={resData.data.name}
         src={CDN_URL + resData.data.cloudinaryImageId}
       />
       <div className="res-details">
         <h4 className="font-bold">{name}</h4>
-        <div className="res-rating">
-          <i className="fa fa-star"></i>
-          <span>{avgRating}★</span>
+        <div className="">
+          <span className="bg-green-500 text-white font-bold text-xs">★ {avgRating }</span>
         </div>
         <div className="font-light">
-          {/* <div className="justify-center"> */}
             {resData.data.cuisines.join(", ")} - {deliveryTime} min
           </div>
           <div className="res-price">
-            <span>₹{costForTwo / 100} For two</span>
-            <button className="res-order">Order Now</button>
+            <span className="font-medium">₹{costForTwo / 100} For two</span>
           </div>
         </div>
       </div>

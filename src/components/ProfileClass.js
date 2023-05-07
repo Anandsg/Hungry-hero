@@ -11,7 +11,6 @@ class Profile extends React.Component {
     };
     console.log("child constructor"); // 3rd this will be called
   }
-
   async componentDidMount() {
     const data = await fetch("https://api.github.com/users/Anandsg");
     const json = await data.json();
@@ -22,7 +21,6 @@ class Profile extends React.Component {
     // Best place to make API calls
     console.log("child componentdidamout"); // 5th this will be called
   }
-
   render() {
     console.log("child render"); // 4th this will be called
     return (
