@@ -6,6 +6,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import data from "../../data/data";
 
 const Body = () => {
   // Making copy of a data
@@ -69,7 +70,7 @@ const Body = () => {
             }
           }}
         >
-          search 
+          search
         </button>
         {filteredlistOfRestuarants?.length === 0 && searchText !== "" && (
           <h2> Oh! Your item did not found </h2>
@@ -90,7 +91,7 @@ const Body = () => {
             Rating: 4.0+
           </span>
         </div>
-        <div className="flex flex-wrap">
+        <div className="px-4 grid grid-cols-2 md:grid md:grid-cols-7 gap-4 ">
           {filteredlistOfRestuarants.map((restaurant) => (
             <Link
               to={"/restaurants/" + restaurant.data.id}
