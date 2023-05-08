@@ -17,7 +17,6 @@ const Header = () => {
             {" "}
             <li className="px-4">Home</li>
           </Link>
-          <li className="px-4">Items</li>
           <Link to="/About">
             <li className="px-4">About</li>
           </Link>
@@ -27,6 +26,9 @@ const Header = () => {
           <Link to="/Instamart">
             <li className="px-4"> Instamart</li>
           </Link>
+          <Link to="/Help">
+            <li className="px-4"> Help</li>
+          </Link>
           <li className="nav-logo">
             <div className="nav-logo">&#128722;</div>
           </li>
@@ -34,7 +36,9 @@ const Header = () => {
       </div>
       {/* <h3>{isOnline? "✅" : "⛔️"}</h3> */}
       {isLoggedIn ? (
-        <button className="px-4" onClick={() => setisLoggedIn(false)}>Logout</button>
+        <button className="px-4" onClick={() => setisLoggedIn(false)}>
+          Logout
+        </button>
       ) : (
         <button onClick={() => setisLoggedIn(true)}>Login</button>
       )}
