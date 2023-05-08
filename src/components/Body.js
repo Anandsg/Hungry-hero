@@ -91,7 +91,7 @@ const Body = () => {
             Rating: 4.0+
           </span>
         </div>
-        <div className="px-4 grid grid-cols-2 md:grid md:grid-cols-7 gap-4 ">
+        <div className="px-28 grid grid-cols-2 md:grid md:grid-cols-5 gap-4 ">
           {filteredlistOfRestuarants.map((restaurant) => (
             <Link
               to={"/restaurants/" + restaurant.data.id}
