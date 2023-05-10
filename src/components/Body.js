@@ -49,10 +49,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container p-3">
+      <div className="search-container p-3 flex items-center border-black">
         <input
           type="text"
-          className="p-1 m-2"
+          className="p-1 m-2 border border-gray-300 rounded-md"
           placeholder="search"
           value={searchText}
           onChange={(e) => {
@@ -61,7 +61,7 @@ const Body = () => {
         />
 
         <button
-          className="bg-yellow-400 text-gray-800 p-1 m-2 rounded-md shadow-md hover:bg-yellow-500 transition duration-200 ease-in-out"
+          className="bg-yellow-400 text-gray-800 p-1 m-2 rounded-md shadow-md hover:text-white hover:bg-yellow-500 transition duration-200 ease-in-out"
           onClick={() => {
             const data = filterData(searchText, AlllistOfRestuarants);
             setfilteredlistOfRestuarants(data);
@@ -70,38 +70,35 @@ const Body = () => {
             }
           }}
         >
-          search
+          Search
         </button>
         {filteredlistOfRestuarants?.length === 0 && searchText !== "" && (
           <h2> Oh! Your item did not found </h2>
         )}
+
+        <span
+          className="bg-yellow-400 text-gray-800 p-1 m-2 rounded-md shadow-md hover:text-white hover:bg-yellow-500 transition duration-200 ease-in-out"
+          onClick={() => {
+            const filteredList = AlllistOfRestuarants.filter(
+              (res) => res.data.avgRating > 4
+            );
+            setfilteredlistOfRestuarants(filteredList);
+          }}
+        >
+          Rating: 4.0+
+        </span>
       </div>
 
-      <div className="body">
-        <div className="filter-btn">
-          <span
-            className="filter-icon"
-            onClick={() => {
-              const filteredList = AlllistOfRestuarants.filter(
-                (res) => res.data.avgRating > 4
-              );
-              setfilteredlistOfRestuarants(filteredList);
-            }}
+      <div className="px-28 grid grid-cols-2 md:grid md:grid-cols-5 gap-4 ">
+        {filteredlistOfRestuarants.map((restaurant) => (
+          <Link
+            to={"/restaurants/" + restaurant.data.id}
+            key={restaurant.data.id}
           >
-            Rating: 4.0+
-          </span>
-        </div>
-        <div className="px-28 grid grid-cols-2 md:grid md:grid-cols-5 gap-4 ">
-          {filteredlistOfRestuarants.map((restaurant) => (
-            <Link
-              to={"/restaurants/" + restaurant.data.id}
-              key={restaurant.data.id}
-            >
-              {" "}
-              <RestruarantCards key={restaurant.data.id} resData={restaurant} />
-            </Link>
-          ))}
-        </div>
+            {" "}
+            <RestruarantCards key={restaurant.data.id} resData={restaurant} />
+          </Link>
+        ))}
       </div>
     </>
   );

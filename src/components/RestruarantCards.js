@@ -13,7 +13,7 @@ const RestruarantCards = (props) => {
     costForTwo,
   } = resData?.data;
   return (
-    <div className="w-auto p-3 m-1 shadow-md hover:shadow-xl hover:scale-105 hover:shadow-slate-200 ransition duration-500 ease-in-out">
+    <div className="w-auto p-3 m-1 shadow-md hover:shadow-xl hover:scale-105 hover:shadow-slate-200 ransition duration-150 ease-in-out">
       <img
         alt={resData.data.name}
         src={CDN_URL + resData.data.cloudinaryImageId}

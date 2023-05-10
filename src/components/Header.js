@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
-// import useOnline from "../utils/useOnline";
+import useOnline from "../utils/useOnline";
+import UserContext from "../utils/userContext";
 
 const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
-  // const isOnline = useOnline();
+
+  const isOnline = useOnline();
+  const { user } = useContext(UserContext);
   return (
     <div className="flex items-center justify-between bg-gradient-to-r px-4 shadow-md ">
       <div>
@@ -34,7 +37,8 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      {/* <h3>{isOnline? "✅" : "⛔️"}</h3> */}
+      <h3>{isOnline ? "✅" : "⛔️"}</h3>
+      <span className="font-serif text-yellow-600">{user.name}</span>
       {isLoggedIn ? (
         <button className="px-4" onClick={() => setisLoggedIn(false)}>
           Logout

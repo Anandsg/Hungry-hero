@@ -26,10 +26,10 @@ const RestruarantMenu = () => {
       <div className="">
         <h2>
           Menu
-          {console.log(
+          {/* {console.log(
             restaurant?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
               ?.itemCards
-          )}
+          )} */}
           {restaurant?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
             (card) => {
               return (
