@@ -77,7 +77,7 @@ const Body = () => {
         )}
 
         <span
-          className="bg-yellow-400 text-gray-800 p-1 m-2 rounded-md shadow-md hover:text-white hover:bg-yellow-500 transition duration-200 ease-in-out"
+          className="bg-yellow-400 text-gray-800 p-1 m-2 rounded-md shadow-md transition duration-200 ease-in-out hover:bg-yellow-500 hover:text-white"
           onClick={() => {
             const filteredList = AlllistOfRestuarants.filter(
               (res) => res.data.avgRating > 4
