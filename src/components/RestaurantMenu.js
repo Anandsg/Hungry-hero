@@ -11,12 +11,12 @@ const RestruarantMenu = () => {
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className="">
+    <div className="font-serif">
       <div>
         <h1> Res-ID : {resId} </h1>
         <h2> {restaurant.name} </h2>
         <img
-          className="w-80"
+          className="w-60 p-3 m-1 shadow-md hover:shadow-xl hover:scale-105 hover:shadow-slate-200 ransition duration-150 ease-in-out"
           src={CDN_URL + restaurant.cloudinaryImageId}
         />
         <h2> {restaurant.city} </h2>

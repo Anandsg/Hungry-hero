@@ -73,7 +73,10 @@ const Body = () => {
           Search
         </button>
         {filteredlistOfRestuarants?.length === 0 && searchText !== "" && (
-          <h2> Oh! Your item did not found </h2>
+          <h2 className="font-bold text-justify">
+            {" "}
+            Oh! Your item did not found{" "}
+          </h2>
         )}
 
         <span
