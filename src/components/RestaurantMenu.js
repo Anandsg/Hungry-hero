@@ -7,7 +7,8 @@ import Shimmer from "./Shimmer";
 const RestruarantMenu = () => {
   // Read dynamic URL params
   const { resId } = useParams();
-  const restaurant = useRestaurant(resId);
+  // const restaurant = useRestaurant(resId);
+  const [restaurant, resmenu] = useRestaurant(resId); // CUSTOM HOOK
   return !restaurant ? (
     <Shimmer />
   ) : (
@@ -26,11 +27,7 @@ const RestruarantMenu = () => {
       <div className="">
         <h2>
           Menu
-          {/* {console.log(
-            restaurant?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
-              ?.itemCards
-          )} */}
-          {restaurant?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
+          {resmenu?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
             (card) => {
               return (
                 <li key={card?.card?.info.id}>{card?.card?.info?.name} </li>
