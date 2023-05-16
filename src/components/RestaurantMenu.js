@@ -7,8 +7,8 @@ import Shimmer from "./Shimmer";
 const RestruarantMenu = () => {
   // Read dynamic URL params
   const { resId } = useParams();
-  // const restaurant = useRestaurant(resId);
-  const [restaurant, resmenu] = useRestaurant(resId); // CUSTOM HOOK
+  // CUSTOM HOOK
+  const [restaurant, resmenu] = useRestaurant(resId);
   return !restaurant ? (
     <Shimmer />
   ) : (

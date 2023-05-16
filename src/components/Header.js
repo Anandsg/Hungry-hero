@@ -37,7 +37,7 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <h3>{isOnline ? "✅" : "⛔️"}</h3>
+      <h3>{isOnline ? "🟢" : "🔴"}</h3>
       <span className="font-serif text-yellow-600">{user.name}</span>
       {isLoggedIn ? (
         <button className="px-4" onClick={() => setisLoggedIn(false)}>
