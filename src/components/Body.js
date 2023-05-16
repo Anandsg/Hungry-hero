@@ -1,27 +1,21 @@
 import React from "react";
 import RestruarantCards from "./RestruarantCards";
 import { useState, useEffect } from "react";
-// import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
-// import data from "../../data/data";
+import backend from "..utils/backend";
 
 const Body = () => {
-  // Making copy of a data
   const [AlllistOfRestuarants, setAlllistOfRestuarants] = useState([]);
   const [filteredlistOfRestuarants, setfilteredlistOfRestuarants] = useState(
     []
   );
   const [searchText, setSearchText] = useState("");
 
-  // useEffect is HOOk it's a call back function, this will be called not immediately but whenever useEffect wants to be called
-  // when we have empty dependecy array => once after the render it will be called
-  // dependecy array => once after initial changes render + everytime after render (my searchText changes)
-
   useEffect(() => {
-    // Fetch APT
+    // Fetch API
     getRestaurants();
   }, []);
 
@@ -32,7 +26,6 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
 
-    //optional chaininng
     setAlllistOfRestuarants(json?.data?.cards[2]?.data?.data?.cards);
     setfilteredlistOfRestuarants(json?.data?.cards[2]?.data?.data?.cards);
   }
