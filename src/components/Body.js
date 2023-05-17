@@ -5,7 +5,6 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
-import backend from "..utils/backend";
 
 const Body = () => {
   const [AlllistOfRestuarants, setAlllistOfRestuarants] = useState([]);
