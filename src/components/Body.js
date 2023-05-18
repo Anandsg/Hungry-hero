@@ -44,8 +44,8 @@ const Body = () => {
       <div className="search-container p-3 flex items-center border-black">
         <input
           type="text"
-          className="p-1 m-2 border border-gray-300 rounded-md"
-          placeholder="search"
+          className="w-64 text-xs border border-gray-300 focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
+          placeholder="search restuarants"
           value={searchText}
           onChange={(e) => {
             setSearchText(e.target.value);
@@ -53,7 +53,7 @@ const Body = () => {
         />
 
         <button
-          className="bg-yellow-400 text-gray-800 p-1 m-2 rounded-md shadow-md hover:text-white hover:bg-yellow-500 transition duration-200 ease-in-out"
+          className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 rounded bg-orange-400 hover:bg-orange-300 transition-all duration-200 ease-in-out text-white"
           onClick={() => {
             const data = filterData(searchText, AlllistOfRestuarants);
             setfilteredlistOfRestuarants(data);
@@ -72,7 +72,7 @@ const Body = () => {
         )}
 
         <span
-          className="bg-yellow-400 text-gray-800 p-1 m-2 rounded-md shadow-md transition duration-200 ease-in-out hover:bg-yellow-500 hover:text-white"
+          className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 rounded bg-orange-400 hover:bg-orange-300 transition-all duration-200 ease-in-out text-white"
           onClick={() => {
             const filteredList = AlllistOfRestuarants.filter(
               (res) => res.data.avgRating > 4

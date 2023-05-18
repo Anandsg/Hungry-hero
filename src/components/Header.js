@@ -23,26 +23,23 @@ const Header = () => {
         <ul className="flex py-9">
           <Link to="/">
             {" "}
-            <li className="px-4">Home</li>
+            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-8">Home</li>
           </Link>
           <Link to="/About">
-            <li className="px-4">About</li>
+            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4">About</li>
           </Link>
           <Link to="/Contact">
-            <li className="px-4">Contact</li>
+            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4">Contact</li>
           </Link>
           <Link to="/Instamart">
-            <li className="px-4"> Instamart</li>
+            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4"> Instamart</li>
           </Link>
           <Link to="/Help">
-            <li className="px-4"> Help</li>
+            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4"> Help</li>
           </Link>
           <Link to="/Cart">
-            <li className="px-4"> Cart {cartItems.length} items</li>
+            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4"> Cart {cartItems.length} items</li>
           </Link>
-          <li className="nav-logo">
-            <div className="nav-logo">&#128722;</div>
-          </li>
         </ul>
       </div>
       <h3>{isOnline ? "🟢" : "🔴"}</h3>
