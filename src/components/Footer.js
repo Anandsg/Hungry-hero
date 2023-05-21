@@ -3,10 +3,10 @@ import "../utils/index.css";
 
 const Footer = () => {
   return (
-    <div className="footer">
-      Developed with 🧡 and a lot of ☕️ by
+    <div className="footer font-serif">
+      Developed with 🧡 and a lot of ☕️ by Anand
       <i className="fa-solid fa-heart"></i>
-      <a>Anand</a>
+      {/* <a>Anand</a> */}
       <a
         href="https://github.com/Anandsg"
         target="_blank"

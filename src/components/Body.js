@@ -66,7 +66,7 @@ const Body = () => {
         </button>
 
         {filteredlistOfRestuarants?.length === 0 && searchText !== "" && (
-          <h2 className="font-bold text-justify">
+          <h2 className="font-bold text-center font-serif">
             {" "}
             Oh! Your item did not found{" "}
           </h2>
