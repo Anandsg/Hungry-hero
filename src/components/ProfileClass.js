@@ -29,14 +29,6 @@ class Profile extends React.Component {
         <img src={this.state.userInfo.avatar_url} />
         <h2>Name : {this.state.userInfo.name}</h2>
         <h2>location : {this.state.userInfo.location}</h2>
-        {/* <h2>Count : {this.state.count}</h2>
-        <button
-          onClick={() => {
-            this.setState({ count: 1 });
-          }}
-        >
-          Set count
-        </button> */}
       </div>
     );
   }

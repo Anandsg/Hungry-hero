@@ -15,7 +15,7 @@ const RestruarantCards = (props) => {
     aggregatedDiscountInfo,
   } = resData?.data;
   return (
-    <div className="md:w-60 shadow-md md:shadow-none py-4 px-4 md:py-2  hover:shadow-lg rounded flex flex-col gap-1 text-[0.7rem] text-[#535665] ">
+    <div className="md:w-60 shadow-md md:shadow-none py-4 px-4 md:py-2  hover:shadow-xl rounded flex flex-col gap-1 text-[0.7rem] text-[#535665] ">
       <img
         src={
           CDN_URL +

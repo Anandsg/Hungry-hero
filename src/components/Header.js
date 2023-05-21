@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/userContext";
 import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
@@ -22,7 +24,7 @@ const Header = () => {
         <ul className="flex py-9">
           <Link to="/">
             {" "}
-            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-8">
+            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4">
               Home
             </li>
           </Link>
@@ -48,22 +50,35 @@ const Header = () => {
               Help
             </li>
           </Link>
-          <Link to="/Cart">
-            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4">
-              {" "}
-              Cart {cartItems.length}
-            </li>
+          <Link
+            to="/Cart"
+            className="flex items-center hover:text-orange-400 transition-all duration-300 ease-in-out px-4"
+          >
+            <div className="relative">
+              <FontAwesomeIcon icon={faShoppingCart} className="w-5 h-5" />
+              <span className="absolute top-[-20%] right-[-32%] inline-flex items-center justify-center w-3 h-3.5 bg-orange-500 text-white rounded-full text-xs">
+                {cartItems.length}
+              </span>
+            </div>
           </Link>
         </ul>
       </div>
-      <h3>{isOnline ? "🟢" : "🔴"}</h3>
+      {/* <h3>{isOnline ? "🟢" : "🔴"}</h3> */}
       <span className="font-serif text-yellow-600">{user.name}</span>
       {isLoggedIn ? (
-        <button className="px-4" onClick={() => setisLoggedIn(false)}>
-          Logout
+        <button
+          className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+          onClick={() => setisLoggedIn(false)}
+        >
+          Login ⇦
         </button>
       ) : (
-        <button onClick={() => setisLoggedIn(true)}>Login</button>
+        <button
+          className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+          onClick={() => setisLoggedIn(true)}
+        >
+          Logout
+        </button>
       )}
     </div>
   );

@@ -41,10 +41,10 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container p-3 flex items-center border-black">
+      <div className="search-container p-2 ml-auto border-black">
         <input
           type="text"
-          className="w-64 text-xs border border-gray-300 focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
+          className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
           placeholder="search restuarants"
           value={searchText}
           onChange={(e) => {
@@ -53,7 +53,7 @@ const Body = () => {
         />
 
         <button
-          className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 rounded bg-orange-400 hover:bg-orange-300 transition-all duration-200 ease-in-out text-white"
+          className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700"
           onClick={() => {
             const data = filterData(searchText, AlllistOfRestuarants);
             setfilteredlistOfRestuarants(data);
@@ -64,6 +64,7 @@ const Body = () => {
         >
           Search
         </button>
+
         {filteredlistOfRestuarants?.length === 0 && searchText !== "" && (
           <h2 className="font-bold text-justify">
             {" "}
@@ -72,7 +73,7 @@ const Body = () => {
         )}
 
         <span
-          className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 rounded bg-orange-400 hover:bg-orange-300 transition-all duration-200 ease-in-out text-white"
+          className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
           onClick={() => {
             const filteredList = AlllistOfRestuarants.filter(
               (res) => res.data.avgRating > 4

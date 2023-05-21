@@ -9,6 +9,7 @@ class About extends React.Component {
 
     console.log("parent constructor"); // 1st this will be called
   }
+
   componentDidMount() {
     console.log("parent componentDidMoun"); // 6th this will be called
   }
@@ -16,14 +17,24 @@ class About extends React.Component {
   render() {
     console.log("parent render"); // 2nd this will be called
     return (
-      <div>
-        <h2>This project developed by Anand G</h2>
-        <p>Software developer at cognizant 🧑🏻‍💻</p>
-        <ProfileFunctionalComponent name={"Anand"} />
-        <Profile name={"AnandClass"} />
+      <div className="container mx-auto p-4 bg-gray-100">
+        <h2 className="text-4xl font-bold mt-6 mb-4 text-center text-purple-800">
+          About Us
+        </h2>
+        <p className="text-lg mb-4 text-center text-gray-800">
+          This project is developed by Anand G, a software developer at Cognizant.
+        </p>
+        <div className="flex justify-center">
+          <div className="bg-white rounded-lg p-4 shadow-lg">
+            <ProfileFunctionalComponent name={"Anand"} />
+            <Profile name={"AnandClass"} />
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 export default About;
+
+
