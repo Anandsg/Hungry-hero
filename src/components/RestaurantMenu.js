@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CDN_URL } from "../utils/constants";
 import useRestaurant from "../utils/useRestaurant";
-import Shimmer from "./Shimmer";
+import ResShimmer from "./ResShimmer";
 import { addItem } from "../Utils/CartSlice";
 import { useDispatch } from "react-redux";
 
@@ -19,7 +19,7 @@ const RestruarantMenu = () => {
   };
 
   return !restaurant ? (
-    <Shimmer />
+    <ResShimmer />
   ) : (
     <div className="flex">
       <div>
@@ -69,8 +69,8 @@ const RestruarantMenu = () => {
                 </svg>
                 <span className="">{restaurant.costForTwoMessage}</span>
               </div>
-              <h1 className="font-bold mt-4 mb-10">
-                Recommended (
+              <h1 className="font-bold text-xl mt-4 mb-10">
+                Recommended items (
                 {
                   resmenu?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
                     () => null
@@ -86,7 +86,7 @@ const RestruarantMenu = () => {
                       key={card?.card?.info?.id}
                     >
                       <div className="flex flex-col gap-2 w-full md:w-3/4">
-                        <span className="font-semibold">
+                        <span className="font-semibold text-base">
                           {card?.card?.info?.name}
                         </span>
                         <div className="flex items-center gap-2">
@@ -118,7 +118,7 @@ const RestruarantMenu = () => {
                           className="w-32 h-20 rounded self-center object-cover"
                         />
                         <button
-                          className="absolute bottom-[-8px] bg-white shadow-md border self-center text-[10px] py-1 px-4 font-medium rounded  active:scale-90 hover:bg-green-300 transition-all duration-300 ease-in-out"
+                          className="absolute bottom-[-8px] bg-white shadow-md border self-center text-[10px] py-1 px-4 font-medium rounded  active:scale-90 hover:bg-orange-200 transition-all duration-300 ease-in-out"
                           onClick={() => addFoodItem(card)}
                         >
                           ADD TO CART

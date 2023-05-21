@@ -63,10 +63,6 @@ const appRouter = createBrowserRouter([
         path: "/restaurants/:resId",
         element: <RestruarantMenu />,
       },
-      // {
-      //   path: "/Cart",
-      //   element: <Cart />,
-      // },
       {
         path: "/Instamart",
         element: (

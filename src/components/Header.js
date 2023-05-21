@@ -10,9 +10,8 @@ const Header = () => {
 
   const isOnline = useOnline();
   const { user } = useContext(UserContext);
-  const cartItems = useSelector(store => store.cart.items);
+  const cartItems = useSelector((store) => store.cart.items);
   console.log(cartItems);
-
 
   return (
     <div className="flex items-center justify-between bg-gradient-to-r px-4 shadow-md ">
@@ -23,22 +22,37 @@ const Header = () => {
         <ul className="flex py-9">
           <Link to="/">
             {" "}
-            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-8">Home</li>
+            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-8">
+              Home
+            </li>
           </Link>
           <Link to="/About">
-            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4">About</li>
+            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4">
+              About
+            </li>
           </Link>
           <Link to="/Contact">
-            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4">Contact</li>
+            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4">
+              Contact
+            </li>
           </Link>
           <Link to="/Instamart">
-            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4"> Instamart</li>
+            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4">
+              {" "}
+              Instamart
+            </li>
           </Link>
           <Link to="/Help">
-            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4"> Help</li>
+            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4">
+              {" "}
+              Help
+            </li>
           </Link>
           <Link to="/Cart">
-            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4"> Cart {cartItems.length} items</li>
+            <li className="hover:text-orange-400 transition-all duration-300 ease-in-out px-4">
+              {" "}
+              Cart {cartItems.length}
+            </li>
           </Link>
         </ul>
       </div>

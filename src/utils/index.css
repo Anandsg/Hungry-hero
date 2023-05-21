@@ -1,0 +1,44 @@
+.footer {
+  margin: 10px;
+  width: auto;
+  text-align: center;
+  background-color: var(--footer-bg-color);
+  padding: 20px 10px 20px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px -1px rgba(193, 180, 180, 0.71);
+}
+
+.footer > i {
+  padding: 0 5px 0;
+  font-size: smaller;
+}
+
+.footer > a {
+  font-weight: 700;
+  color: var(--dark-blue);
+}
+
+.footer > a:hover {
+  color: var(--x-dark-orange);
+}
+
+.footer > strong {
+  padding-left: 5px;
+}
+
+.footer > strong > span {
+  color: var(--x-dark-orange);
+}
+.github-logo {
+  width: 40px; 
+  margin-top: -30px;
+  margin-left: 1280px;
+  height: auto;
+}
+.peerlist-logo{
+    width: 30px; 
+    margin-top: -34px;
+    margin-left: 1330px;
+    height: auto;
+}
+
