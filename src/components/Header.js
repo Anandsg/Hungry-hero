@@ -23,7 +23,7 @@ const Header = () => {
         </Link>
       </div>
       <span className="font-serif text-yellow-600">
-        <span className="text-1xl font-bold">
+        <span className="text-1xl font-bold"> 
           <span className="text-gradient-orange">Browse</span>
         </span>{" "}
         <span className="text-base font-semibold text-gray-500">Order</span>{" "}
