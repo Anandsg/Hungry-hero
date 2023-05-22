@@ -31,7 +31,12 @@ const Body = () => {
 
   const isOnline = useOnline();
   if (!isOnline) {
-    return <h3> user is offline</h3>;
+    return (
+      <h3 className="flex flex-col items-center justify-center font-serif h-screen bg-gray-100 text-2xl font-bold text-red-500 mb-4">
+        {" "}
+        it appears that the user is currently offline
+      </h3>
+    );
   }
 
   // avoid rendering component (Early)
@@ -42,47 +47,58 @@ const Body = () => {
   ) : (
     <>
       <div className="search-container p-2 ml-auto border-black">
-        <input
-          type="text"
-          className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
-          placeholder="search restuarants"
-          value={searchText}
-          onChange={(e) => {
-            setSearchText(e.target.value);
-          }}
-        />
+        {filteredlistOfRestuarants?.length === 0 && searchText !== "" ? (
+          <div className="flex flex-col items-center">
+            <h2 className="font-bold text-center font-serif">
+              The restaurant you're searching for doesn't exist.
+            </h2>
+            <button
+              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+              onClick={() => {
+                window.location.href = "/";
+              }}
+            >
+              Go back to Home
+            </button>
+          </div>
+        ) : (
+          <>
+            <input
+              type="text"
+              className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
+              placeholder="search restuarants"
+              value={searchText}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+              }}
+            />
 
-        <button
-          className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700"
-          onClick={() => {
-            const data = filterData(searchText, AlllistOfRestuarants);
-            setfilteredlistOfRestuarants(data);
-            if (data.length === 0 && searchText !== "") {
-              setfilteredlistOfRestuarants([]);
-            }
-          }}
-        >
-          Search
-        </button>
+            <button
+              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700"
+              onClick={() => {
+                const data = filterData(searchText, AlllistOfRestuarants);
+                setfilteredlistOfRestuarants(data);
+                if (data.length === 0 && searchText !== "") {
+                  setfilteredlistOfRestuarants([]);
+                }
+              }}
+            >
+              Search
+            </button>
 
-        {filteredlistOfRestuarants?.length === 0 && searchText !== "" && (
-          <h2 className="font-bold text-center font-serif">
-            {" "}
-            Oh! Your item did not found{" "}
-          </h2>
+            <span
+              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+              onClick={() => {
+                const filteredList = AlllistOfRestuarants.filter(
+                  (res) => res.data.avgRating > 4
+                );
+                setfilteredlistOfRestuarants(filteredList);
+              }}
+            >
+              Rating: 4.0+
+            </span>
+          </>
         )}
-
-        <span
-          className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
-          onClick={() => {
-            const filteredList = AlllistOfRestuarants.filter(
-              (res) => res.data.avgRating > 4
-            );
-            setfilteredlistOfRestuarants(filteredList);
-          }}
-        >
-          Rating: 4.0+
-        </span>
       </div>
 
       <div className="px-28 grid grid-cols-2 md:grid md:grid-cols-5 gap-4 ">
