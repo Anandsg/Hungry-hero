@@ -80,6 +80,7 @@ const appRouter = createBrowserRouter([
         path: "/Cart",
         element: <Cart />,
       },
+      
     ],
   },
 ]);
