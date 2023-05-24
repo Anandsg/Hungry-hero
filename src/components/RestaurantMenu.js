@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { CDN_URL } from "../utils/constants";
 import useRestaurant from "../utils/useRestaurant";
 import ResShimmer from "./ResShimmer";
-import { addItem } from "../Utils/CartSlice";
+import { addItem } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
 
 const RestruarantMenu = () => {
