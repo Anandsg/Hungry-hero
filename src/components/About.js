@@ -1,40 +1,50 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
-import ProfileFunctionalComponent from "./Profile";
-import Profile from "./ProfileClass";
+import aboutus from "../assets/About.jpeg";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
-class About extends React.Component {
-  constructor(props) {
-    super(props);
-
-    console.log("parent constructor"); // 1st this will be called
-  }
-
-  componentDidMount() {
-    console.log("parent componentDidMoun"); // 6th this will be called
-  }
-
-  render() {
-    console.log("parent render"); // 2nd this will be called
-    return (
-      <div className="container mx-auto p-4 bg-gray-100">
-        <h2 className="text-4xl font-bold mt-6 mb-4 text-center text-purple-800">
-          About Us
-        </h2>
-        <p className="text-lg mb-4 text-center text-gray-800">
-          This project is developed by Anand G, a software developer at Cognizant.
+const About = () => {
+  return (
+    <div className="max-w-[1320px] mx-6 lg:mx-auto flex justify-center items-center flex-wrap flex-col lg:flex-row my-16">
+      <div className="lg:w-[40%] bg-white rounded-lg shadow-lg p-8">
+        <p className="text-gray-600 font-semibold font-serif text-2xl">
+          Anand Gadagin
         </p>
-        <div className="flex justify-center">
-          <div className="bg-white rounded-lg p-4 shadow-lg">
-            <ProfileFunctionalComponent name={"Anand"} />
-            <Profile name={"AnandClass"} />
-          </div>
+        <p className=" font-serif font-light text-md my-1">
+          Frontend Developer
+        </p>
+        <p className="font-serif text-base mb-4 my-9 text-gray-500">
+          Passionate and skilled Front-End Developer dedicated to crafting
+          end-to-end web solutions that seamlessly combine artistic creativity
+          with technical excellence.
+        </p>
+        <div className="flex space-x-4">
+          <a
+            href="https://www.linkedin.com/in/anand-gadagin-6a8a96184/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-700 hover:text-green-700"
+          >
+            <FaLinkedin size={24} />
+          </a>
+          <a
+            href="https://www.instagram.com/anand_gagdagin_"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-700 hover:text-green-700"
+          >
+            <FaInstagram size={24} />
+          </a>
         </div>
       </div>
-    );
-  }
-}
+      <div className="lg:w-[40%] lg:mx-6 mt-6 lg:mt-0">
+        <img
+          src={aboutus}
+          alt="about-us-img"
+          className="rounded-full w-52 h-52 object-cover shadow-xl"
+        />
+      </div>
+    </div>
+  );
+};
 
 export default About;
-
-

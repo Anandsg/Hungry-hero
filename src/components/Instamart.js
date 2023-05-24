@@ -1,5 +1,5 @@
 import React from "react";
-import { ABOUT_URL } from "../utils/constants";
+import { INSTAMART_URL } from "../utils/constants";
 
 const Instamart = () => {
   return (
@@ -9,8 +9,8 @@ const Instamart = () => {
           Get Ready for an Incredible Culinary Experience
         </p>
         <img
-          src={ABOUT_URL}
-          alt="About-us-img"
+          src={INSTAMART_URL}
+          alt="instamart-img"
           className="mt-4 mx-auto rounded-xl h-64"
         />
       </div>

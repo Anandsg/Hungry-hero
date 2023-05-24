@@ -7,5 +7,5 @@ export const LOGO_URL =
 export const FETCH_MENU_URL =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.9122238&lng=77.5923219&restaurantId=";
 
-export const ABOUT_URL =
+export const INSTAMART_URL =
   "https://img.freepik.com/free-vector/flat-coming-soon-background-with-megaphone_1017-33737.jpg";
