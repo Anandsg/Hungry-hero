@@ -19,11 +19,11 @@ const Header = () => {
     <div className="flex items-center justify-between bg-gradient-to-r h-20 shadow-md ">
       <div>
         <Link to="/">
-          <img className="h-20" src={LOGO_URL} />
+          <img data-testid="logo" className="h-20" src={LOGO_URL} />
         </Link>
       </div>
       <span className="font-serif text-yellow-600">
-        <span className="text-1xl font-bold"> 
+        <span className="text-1xl font-bold">
           <span className="text-gradient-orange">Browse</span>
         </span>{" "}
         <span className="text-base font-semibold text-gray-500">Order</span>{" "}
@@ -68,7 +68,10 @@ const Header = () => {
           >
             <div className="relative">
               <FontAwesomeIcon icon={faShoppingCart} className="w-5 h-5" />
-              <span className="absolute top-[-20%] right-[-32%] inline-flex items-center justify-center w-3 h-3.5 bg-orange-500 text-white rounded-full text-xs">
+              <span
+                className="absolute top-[-20%] right-[-32%] inline-flex items-center justify-center w-3 h-3.5 bg-orange-500 text-white rounded-full text-xs"
+                data-testid="cart"
+              >
                 {cartItems.length}
               </span>
             </div>

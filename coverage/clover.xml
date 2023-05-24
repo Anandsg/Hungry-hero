@@ -1,12 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1684843235609" clover="3.2.0">
-  <project timestamp="1684843235609" name="All files">
-    <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1" elements="4" coveredelements="4" complexity="0" loc="3" ncloc="3" packages="1" files="1" classes="1"/>
-    <file name="sum.js" path="/Users/anandagadugin/Desktop/Hungry-hero/src/components/sum.js">
-      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <line num="1" count="1" type="stmt"/>
-      <line num="2" count="1" type="stmt"/>
-      <line num="3" count="1" type="stmt"/>
-    </file>
+<coverage generated="1684929210957" clover="3.2.0">
+  <project timestamp="1684929210957" name="All files">
+    <metrics statements="33" coveredstatements="26" conditionals="2" coveredconditionals="1" methods="12" coveredmethods="5" elements="47" coveredelements="32" complexity="0" loc="33" ncloc="33" packages="2" files="7" classes="7"/>
+    <package name="components">
+      <metrics statements="12" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="3"/>
+      <file name="Header.js" path="/Users/anandagadugin/Desktop/Hungry-hero/src/components/Header.js">
+        <metrics statements="9" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="2"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="93" count="0" type="stmt"/>
+      </file>
+      <file name="sum.js" path="/Users/anandagadugin/Desktop/Hungry-hero/src/components/sum.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="21" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="2"/>
+      <file name="cartSlice.js" path="/Users/anandagadugin/Desktop/Hungry-hero/src/utils/cartSlice.js">
+        <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+      </file>
+      <file name="constants.js" path="/Users/anandagadugin/Desktop/Hungry-hero/src/utils/constants.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+      </file>
+      <file name="store.js" path="/Users/anandagadugin/Desktop/Hungry-hero/src/utils/store.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+      <file name="useOnline.js" path="/Users/anandagadugin/Desktop/Hungry-hero/src/utils/useOnline.js">
+        <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+      </file>
+      <file name="userContext.js" path="/Users/anandagadugin/Desktop/Hungry-hero/src/utils/userContext.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>

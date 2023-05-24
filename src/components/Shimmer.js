@@ -5,7 +5,7 @@ import Skeleton from "react-loading-skeleton";
 
 const Shimmer = () => {
   return (
-    <div className="flex flex-wrap gap-6 py-8 justify-center">
+    <div className="flex flex-wrap gap-6 py-8 justify-center" data-testid="shimmer">
       <ShimmerCard />
       <ShimmerCard />
       <ShimmerCard />

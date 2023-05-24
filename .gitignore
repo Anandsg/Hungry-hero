@@ -2,3 +2,6 @@
 dist
 .parcel-cache
 .cache
+
+
+/coverage
