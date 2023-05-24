@@ -7,7 +7,7 @@ const About = () => {
     <div className="max-w-[1320px] mx-6 lg:mx-auto flex justify-center items-center flex-wrap flex-col lg:flex-row my-16">
       <div className="lg:w-[40%] bg-white rounded-lg shadow-lg p-8">
         <p className="text-gray-600 font-semibold font-serif text-2xl">
-          Anand Gadagin
+          Anand Gadagin 
         </p>
         <p className=" font-serif font-light text-md my-1">
           Frontend Developer
