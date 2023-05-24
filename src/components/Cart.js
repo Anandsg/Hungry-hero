@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart } from "../Utils/CartSlice";
+import { clearCart } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constants";
 import React from "react";
 
