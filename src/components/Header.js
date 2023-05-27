@@ -76,7 +76,7 @@ const Header = () => {
               </span>
             </div>
           </Link>
-        </ul>
+        </ul> 
       </div>
       {/* <h3>{isOnline ? "🟢" : "🔴"}</h3> */}
 

@@ -15,7 +15,7 @@ const Banner = () => {
       }} 
     >
       <div className='font-mono text-sm text-white sm:text-xl lg:text-2xl xl:text-3xl'>
-        <TypeAnimation
+        <TypeAnimation 
           sequence={[
             'Biryani mangoge 🥘, Biryani denge',
             2000,
