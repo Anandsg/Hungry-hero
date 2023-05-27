@@ -38,10 +38,10 @@ const appRouter = createBrowserRouter([
     element: <AppLayout />,
     errorElement: <Error />,
     children: [
-      {
-        path: '/',
-        element: <Main />,
-      },
+      // {
+      //   path: '/',
+      //   element: <Main />,
+      // },
       {
         path: "/",
         element: <Body />,
@@ -68,14 +68,14 @@ const appRouter = createBrowserRouter([
         path: "/restaurants/:resId",
         element: <RestruarantMenu />,
       },
-      {
-        path: "/Instamart",
-        element: (
-          <Suspense fallback={<Shimmer />}>
-            <Instamart />
-          </Suspense>
-        ),
-      },
+      // {
+      //   path: "/Instamart",
+      //   element: (
+      //     <Suspense fallback={<Shimmer />}>
+      //       <Instamart />
+      //     </Suspense>
+      //   ),
+      // },
       {
         path: "/Cart",
         element: <Cart />,

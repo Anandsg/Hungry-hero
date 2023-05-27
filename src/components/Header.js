@@ -50,12 +50,12 @@ const Header = () => {
               Contact
             </li>
           </Link>
-          <Link to="/Instamart">
+          {/* <Link to="/Instamart">
             <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out px-3">
               {" "}
               Instamart
             </li>
-          </Link>
+          </Link> */}
           <Link to="/Help">
             <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out px-3">
               {" "}
