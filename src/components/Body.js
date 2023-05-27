@@ -15,7 +15,7 @@ const Body = () => {
 
   useEffect(() => {
     // Fetch API
-    getRestaurants();
+    getRestaurants(); 
   }, []);
 
   async function getRestaurants() {
