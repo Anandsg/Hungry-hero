@@ -38,7 +38,7 @@ const CartItem = ({ name, imageId, price, description }) => {
             ? CDN_URL + imageId
             : "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/39cd5e4824e5c011ffaf56ddc39891e8"
         }
-        alt=""
+        alt="" 
         className="w-32 h-20 rounded object-cover"
       />
       <div className="flex flex-col">
