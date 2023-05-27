@@ -22,15 +22,15 @@ The Hungry hero is a cutting-edge web application that allows users to explore v
 
 ## Contact:
 
-For any inquiries or support, please feel free to reach out to us at:
+__For any inquiries or support, please feel free to reach out to us at:__
 
 Email: anandgadugin@gmail.com
 
 Phone: +91 7353863306
 
-Features:
+## Features:
 
-## The Hungry hero offers several exciting features, including:
+__The Hungry hero offers several exciting features, including:__
 
 ## Shimmer UI - 
 
@@ -71,7 +71,7 @@ Open your web browser and visit: http://localhost:3000
 
 Upon running the app, you will be greeted with the home page displaying a collection of restaurant cards. Each card includes an enticing food image, the restaurant name, ratings, and available cuisines. Use the search bar to find specific restaurants or cuisines of your choice. Clicking on a restaurant card will provide you with detailed information about that particular restaurant.
 
-Feel free to navigate through the app, explore different restaurants, add items to your cart, and enjoy the seamless experience of Hungry hero.
+__Feel free to navigate through the app, explore different restaurants, add items to your cart, and enjoy the seamless experience of Hungry hero.__
 
 ## Contributing:
 
@@ -87,4 +87,4 @@ Push to the branch: git push origin feature-name
 
 Submit a pull request.
 
-© 2023 Hungry hero. All rights reserved | Terms of Service | Privacy Policy
+__© 2023 Hungry hero. All rights reserved | Terms of Service | Privacy Policy__
