@@ -12,7 +12,7 @@ const Banner = () => {
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-      }}
+      }} 
     >
       <div className='font-mono text-sm text-white sm:text-xl lg:text-2xl xl:text-3xl'>
         <TypeAnimation
