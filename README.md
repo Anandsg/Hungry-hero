@@ -87,4 +87,4 @@ Push to the branch: git push origin feature-name
 
 Submit a pull request.
 
-__© 2023 Hungry hero. All rights reserved | Terms of Service | Privacy Policy__
+__© 2023 Hungry hero | All rights reserved__
