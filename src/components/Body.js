@@ -25,8 +25,8 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
 
-    setAlllistOfRestuarants(json?.data?.cards[2]?.data?.data?.cards);
-    setfilteredlistOfRestuarants(json?.data?.cards[2]?.data?.data?.cards);
+    setAlllistOfRestuarants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setfilteredlistOfRestuarants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
 
   const isOnline = useOnline();
@@ -105,11 +105,11 @@ const Body = () => {
       <div className="px-28 grid grid-cols-2 md:grid md:grid-cols-5 gap-4 ">
         {filteredlistOfRestuarants.map((restaurant) => (
           <Link
-            to={"/restaurants/" + restaurant.data.id}
-            key={restaurant.data.id}
+            to={"/restaurants/" + restaurant?.info.id}
+            key={restaurant?.info.id}
           >
             {" "}
-            <RestruarantCards key={restaurant.data.id} resData={restaurant} />
+            <RestruarantCards key={restaurant?.info.id} resData={restaurant?.info} />
           </Link>
         ))}
       </div>

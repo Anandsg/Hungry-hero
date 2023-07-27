@@ -13,7 +13,7 @@ const RestruarantCards = (props) => {
     slaString,
     costForTwo,
     aggregatedDiscountInfo,
-  } = resData?.data;
+  } = resData;
   return (
     <div className="md:w-60 shadow-md md:shadow-none py-4 px-4 md:py-2  hover:shadow-xl rounded flex flex-col gap-1 text-[0.7rem] text-[#535665] ">
       <img
@@ -28,7 +28,7 @@ const RestruarantCards = (props) => {
       />
       <div className="res-details px-2">
         <h4 className="font-medium text-base text-black">{name}</h4>
-        <span className="">{cuisines.join(", ")}</span>
+        {/* <span className="">{cuisines.join(", ")}</span> */}
         <div className="flex justify-between items-center my-2 font-medium">
           <div className="flex items-center gap-1 px-1 text-white bg-green-500 font-semibold">
             <span className="text-[0.6rem]">&#9733;</span>

@@ -3,7 +3,7 @@ import "../utils/index.css";
 
 const Footer = () => {
   return (
-    <div className="footer font-serif">
+    <div className="footer font-serif fixed">
       Developed with 🧡 and a lot of ☕️ by Anand
       <i className="fa-solid fa-heart"></i>
       {/* <a>Anand</a> */}
