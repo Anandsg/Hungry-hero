@@ -1,6 +1,6 @@
 ## Hungry hero 🚀
 
-Dynamic and feature-rich web application designed to provide users with an exceptional dining experience. The app incorporates the latest technologies and best practices to deliver a seamless and user-friendly interface.
+`Dynamic` and `feature-rich web application` designed to provide users with an exceptional dining experience. The app incorporates the latest technologies and best practices to deliver a seamless and user-friendly interface.
 
 ## Table of Contents:
 
@@ -18,7 +18,7 @@ Contributing :
 
 ## About:
 
-The Hungry hero is a cutting-edge web application that allows users to explore various restaurants, view their ratings, browse through mouthwatering food images, and search for specific cuisines. The app provides a visually appealing and intuitive user interface, making it easy for users to discover and choose their desired dining destinations.
+The `Hungry hero` is a `cutting-edge` web application that allows users to explore various restaurants, view their ratings, browse through mouthwatering food images, and search for specific cuisines. The app provides a visually appealing and intuitive user interface, making it easy for users to discover and choose their desired dining destinations.
 
 ## Contact:
 
@@ -34,20 +34,20 @@ __The Hungry hero offers several exciting features, including:__
 
 ## Shimmer UI - 
 
-The app incorporates a shimmer effect to provide smooth loading transitions, enhancing the overall user experience.
-Lazy Loading - Images are loaded lazily, ensuring faster page load times and optimized performance.
+The app incorporates a `shimmer effect` to provide smooth loading transitions, enhancing the overall user experience.
+`Lazy Loading` - Images are loaded lazily, ensuring faster page load times and optimized performance.
 
 ## Responsive - 
 
 The app is fully responsive and adapts seamlessly to different screen sizes, making it accessible across various devices.
-Real-Time Data Fetch from API - The app fetches real-time restaurant data from a RESTful API, ensuring that users always have access to the most up-to-date information.
+`Real-Time Data Fetch from API` - The app fetches real-time restaurant data from a RESTful API, ensuring that users always have access to the most up-to-date information.
 
 ## Working Search Bar - 
 
 Users can easily search for specific cuisines, restaurants, or dishes using the app's efficient search functionality.
 ## Cart Using Redux Toolkit - 
 
-The app incorporates Redux Toolkit to manage the shopping cart functionality, allowing users to add and manage their selected items effortlessly.
+The app incorporates Redux Toolkit to manage the `shopping cart` functionality, allowing users to add and manage their selected items effortlessly.
 
 ## Error Page - 
 
@@ -86,5 +86,13 @@ Commit your changes: git commit -am 'Add some feature'
 Push to the branch: git push origin feature-name
 
 Submit a pull request.
+
+## App Images
+
+`Home page`
+![Alt text](<Screenshot 2023-09-07 at 9.05.26 AM.png>)
+
+`Cart page`
+![Alt text](<Screenshot 2023-09-07 at 9.11.08 AM.png>)
 
 __© 2023 Hungry hero | All rights reserved__
