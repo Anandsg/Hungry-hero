@@ -91,9 +91,9 @@ Submit a pull request.
 ## App Images
 
 `Home page`
-![Alt text](<Screenshot 2023-09-20 at 10.44.55 PM.png>)
+<img width="1435" alt="Screenshot 2023-09-20 at 10 44 55 PM" src="https://github.com/Anandsg/Hungry-hero/assets/109084312/bb3a2dba-ffbc-4df6-ad52-19ea94e693ff">
 
 `Cart page`
-![Alt text](<Screenshot 2023-09-20 at 10.45.53 PM.png>)
+<img width="1417" alt="Screenshot 2023-09-20 at 10 45 53 PM" src="https://github.com/Anandsg/Hungry-hero/assets/109084312/0f339eb0-9d89-4fd3-b51c-7eadfc1272f8">
 
 **© 2023 Hungry hero | All rights reserved**
