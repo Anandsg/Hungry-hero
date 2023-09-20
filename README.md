@@ -22,7 +22,7 @@ The `Hungry hero` is a `cutting-edge` web application that allows users to explo
 
 ## Contact:
 
-__For any inquiries or support, please feel free to reach out to us at:__
+**For any inquiries or support, please feel free to reach out to us at:**
 
 Email: anandgadugin@gmail.com
 
@@ -30,26 +30,27 @@ Phone: +91 7353863306
 
 ## Features:
 
-__The Hungry hero offers several exciting features, including:__
+**The Hungry hero offers several exciting features, including:**
 
-## Shimmer UI - 
+## Shimmer UI -
 
 The app incorporates a `shimmer effect` to provide smooth loading transitions, enhancing the overall user experience.
 `Lazy Loading` - Images are loaded lazily, ensuring faster page load times and optimized performance.
 
-## Responsive - 
+## Responsive -
 
 The app is fully responsive and adapts seamlessly to different screen sizes, making it accessible across various devices.
 `Real-Time Data Fetch from API` - The app fetches real-time restaurant data from a RESTful API, ensuring that users always have access to the most up-to-date information.
 
-## Working Search Bar - 
+## Working Search Bar -
 
 Users can easily search for specific cuisines, restaurants, or dishes using the app's efficient search functionality.
-## Cart Using Redux Toolkit - 
+
+## Cart Using Redux Toolkit -
 
 The app incorporates Redux Toolkit to manage the `shopping cart` functionality, allowing users to add and manage their selected items effortlessly.
 
-## Error Page - 
+## Error Page -
 
 In case of any unexpected errors or disruptions, the app gracefully displays an error page, providing users with relevant information and a seamless browsing experience.
 
@@ -71,7 +72,7 @@ Open your web browser and visit: http://localhost:3000
 
 Upon running the app, you will be greeted with the home page displaying a collection of restaurant cards. Each card includes an enticing food image, the restaurant name, ratings, and available cuisines. Use the search bar to find specific restaurants or cuisines of your choice. Clicking on a restaurant card will provide you with detailed information about that particular restaurant.
 
-__Feel free to navigate through the app, explore different restaurants, add items to your cart, and enjoy the seamless experience of Hungry hero.__
+**Feel free to navigate through the app, explore different restaurants, add items to your cart, and enjoy the seamless experience of Hungry hero.**
 
 ## Contributing:
 
@@ -90,9 +91,9 @@ Submit a pull request.
 ## App Images
 
 `Home page`
-![Alt text](<Screenshot 2023-09-07 at 9.05.26 AM.png>)
+![Alt text](<Screenshot 2023-09-20 at 10.44.55 PM.png>)
 
 `Cart page`
-![Alt text](<Screenshot 2023-09-07 at 9.11.08 AM.png>)
+![Alt text](<Screenshot 2023-09-20 at 10.45.53 PM.png>)
 
-__© 2023 Hungry hero | All rights reserved__
+**© 2023 Hungry hero | All rights reserved**
