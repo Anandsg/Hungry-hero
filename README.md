@@ -1,99 +1,165 @@
-## Hungry hero 🚀
+### The App is dedicated to Hacktoberfest-2023
 
-`Dynamic` and `feature-rich web application` designed to provide users with an exceptional dining experience. The app incorporates the latest technologies and best practices to deliver a seamless and user-friendly interface.
+[![GitHub issues](https://img.shields.io/github/issues/Anandsg/Hungry-hero?style=for-the-badge&logo=appveyor)](https://github.com/Anandsg/Hungry-hero/issues)
+[![GitHub forks](https://img.shields.io/github/forks/Anandsg/Hungry-hero?style=for-the-badge&logo=appveyor)](https://github.com/Anandsg/Hungry-hero/network)
+[![GitHub stars](https://img.shields.io/github/stars/Anandsg/Hungry-hero?style=for-the-badge&logo=appveyor)](https://github.com/Anandsg/Hungry-hero/stargazers)
 
-## Table of Contents:
+![https://img.shields.io/badge/-Hacktoberfest_2023-darkred?style=flat&logo=Hacktoberfest&logoColor=white](https://img.shields.io/badge/Hacktoberfest-2023-red)&nbsp;
 
-About :
+<p align="center" >
+  <img src="https://hacktoberfest.com/_next/static/media/opengraph.e5fafe07.png" width="1000" height="400"> 
+</p>
 
-Contact :
+## Want to Contribute 🔥 :
 
-Features :
+- Refer to <a href="https://github.com/Anandsg/Hungry-hero/blob/main/CONTRIBUTING.md">Contributing Guide</a><br>
+- Don't forget to follow [@Anandsg](https://github.com/Anandsg) ⭐😊
 
-Installation :
+And yes it is open source with a [public repository](https://github.com/Anandsg/Hungry-hero)
+on GitHub.
 
-Usage :
+## Contributing for the first time? :
 
-Contributing :
+- Refer to <a href="https://github.com/Anandsg/Hungry-hero/main/GUIDE.md">[Steps to Contribute](#crt)</a><br>
 
-## About:
+# Guidelines 🚦 :
 
-The `Hungry hero` is a `cutting-edge` web application that allows users to explore various restaurants, view their ratings, browse through mouthwatering food images, and search for specific cuisines. The app provides a visually appealing and intuitive user interface, making it easy for users to discover and choose their desired dining destinations.
+Before pushing code please go through our guidelines:
 
-## Contact:
+1. Always push the code in the specified folder.
+2. Mention proper name for the code before making PR.
+3. Repetetive Pull Requests with same code in the same language won't be counted and will be marked as spam.
+4. If you want to push the code in some other language which is not present in this repo, make a seperate folder with language name and then push it.
+5. Explain your code with proper comments along with problem statement(especially for DSA). It's better if you can write time and space complexities.
 
-**For any inquiries or support, please feel free to reach out to us at:**
+# <a name="crt"></a> How to Contribute?
 
-Email: anandgadugin@gmail.com
+### **Contribute First, Think Later.**
 
-Phone: +91 7353863306
+_If you're not comfortable with command line, [here are tutorials using GUI tools.](#tutorials-using-other-tools)_
 
-## Features:
+<img align="right" width="300" src="https://firstcontributions.github.io/assets/Readme/fork.png" alt="fork this repository" />
 
-**The Hungry hero offers several exciting features, including:**
+#### If you don't have git on your machine, [install it](https://docs.github.com/en/get-started/quickstart/set-up-git).
 
-## Shimmer UI -
+## Fork this repository
 
-The app incorporates a `shimmer effect` to provide smooth loading transitions, enhancing the overall user experience.
-`Lazy Loading` - Images are loaded lazily, ensuring faster page load times and optimized performance.
+Fork this repository by clicking on the fork button on the top of this page.
+This will create a copy of this repository in your account.
 
-## Responsive -
+## Clone the repository
 
-The app is fully responsive and adapts seamlessly to different screen sizes, making it accessible across various devices.
-`Real-Time Data Fetch from API` - The app fetches real-time restaurant data from a RESTful API, ensuring that users always have access to the most up-to-date information.
+<img align="right" width="300" src="https://firstcontributions.github.io/assets/Readme/clone.png" alt="clone this repository" />
 
-## Working Search Bar -
+Now clone the forked repository to your machine. Go to your GitHub account, open the forked repository, click on the code button and then click the _copy to clipboard_ icon.
 
-Users can easily search for specific cuisines, restaurants, or dishes using the app's efficient search functionality.
+Open a terminal and run the following git command:
 
-## Cart Using Redux Toolkit -
+```
+git clone "url you just copied"
+```
 
-The app incorporates Redux Toolkit to manage the `shopping cart` functionality, allowing users to add and manage their selected items effortlessly.
+where "url you just copied" (without the quotation marks) is the url to this repository (your fork of this project). See the previous steps to obtain the url.
 
-## Error Page -
+<img align="right" width="300" src="https://firstcontributions.github.io/assets/Readme/copy-to-clipboard.png" alt="copy URL to clipboard" />
 
-In case of any unexpected errors or disruptions, the app gracefully displays an error page, providing users with relevant information and a seamless browsing experience.
+For example:
 
-## Installation:
+```
+git clone <url>
+```
 
-To run the Hungry hero locally on your machine, please follow these steps:
+## Create a branch
 
-Clone the repository: git clone https://github.com/Anandsg/Hungry-hero.git
+Change to the repository directory on your computer (if you are not already there):
 
-Navigate to the project directory: cd Hungry-hero
+```
+cd Hungry-hero
+```
 
-Install the dependencies: npm install
+Now create a branch using the `git switch` command:
 
-Start the development server: npm start
+```
+git switch -c your-new-branch-name
+```
 
-Open your web browser and visit: http://localhost:3000
+For example:
 
-## Usage:
+```
+git switch -c add-Anandsg
+```
 
-Upon running the app, you will be greeted with the home page displaying a collection of restaurant cards. Each card includes an enticing food image, the restaurant name, ratings, and available cuisines. Use the search bar to find specific restaurants or cuisines of your choice. Clicking on a restaurant card will provide you with detailed information about that particular restaurant.
+## Make necessary changes and commit those changes
 
-**Feel free to navigate through the app, explore different restaurants, add items to your cart, and enjoy the seamless experience of Hungry hero.**
+Now open `Contributors.md` file in a text editor, add your name to it. Don't add it at the beginning or end of the file. Put it anywhere in between. Now, save the file.
 
-## Contributing:
+<img align="right" width="450" src="https://firstcontributions.github.io/assets/Readme/git-status.png" alt="git status" />
 
-We welcome contributions from the open-source community to enhance the features and functionality of Hungry hero. If you would like to contribute, please follow these steps:
+If you go to the project directory and execute the command `git status`, you'll see there are changes.
 
-## Fork the repository.
+Add those changes to the branch you just created using the `git add` command:
 
-Create your feature branch: git checkout -b feature-name
+```
+git add Contributors.md
+```
 
-Commit your changes: git commit -am 'Add some feature'
+Now commit those changes using the `git commit` command:
 
-Push to the branch: git push origin feature-name
+```
+git commit -m "Add Vasu to Contributors.md"
+```
 
-Submit a pull request.
+replacing `your-name` with your name.
 
-## App Images
+## Push changes to GitHub
 
-`Home page`
-<img width="1435" alt="Screenshot 2023-09-20 at 10 44 55 PM" src="https://github.com/Anandsg/Hungry-hero/assets/109084312/bb3a2dba-ffbc-4df6-ad52-19ea94e693ff">
+Push your changes using the command `git push`:
 
-`Cart page`
-<img width="1417" alt="Screenshot 2023-09-20 at 10 45 53 PM" src="https://github.com/Anandsg/Hungry-hero/assets/109084312/0f339eb0-9d89-4fd3-b51c-7eadfc1272f8">
+```
+git push -u origin your-branch-name
+```
 
-**© 2023 Hungry hero | All rights reserved**
+replacing `your-branch-name` with the name of the branch you created earlier.
+
+<details>
+<summary> <strong>If you get any errors while pushing, click here:</strong> </summary>
+
+- ### Authentication Error
+     <pre>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+  remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+  fatal: Authentication failed for 'https://github.com/<your-username>/first-contributions.git/'</pre>
+  Go to [GitHub's tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) on generating and configuring an SSH key to your account.
+
+</details>
+
+## Submit your changes for review
+
+If you go to your repository on GitHub, you'll see a `Compare & pull request` button. Click on that button.
+
+<img style="float: right;" src="https://firstcontributions.github.io/assets/Readme/compare-and-pull.png" alt="create a pull request" />
+
+Now submit the pull request.
+
+<img style="float: right;" src="https://firstcontributions.github.io/assets/Readme/submit-pull-request.png" alt="submit pull request" />
+
+I will merge all your changes into the main project branch shortly, and you will receive a notification email once the merge is complete.
+
+## All the best 🙌🏼
+
+<!-- readme: contributors -start -->
+
+## Our Amazing Contributors
+
+#### Currently there are minimal contributors for this repository. Feel free to contribute! 🚀
+
+<table>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/Anandsg">
+            <img src="https://avatars.githubusercontent.com/u/109084312?v=4" width="80;" alt="Anandsg"/>
+            <br />
+            <sub><b>Anand Gadagin</b></sub>
+        </a>
+      </td>
+    </tr>
+</table>
