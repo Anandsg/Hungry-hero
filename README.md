@@ -12,7 +12,7 @@
 
 ## Want to Contribute 🔥 :
 
-- Refer to <a href="https://github.com/Anandsg/Hungry-hero/blob/main/CONTRIBUTING.md">Contributing Guide</a><br>
+- Refer to <a href="https://github.com/Anandsg/Hungry-hero/blob/master/CONTRIBUTING.md">Contributing Guide</a><br>
 - Don't forget to follow [@Anandsg](https://github.com/Anandsg) ⭐😊
 
 And yes it is open source with a [public repository](https://github.com/Anandsg/Hungry-hero)
