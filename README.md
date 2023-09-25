@@ -26,11 +26,10 @@ on GitHub.
 
 Before pushing code please go through our guidelines:
 
-1. Always push the code in the specified folder.
-2. Mention proper name for the code before making PR.
-3. Repetetive Pull Requests with same code in the same language won't be counted and will be marked as spam.
-4. If you want to push the code in some other language which is not present in this repo, make a seperate folder with language name and then push it.
-5. Explain your code with proper comments along with problem statement(especially for DSA). It's better if you can write time and space complexities.
+1. Use clear and specific titles when pushing your code changes.
+2. Make sure to name your Pull Requests appropriately.
+3. Avoid submitting multiple Pull Requests with the same code; it will be considered spam.
+4. Help everyone understand your code by adding helpful comments.
 
 # <a name="crt"></a> How to Contribute?
 
