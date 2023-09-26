@@ -1,6 +1,8 @@
 ## 👋 Introducing Hungry-Hero
 
-`Hungry-Hero` is an `open-source` web app that helps you learn ReactJS faster with a hands-on practice model. It is a collection of `ReactJS projects` that you can use to learn ReactJS.
+The `Hungry Hero` is a modern web application that lets you check out restaurants, see how good they are, look at pictures of delicious food, and find specific types of cuisine. It's easy to use, with a nice design, helping you discover where to eat
+
+Yes, it's an `open-source` web app!
 
 Is that all? Nope. You can also create your feature and share them with the world. The best part is that the ReactJS experts will `review` your project code before it gets part of the `Hungry-Hero` app. Isn't that a pure WIN-WIN?
 
