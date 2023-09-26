@@ -134,9 +134,9 @@ I will merge all your changes into the project branch shortly, and you will rece
 
 <!-- readme: contributors -start -->
 
-### Our Amazing Contributors
+#### Big Thanks to our amazing contributors 🚀 your names will shine bright in the repository sooon! 🌟
 
-#### Currently there are minimal contributors for this repository. Feel free to contribute! 🚀
+<!-- #### Currently there are minimal contributors for this repository. Feel free to contribute! 🚀
 
 <table>
     <tr>
@@ -155,4 +155,4 @@ I will merge all your changes into the project branch shortly, and you will rece
         </a>
       </td>
     </tr>
-</table>
+</table> -->
