@@ -6,6 +6,7 @@ import {
   decreaseQuantity,
 } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 import React from "react";
 
 const Cart = () => {
@@ -27,11 +28,17 @@ const Cart = () => {
           Clear Cart
         </button>
       </div>
-      <div className="flex flex-col ">
-        {cartItems.map((item) => {
-          return <CartItem key={item?.info?.id} {...item?.info} />;
-        })}
-      </div>
+      {cartItems.length > 0 ? (
+        <div className="flex flex-col ">
+          {cartItems.map((item) => {
+            return (
+              <CartItem key={item?.info?.id} {...item?.info} />
+            );
+          })}
+        </div>
+      ) : (
+        <EmptyCart />
+      )}
     </div>
   );
 };
@@ -88,6 +95,19 @@ const CartItem = ({ id, name, imageId, price, description, quantity }) => {
           </button>
         </div>
       </div>
+    </div>
+  );
+};
+const EmptyCart = () => {
+  return (
+    <div className="flex flex-col items-center h-screen mt-20">
+      <h1 className="text-orange-600 text-1xl">Cart Is Empty</h1>
+      <Link to="/" className="mt-4">
+        {" "}
+        <button className="bg-white hover:bg-orange-300 text-gray-800 font-semibold py-2 px-4 border border-orange-300 rounded shadow">
+          Back To Home Page
+        </button>
+      </Link>
     </div>
   );
 };
