@@ -15,7 +15,7 @@ const Body = () => {
 
   useEffect(() => {
     // Fetch API
-    getRestaurants(); 
+    getRestaurants();
   }, []);
 
   async function getRestaurants() {
@@ -25,8 +25,12 @@ const Body = () => {
     const json = await data.json();
     console.log(json);
 
-    setAlllistOfRestuarants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    setfilteredlistOfRestuarants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setAlllistOfRestuarants(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setfilteredlistOfRestuarants(
+      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   }
 
   const isOnline = useOnline();
@@ -63,41 +67,43 @@ const Body = () => {
           </div>
         ) : (
           <>
-            <input
-              type="text"
-              className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
-              placeholder="search restuarants"
-              value={searchText}
-              onChange={(e) => {
-                setSearchText(e.target.value);
-              }}
-            />
+            <div className="flex items-center justify-center">
+              <input
+                type="text"
+                className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
+                placeholder="search restuarants"
+                value={searchText}
+                onChange={(e) => {
+                  setSearchText(e.target.value);
+                }}
+              />
 
-            <button
-              data-testid="search-btn"
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700"
-              onClick={() => {
-                const data = filterData(searchText, AlllistOfRestuarants);
-                setfilteredlistOfRestuarants(data);
-                if (data.length === 0 && searchText !== "") {
-                  setfilteredlistOfRestuarants([]);
-                }
-              }}
-            >
-              Search
-            </button>
+              <button
+                data-testid="search-btn"
+                className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700"
+                onClick={() => {
+                  const data = filterData(searchText, AlllistOfRestuarants);
+                  setfilteredlistOfRestuarants(data);
+                  if (data.length === 0 && searchText !== "") {
+                    setfilteredlistOfRestuarants([]);
+                  }
+                }}
+              >
+                Search
+              </button>
 
-            <span
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
-              onClick={() => {
-                const filteredList = AlllistOfRestuarants.filter(
-                  (res) => res.data.avgRating > 4
-                );
-                setfilteredlistOfRestuarants(filteredList);
-              }}
-            >
-              Rating: 4.0+
-            </span>
+              <span
+                className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+                onClick={() => {
+                  const filteredList = AlllistOfRestuarants.filter(
+                    (res) => res.data.avgRating > 4
+                  );
+                  setfilteredlistOfRestuarants(filteredList);
+                }}
+              >
+                Rating: 4.0+
+              </span>
+            </div>
           </>
         )}
       </div>
@@ -109,7 +115,10 @@ const Body = () => {
             key={restaurant?.info.id}
           >
             {" "}
-            <RestruarantCards key={restaurant?.info.id} resData={restaurant?.info} />
+            <RestruarantCards
+              key={restaurant?.info.id}
+              resData={restaurant?.info}
+            />
           </Link>
         ))}
       </div>
