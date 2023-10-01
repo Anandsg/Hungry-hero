@@ -1,12 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart } from "../utils/cartSlice";
+import {
+  clearCart,
+  removeItem,
+  increaseQuantity,
+  decreaseQuantity,
+} from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import React from "react";
 
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  console.log(cartItems, "cart items");
   const dispatch = useDispatch();
   function HandleClearCart() {
     dispatch(clearCart());
@@ -27,7 +32,7 @@ const Cart = () => {
         <div className="flex flex-col ">
           {cartItems.map((item) => {
             return (
-              <CartItem key={item?.card?.info?.id} {...item?.card?.info} />
+              <CartItem key={item?.info?.id} {...item?.info} />
             );
           })}
         </div>
@@ -37,9 +42,25 @@ const Cart = () => {
     </div>
   );
 };
-const CartItem = ({ name, imageId, price, description }) => {
+const CartItem = ({ id, name, imageId, price, description, quantity }) => {
+  const dispatch = useDispatch();
+  function HandleRemoveItem() {
+    dispatch(removeItem(id));
+  }
+  function HandleQuantityIncrease() {
+    dispatch(increaseQuantity(id));
+  }
+  function HandleQuantityDecrease() {
+    dispatch(decreaseQuantity(id));
+  }
   return (
-    <div className="my-2 border-b py-2 md:flex-row flex flex-col text-sm  gap-8">
+    <div className="my-2 border-b py-2 md:flex-row flex flex-col text-sm  gap-8 relative">
+      <button
+        className="absolute bottom-0 right-0 mt-2 mr-2 px-2 py-1  hover:bg-gray-200 rounded-full focus:outline-none"
+        onClick={() => HandleRemoveItem()}
+      >
+        X
+      </button>
       <img
         src={
           imageId
@@ -49,12 +70,30 @@ const CartItem = ({ name, imageId, price, description }) => {
         alt=""
         className="w-32 h-20 rounded object-cover"
       />
-      <div className="flex flex-col">
+      <div className="flex flex-col ">
         <span className="font-semibold">{name}</span>
         <span className="font-semibold">
-          &#8377;{!price ? "250" : price / 100}
+          &#8377;
+          {!price ? "250" : (price / 100) * quantity}
         </span>
         <span className="text-sm text-gray-500">{description}</span>
+        <div className="flex items-center space-x-2">
+          <button
+            id="decreaseQuantity"
+            className="px-2 py-1 bg-gray-200 hover:bg-gray-100 rounded-full focus:outline-none"
+            onClick={() => HandleQuantityDecrease()}
+          >
+            -
+          </button>
+          <span>{quantity}</span>
+          <button
+            id="increaseQuantity"
+            className="px-2 py-1 bg-gray-200 hover:bg-gray-100 rounded-full focus:outline-none"
+            onClick={() => HandleQuantityIncrease()}
+          >
+            +
+          </button>
+        </div>
       </div>
     </div>
   );
