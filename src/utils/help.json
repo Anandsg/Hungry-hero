@@ -1,0 +1,29 @@
+{
+  "faqs": [
+    {
+      "id": 1,
+      "title": "Can I edit my order?",
+      "description": "Your order can be edited before it reaches the restaurant. You could contact customer support team via chat or call to do so. Once order is placed and restaurant starts preparing your food, you may not edit its contents"
+    },
+    {
+      "id": 2,
+      "title": "I want to cancel my order",
+      "description": "We will do our best to accommodate your request if the order is not placed to the restaurant (Customer service number: 080-67466729). Please note that we will have a right to charge a cancellation fee up to full order value to compensate our restaurant and delivery partners if your order has been confirmed."
+    },
+    {
+      "id": 3,
+      "title": "Is single order from many restaurants possible?",
+      "description": "We currently do not support this functionality. However, you can place orders for individual items from different restaurants."
+    },
+    {
+      "id": 4,
+      "title": "How long do you take to deliver?",
+      "description": "Standard delivery times vary by the location selected and prevailing conditions. Once you select your location, an estimated delivery time is mentioned for each restaurant."
+    },
+    {
+      "id": 5,
+      "title": "Can I order from any location?",
+      "description": "We will deliver from any restaurant listed on the search results for your location. We recommend enabling your GPS location finder and letting the app auto-detect your location."
+    }
+  ]
+}
