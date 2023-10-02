@@ -78,5 +78,14 @@ Before pushing code please go through our guidelines:
             <sub><b>Abhishek Shah</b></sub>
         </a>
       </td>
+      <!-- Contributor 7 start -->
+      <td align="center">
+        <a href="https://github.com/sarojdahal8848">
+            <img src="https://avatars.githubusercontent.com/u/59774795?v=4" width="80;" alt="Saroj Dahal"/>
+            <br />
+            <sub><b>Saroj Dahal</b></sub>
+        </a>
+      </td>
+      <!-- Contributor 7 end -->
     </tr>
 </table>
