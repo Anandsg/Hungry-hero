@@ -138,7 +138,7 @@ const Body = () => {
           </>
         )}
       </div>
-      <div className="px-28 grid grid-cols-2 md:grid md:grid-cols-5 gap-4 ">
+      <div className="px-28 grid grid-cols-2 md:grid md:grid-cols-5 gap-4 rest-cards">
         {filteredlistOfRestuarants.map((restaurant)=>(
             <RestruarantCards
             key={restaurant?.info.id}

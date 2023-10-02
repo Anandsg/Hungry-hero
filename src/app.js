@@ -22,7 +22,7 @@ const Instamart = lazy(() => import("./components/Instamart"));
 // out let is a place where below configuration fill in
 const AppLayout = () => {
   return (
-    <div className="app">
+    <div className="app relative">
       <Provider store={store}>
         <Header />
         <Outlet />
