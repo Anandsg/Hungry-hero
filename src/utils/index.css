@@ -1,7 +1,8 @@
 .footer {
-  margin: 0px 10px;
+  flex-direction: column;
+  margin-top: auto;
+  display: flex;
   width: auto;
-  bottom: 0px;
   text-align: center;
   background-color: var(--footer-bg-color);
   padding: 20px 10px 20px;
@@ -44,8 +45,7 @@
 }
 
 .rest-cards{
-  min-height: 420px;
-  padding-bottom: 100px;
+  min-height: 300px;
 }
 
 
