@@ -5,12 +5,16 @@ import useRestaurant from "../utils/useRestaurant";
 import ResShimmer from "./ResShimmer";
 import { addItem } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const RestruarantMenu = () => {
   // Read dynamic URL params
   const { resId } = useParams();
   // CUSTOM HOOK
   const [restaurant, resmenu] = useRestaurant(resId);
+  const [click,setClick] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -18,15 +22,19 @@ const RestruarantMenu = () => {
     dispatch(addItem(card));
   };
 
+  const handleAccordionClick = () => {
+    setClick(prev => !prev);
+  }
+
   return !restaurant ? (
     <ResShimmer />
   ) : (
     <div className="flex">
-      <div>
+      <div className="w-full">
         {/* <h1> Res-ID : {resId} </h1> */}
         <div className="flex flex-col w-[80%] md:w-2/3 p-4 border m-auto">
           <div className="flex flex-col justify-between pb-4 border-b md:flex-row gap-3">
-            <div className="flex flex-col text-xs text-[#535665] font-medium gap-1">
+            <div className="flex flex-col text-xs text-[#535665] font-medium gap-1 w-full">
               <span className="text-xl font-bold text-black">
                 <h2> {restaurant.name} </h2>
               </span>
@@ -69,16 +77,27 @@ const RestruarantMenu = () => {
                 </svg>
                 <span className="">{restaurant.costForTwoMessage}</span>
               </div>
-              <h1 className="font-bold text-xl mt-4 mb-10">
-                Recommended items (
-                {
-                  resmenu?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
-                    () => null
-                  ).length
-                }
-                )
-              </h1>
-              {resmenu?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
+              <div className="flex justify-between">
+                <h1 className="font-bold text-xl mt-4 mb-10">
+                  Recommended items (
+                  {
+                    resmenu?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
+                      () => null
+                    ).length
+                  }
+                  )
+                </h1>
+                <div
+                  onClick={handleAccordionClick}
+                  className="font-bold text-xl mt-4 mb-10 cursor-pointer"
+                >
+                  <FontAwesomeIcon
+                    icon={click ? faChevronUp : faChevronDown}
+                    className="w-5 h-5"
+                  />
+                </div>
+              </div>
+              {click && resmenu?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards?.map(
                 (card) => {
                   return (
                     <div
