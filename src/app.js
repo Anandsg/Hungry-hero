@@ -13,7 +13,8 @@ import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 import Help from "./components/Help";
 import { Provider } from "react-redux";
-import store from "./utils/store";
+import { persistor, store } from "./utils/store";
+import { PersistGate } from 'redux-persist/integration/react';
 import Cart from "./components/Cart";
 import Main from "./components/Main";
 
@@ -24,9 +25,11 @@ const AppLayout = () => {
   return (
     <div className="app">
       <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
         <Header />
         <Outlet />
         <Footer />
+      </PersistGate>
       </Provider>
     </div>
   );
@@ -45,7 +48,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <Body />,
-      }, 
+      },
       {
         path: "/About",
         element: <About />,
@@ -80,7 +83,7 @@ const appRouter = createBrowserRouter([
         path: "/Cart",
         element: <Cart />,
       },
-      
+
     ],
   },
 ]);
