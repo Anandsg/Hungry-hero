@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { CDN_URL } from "../utils/constants";
+import { AiOutlineHeart,AiFillHeart} from 'react-icons/ai';
+import { Link } from "react-router-dom";
 
 const RestruarantCards = (props) => {
-  const { resData } = props;
-
+  const { resData ,id,favlist,onClickFav} = props;
+  const [isfav,setfav] = useState(favlist.indexOf(id)==-1);
   const {
     cloudinaryImageId,
     name,
@@ -15,17 +17,25 @@ const RestruarantCards = (props) => {
     aggregatedDiscountInfo,
   } = resData;
   return (
-    <div className="md:w-60 shadow-md md:shadow-none py-4 px-4 md:py-2  hover:shadow-xl rounded flex flex-col gap-1 text-[0.7rem] text-[#535665] ">
-      <img
-        src={
-          CDN_URL +
-          (cloudinaryImageId === ""
-            ? "s6fhwzl0tss0vgrqvcid"
-            : cloudinaryImageId)
-        }
-        alt=""
-        className=" rounded object-cover"
-      />
+    <div className="md:w-60 shadow-md md:shadow-none py-4 px-4 md:py-2  hover:shadow-xl rounded flex flex-col gap-1 text-[0.7rem] text-[#535665] " >
+      <div className="relative">
+        <img
+          src={
+            CDN_URL +
+            (cloudinaryImageId === ""
+              ? "s6fhwzl0tss0vgrqvcid"
+              : cloudinaryImageId)
+          }
+          alt=""
+          className=" rounded object-cover"
+        />
+        <span className="absolute text-xl top-0.5 right-0.5 cursor-pointer"style={{color:!isfav?"red":"gray"}} onClick={()=>{setfav(!isfav);onClickFav(id)}}>
+            <AiFillHeart/>
+        </span>
+      </div>
+      <Link
+        to={"/restaurants/" + id}
+      >
       <div className="res-details px-2">
         <h4 className="font-medium text-base text-black">{name}</h4>
         <span className="">{cuisines.join(", ")}</span>
@@ -48,12 +58,16 @@ const RestruarantCards = (props) => {
           </div>
         </div>
         <div className="flex border-t pt-4 gap-2  font-semibold"></div>
-        <span className="text-[#a0522d] text-center">
-          {!aggregatedDiscountInfo?.shortDescriptionList[0]?.meta
-            ? "30% off | Use NEWFUD"
-            : aggregatedDiscountInfo?.shortDescriptionList[0]?.meta}
-        </span>
+        
+        <div className="flex" style={{justifyContent:"space-between"}}>
+          <span className="text-[#a0522d] text-center">
+            {!aggregatedDiscountInfo?.shortDescriptionList[0]?.meta
+              ? "30% off | Use NEWFUD"
+              : aggregatedDiscountInfo?.shortDescriptionList[0]?.meta}
+          </span>
+        </div>
       </div>
+      </Link>
     </div>
   );
 };
