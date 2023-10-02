@@ -29,7 +29,7 @@ const RestruarantCards = (props) => {
           alt=""
           className=" rounded object-cover"
         />
-        <span className="absolute text-xl top-0.5 right-0.5"style={{color:!isfav?"red":"gray"}} onClick={()=>{setfav(!isfav);onClickFav(id)}}>
+        <span className="absolute text-xl top-0.5 right-0.5 cursor-pointer"style={{color:!isfav?"red":"gray"}} onClick={()=>{setfav(!isfav);onClickFav(id)}}>
             <AiFillHeart/>
         </span>
       </div>
