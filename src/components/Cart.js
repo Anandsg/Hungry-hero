@@ -8,7 +8,6 @@ import {
 import { CDN_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import React from "react";
-
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
   console.log(cartItems, "cart items");
@@ -19,23 +18,25 @@ const Cart = () => {
 
   return (
     <div className="md:w-3/5 w-[80%]  m-auto py-4 min-h-screen ">
-      <div className="flex justify-between items-center mb-4">
-        <h1 className="text-2xl font-semibold">Cart - {cartItems.length}</h1>
-        <button
-          className="text-xs font-medium bg-orange-300 py-1 px-2 hover:bg-orange-200 transition-all duration-300 ease-in-out rounded"
-          onClick={() => HandleClearCart()}
-        >
-          Clear Cart
-        </button>
-      </div>
       {cartItems.length > 0 ? (
-        <div className="flex flex-col ">
-          {cartItems.map((item) => {
-            return (
-              <CartItem key={item?.info?.id} {...item?.info} />
-            );
-          })}
-        </div>
+        <>
+          <div className="flex justify-between items-center mb-4">
+            <h1 className="text-2xl font-semibold">Cart - {cartItems.length}</h1>
+            <button
+              className="text-xs font-medium bg-orange-300 py-1 px-2 hover:bg-orange-200 transition-all duration-300 ease-in-out rounded"
+              onClick={() => HandleClearCart()}
+            >
+              Clear Cart
+            </button>
+          </div>
+          <div className="flex flex-col ">
+            {cartItems.map((item) => {
+              return (
+                <CartItem key={item?.info?.id} {...item?.info} />
+              );
+            })}
+          </div>
+        </>
       ) : (
         <EmptyCart />
       )}

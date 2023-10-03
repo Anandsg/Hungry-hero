@@ -10,9 +10,9 @@ const Body = () => {
   const [filteredlistOfRestuarants, setfilteredlistOfRestuarants] = useState(
     []
   );
-  let [favlist,setFavList] = useState([]);
-  const [showFav,setShowFav] = useState(false);
-  const [showFitler,setShowFitler] = useState(false);
+  let [favlist, setFavList] = useState([]);
+  const [showFav, setShowFav] = useState(false);
+  const [showFitler, setShowFitler] = useState(false);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -28,10 +28,10 @@ const Body = () => {
     console.log(json);
 
     setAlllistOfRestuarants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setfilteredlistOfRestuarants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
 
@@ -44,18 +44,18 @@ const Body = () => {
       </h3>
     );
   }
-  const onClickFav =(id)=>{
+  const onClickFav = (id) => {
     let idx = favlist.indexOf(id);
-    if(idx>=0){
+    if (idx >= 0) {
       favlist.splice(idx);
     }
-    else {favlist.push(id);}
+    else { favlist.push(id); }
     setFavList(favlist);
-    if(showFav) setfilteredlistOfRestuarants(filteredlistOfRestuarants.filter(it=>it.info.id !== id));
+    if (showFav) setfilteredlistOfRestuarants(filteredlistOfRestuarants.filter(it => it.info.id !== id));
   }
   // avoid rendering component (Early)
   if (!AlllistOfRestuarants) return null;
-;
+  ;
   return AlllistOfRestuarants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -103,10 +103,10 @@ const Body = () => {
               </button>
 
               <span
-                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer ${showFitler?"border-orange-300 text-orange-300 hover:border-orange-500":""}`}
+                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer ${showFitler ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
                 onClick={() => {
                   let filteredList = AlllistOfRestuarants;
-                  if(!showFitler){
+                  if (!showFitler) {
                     filteredList = AlllistOfRestuarants.filter(
                       (res) => res.info.avgRating > 4
                     );
@@ -119,10 +119,10 @@ const Body = () => {
                 Rating: 4.0+
               </span>
               <span
-                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer ${showFav?"border-orange-300 text-orange-300 hover:border-orange-500":""}`}
+                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer ${showFav ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
                 onClick={() => {
                   let filteredList = AlllistOfRestuarants;
-                  if(!showFav){
+                  if (!showFav) {
                     filteredList = AlllistOfRestuarants.filter(
                       (res) => favlist.includes(res.info.id)
                     );
@@ -139,14 +139,14 @@ const Body = () => {
         )}
       </div>
       <div className="px-28 grid grid-cols-2 md:grid md:grid-cols-5 gap-4 ">
-        {filteredlistOfRestuarants.map((restaurant)=>(
-            <RestruarantCards
+        {filteredlistOfRestuarants.map((restaurant) => (
+          <RestruarantCards
             key={restaurant?.info.id}
             id={restaurant?.info?.id}
             resData={restaurant?.info}
             favlist={favlist}
             onClickFav={onClickFav}
-          /> 
+          />
         ))}
       </div>
     </>
