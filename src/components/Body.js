@@ -159,8 +159,8 @@ const Body = () => {
         ))}
       </div>
       <div>
-        { message && <div style={{left:0,bottom:20,position:'fixed'}} 
-        className="z-10 absolute fixed w-100 border-orange-700 block p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-r-lg flex flex-row items-center">
+        { message && <div style={{right:0,top:40,position:'fixed'}} 
+        className="z-10 absolute fixed w-100 border-2 border-orange-300 block p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center">
             <span style={{color:"red",padding:"10px"}}><GrNotification /></span>
             <span>{message}</span>
           </div>}
