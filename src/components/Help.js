@@ -1,13 +1,28 @@
 import React, { useState } from "react";
 import faqsJsonData from "../utils/help.json";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronUp,
+  faChevronDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Section = ({ title, description, isVisible, onClick }) => {
   return (
-    <div className="border border-separate p-2 m-2">
-      <h3 className="font-serif font-bold">{title}</h3>
-      <button onClick={onClick} className="cursor-pointer underline text-sm">
-        {isVisible ? "Hide" : "Show"}
-      </button>
+    <div
+      onClick={onClick}
+      className="border border-separate p-2 m-2 transition-all"
+    >
+      <div className="flex items-center justify-between hover:cursor-pointer">
+        <h3 className="font-serif font-bold">{title}</h3>
+
+        <div className="cursor-pointer underline text-sm rounded-full p-2 hover:bg-gray-100">
+          {isVisible ? (
+            <FontAwesomeIcon icon={faChevronDown} className="w-5 h-5" />
+          ) : (
+            <FontAwesomeIcon icon={faChevronUp} className="w-5 h-5" />
+          )}
+        </div>
+      </div>
       {isVisible && (
         <p className="font-serif mt-2 text-gray-700">{description}</p>
       )}
