@@ -91,5 +91,14 @@ Before pushing code please go through our guidelines:
         </a>
       </td>
       <!-- Contributor 7 end -->
+      <!-- Contributor 8 start -->
+      <td align="center">
+        <a href="https://github.com/hritsaha">
+            <img src="https://avatars.githubusercontent.com/u/64214943?v=4" width="80;" alt="Hrit Saha"/>
+            <br />
+            <sub><b>Hrit Saha</b></sub>
+        </a>
+      </td>
+      <!-- Contributor 8 end -->
     </tr>
 </table>
