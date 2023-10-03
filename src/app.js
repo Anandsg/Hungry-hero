@@ -16,19 +16,21 @@ import { Provider } from "react-redux";
 import store from "./utils/store";
 import Cart from "./components/Cart";
 import Main from "./components/Main";
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
 const Instamart = lazy(() => import("./components/Instamart"));
 
 // out let is a place where below configuration fill in
 const AppLayout = () => {
   return (
-    <div className="app">
-      <Provider store={store}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </Provider>
-    </div>
+    <GoogleOAuthProvider clientId="<your_client_id>">
+      <div className="app">
+        <Provider store={store}>
+          <Header />
+          <Outlet />
+          <Footer />
+        </Provider>
+      </div>
+    </GoogleOAuthProvider>
   );
 };
 
@@ -45,7 +47,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/",
         element: <Body />,
-      }, 
+      },
       {
         path: "/About",
         element: <About />,
@@ -80,7 +82,6 @@ const appRouter = createBrowserRouter([
         path: "/Cart",
         element: <Cart />,
       },
-      
     ],
   },
 ]);
