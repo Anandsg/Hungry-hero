@@ -7,6 +7,7 @@ import {
 } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import cook from "../assets/Cook.jpg";
 import React from "react";
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
@@ -101,12 +102,14 @@ const CartItem = ({ id, name, imageId, price, description, quantity }) => {
 };
 const EmptyCart = () => {
   return (
-    <div className="flex flex-col items-center h-screen mt-20">
-      <h1 className="text-orange-600 text-1xl">Cart Is Empty</h1>
+    <div className="flex flex-col items-center h-screen">
+      <img src={cook} style={{height: "60%"}}/>
+      <h1 className="text-black text-1xl" style={{fontWeight: "700"}}>Your Cart Is Empty</h1>
+      <h1 className="text-black text-1xl" style={{fontWeight: "500"}}>You can go to home page to view more restaurants</h1>
       <Link to="/" className="mt-4">
         {" "}
-        <button className="bg-white hover:bg-orange-300 text-gray-800 font-semibold py-2 px-4 border border-orange-300 rounded shadow">
-          Back To Home Page
+        <button className="bg-white hover:bg-orange-500 text-gray-800 font-semibold py-2 px-4 border border-orange-300 rounded shadow">
+          See Restaurants Near You
         </button>
       </Link>
     </div>
