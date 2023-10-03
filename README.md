@@ -64,6 +64,7 @@ Before pushing code please go through our guidelines:
         </a>
       </td>
       <!-- Contributor 4 end -->
+      <!-- Contributor 5 start -->
       <td align="center">
         <a href="https://github.com/rashen33">
             <img src="https://avatars.githubusercontent.com/u/128305496?v=4" width="80;" alt=""/>
@@ -71,6 +72,8 @@ Before pushing code please go through our guidelines:
             <sub><b>Rashen Fernando</b></sub>
         </a>
       </td>
+      <!-- Contributor 5 end -->
+      <!-- Contributor 6 start -->
       <td align="center">
         <a href="https://github.com/ShahIsCoding">
             <img src="https://avatars.githubusercontent.com/u/56739982?v=4" width="80;" alt="Abhishek Shah"/>
@@ -78,6 +81,7 @@ Before pushing code please go through our guidelines:
             <sub><b>Abhishek Shah</b></sub>
         </a>
       </td>
+      <!-- Contributor 6 end -->
       <!-- Contributor 7 start -->
       <td align="center">
         <a href="https://github.com/sarojdahal8848">
