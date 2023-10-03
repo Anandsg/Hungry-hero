@@ -24,7 +24,7 @@ const About = () => {
         </p>
         <div className="flex space-x-4">
           <a
-            href="https://www.linkedin.com/company/ourplatform"
+            href="https://www.linkedin.com/in/anand-gadagin-6a8a96184/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-700 hover:text-green-700"
@@ -32,7 +32,7 @@ const About = () => {
             <FaLinkedin size={24} />
           </a>
           <a
-            href="https://www.instagram.com/ourplatform"
+            href="https://www.instagram.com/anand_gadagin_"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-700 hover:text-green-700"
