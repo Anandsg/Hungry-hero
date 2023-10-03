@@ -60,7 +60,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container p-2 ml-auto border-black">
+      <div className="search-container p-4 ml-auto border-black">
         {filteredlistOfRestuarants?.length === 0 && searchText !== "" ? (
           <div className="flex flex-col items-center">
             <h2 className="font-bold text-center font-serif">

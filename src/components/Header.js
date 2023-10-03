@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <div className="shadow-md">
-      <div className="container mx-auto py-4 px-4 md:flex md:justify-between md:items-center">
+      <div className="container mx-auto py-1 px-4 md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
           <Link to="/">
             <img
@@ -41,10 +41,10 @@ const Header = () => {
               alt="Logo"
             />
           </Link>
-          <span className="ml-2 text-xl font-bold">
+          {/* <span className="ml-2 text-xl font-bold">
             <span className="text-orange-500">Browse</span> Order{" "}
             <span className="text-orange-500">Enjoy!</span>
-          </span>
+          </span> */}
 
           <div className="flex md:space-x-6 mt-4 md:mt-0">
             {/* Hamburger Menu Button */}
