@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import { GrNotification } from "react-icons/gr";
 
 const Body = () => {
   const [AlllistOfRestuarants, setAlllistOfRestuarants] = useState([]);
@@ -14,7 +15,7 @@ const Body = () => {
   const [showFav, setShowFav] = useState(false);
   const [showFitler, setShowFitler] = useState(false);
   const [searchText, setSearchText] = useState("");
-
+  const [message,setMessage] = useState(null);
   useEffect(() => {
     // Fetch API
     getRestaurants();
@@ -48,9 +49,17 @@ const Body = () => {
     let idx = favlist.indexOf(id);
     if (idx >= 0) {
       favlist.splice(idx);
+      setMessage("Resturant removed from favorite list");
+
     }
-    else { favlist.push(id); }
+    else { 
+      favlist.push(id);
+      setMessage("Resturant added to favorite list");
+    }
     setFavList(favlist);
+    setTimeout(() => {
+      setMessage(null);
+    }, 2000);
     if (showFav) setfilteredlistOfRestuarants(filteredlistOfRestuarants.filter(it => it.info.id !== id));
   }
   // avoid rendering component (Early)
@@ -148,6 +157,13 @@ const Body = () => {
             onClickFav={onClickFav}
           />
         ))}
+      </div>
+      <div>
+        { message && <div style={{right:0,top:40,position:'fixed'}} 
+        className="z-10 absolute fixed w-100 border-2 border-orange-300 block p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center">
+            <span style={{color:"red",padding:"10px"}}><GrNotification /></span>
+            <span>{message}</span>
+          </div>}
       </div>
     </>
   );
