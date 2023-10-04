@@ -29,12 +29,12 @@ const ScrollToTop = () => {
 
   return (
     <div
-      className={`scrollTop-btn cursor-pointer fixed bottom-5 right-5 z-[5] w-fit p-2 bg-blue-600 rounded-full ${
+      className={`scrollTop-btn cursor-pointer fixed bottom-5 right-5 z-[5] w-fit p-2 bg-[#FF6600] rounded-full ${
         isVisible ? "visible" : "hidden"
       }`}
       onClick={scrollToTop}
     >
-      <FiArrowUp color="white" fontSize="28px" />
+      <FiArrowUp color="white" fontSize="24px" />
     </div>
   );
 };
