@@ -13,7 +13,8 @@ import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 import Help from "./components/Help";
 import { Provider } from "react-redux";
-import store from "./utils/store";
+import { persistor, store } from "./utils/store";
+import { PersistGate } from 'redux-persist/integration/react';
 import Cart from "./components/Cart";
 import Main from "./components/Main";
 import { GoogleOAuthProvider } from "@react-oauth/google";
@@ -22,22 +23,26 @@ const Instamart = lazy(() => import("./components/Instamart"));
 // out let is a place where below configuration fill in
 const AppLayout = () => {
   return (
-    <GoogleOAuthProvider clientId="<your_client_id>">
-      <div className="app">
-        <Provider store={store}>
+    <div className="app">
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
           <Header />
           <Outlet />
           <Footer />
-        </Provider>
-      </div>
-    </GoogleOAuthProvider>
+        </PersistGate>
+      </Provider>
+    </div>
   );
 };
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout />,
+    element: (
+      <GoogleOAuthProvider clientId="<your_client_id>">
+        <AppLayout />
+      </GoogleOAuthProvider>
+    ),
     errorElement: <Error />,
     children: [
       // {

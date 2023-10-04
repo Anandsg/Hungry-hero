@@ -41,12 +41,13 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
     "react-type-animation": "^3.0.1",
+    "redux-persist": "^6.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.8",
-    "@babel/preset-env": "^7.21.5",
-    "@babel/preset-react": "^7.18.6",
+    "@babel/core": "^7.0.0-0",
+    "@babel/preset-env": "^7.22.20",
+    "@babel/preset-react": "^7.22.15",
     "@testing-library/dom": "^9.3.0",
     "@testing-library/react": "^14.0.0",
     "babel-jest": "^29.5.0",

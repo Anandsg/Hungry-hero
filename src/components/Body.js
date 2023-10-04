@@ -2,17 +2,20 @@ import React from "react";
 import RestruarantCards from "./RestruarantCards";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
-import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import { GrNotification } from "react-icons/gr";
 
 const Body = () => {
   const [AlllistOfRestuarants, setAlllistOfRestuarants] = useState([]);
   const [filteredlistOfRestuarants, setfilteredlistOfRestuarants] = useState(
     []
   );
+  let [favlist, setFavList] = useState([]);
+  const [showFav, setShowFav] = useState(false);
+  const [showFitler, setShowFitler] = useState(false);
   const [searchText, setSearchText] = useState("");
-
+  const [message, setMessage] = useState(null);
   useEffect(() => {
     // Fetch API
     getRestaurants();
@@ -20,16 +23,16 @@ const Body = () => {
 
   async function getRestaurants() {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
     console.log(json);
 
     setAlllistOfRestuarants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setfilteredlistOfRestuarants(
-      json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   }
 
@@ -42,15 +45,34 @@ const Body = () => {
       </h3>
     );
   }
+  const onClickFav = (id) => {
+    let idx = favlist.indexOf(id);
+    if (idx >= 0) {
+      favlist.splice(idx, 1);
+      setMessage("Resturant removed from favorite list");
 
+    }
+    else {
+      favlist.push(id);
+      setMessage("Resturant added to favorite list");
+    }
+    setFavList(favlist);
+    setTimeout(() => {
+      setMessage(null);
+    }, 2000);
+    if (showFav) setfilteredlistOfRestuarants(filteredlistOfRestuarants.filter(it => it.info.id !== id));
+    if (favlist.length === 0 && showFav) {
+      window.location.href = "/";
+    }
+  }
   // avoid rendering component (Early)
   if (!AlllistOfRestuarants) return null;
-
+  ;
   return AlllistOfRestuarants.length === 0 ? (
     <Shimmer />
   ) : (
     <>
-      <div className="search-container p-2 ml-auto border-black">
+      <div className="search-container p-4 ml-auto border-black">
         {filteredlistOfRestuarants?.length === 0 && searchText !== "" ? (
           <div className="flex flex-col items-center">
             <h2 className="font-bold text-center font-serif">
@@ -93,34 +115,58 @@ const Body = () => {
               </button>
 
               <span
-                className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer ${showFitler ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
                 onClick={() => {
-                  const filteredList = AlllistOfRestuarants.filter(
-                    (res) => res.data.avgRating > 4
-                  );
+                  let filteredList = AlllistOfRestuarants;
+                  if (!showFitler) {
+                    filteredList = AlllistOfRestuarants.filter(
+                      (res) => res.info.avgRating > 4
+                    );
+                  }
+                  setShowFitler(!showFitler);
+                  setShowFav(false);
                   setfilteredlistOfRestuarants(filteredList);
                 }}
               >
                 Rating: 4.0+
               </span>
+              <span
+                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer ${showFav ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
+                onClick={() => {
+                  let filteredList = AlllistOfRestuarants;
+                  if (!showFav) {
+                    filteredList = AlllistOfRestuarants.filter(
+                      (res) => favlist.includes(res.info.id)
+                    );
+                  }
+                  setShowFav(!showFav);
+                  setShowFitler(false);
+                  setfilteredlistOfRestuarants(filteredList);
+                }}
+              >
+                Favourite
+              </span>
             </div>
           </>
         )}
       </div>
-
       <div className="px-28 grid grid-cols-2 md:grid md:grid-cols-5 gap-4 ">
         {filteredlistOfRestuarants.map((restaurant) => (
-          <Link
-            to={"/restaurants/" + restaurant?.info.id}
+          <RestruarantCards
             key={restaurant?.info.id}
-          >
-            {" "}
-            <RestruarantCards
-              key={restaurant?.info.id}
-              resData={restaurant?.info}
-            />
-          </Link>
+            id={restaurant?.info?.id}
+            resData={restaurant?.info}
+            favlist={favlist}
+            onClickFav={onClickFav}
+          />
         ))}
+      </div>
+      <div>
+        {message && <div style={{ right: 0, top: 40, position: 'fixed' }}
+          className="z-10 absolute fixed w-100 border-2 border-orange-300 block p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center">
+          <span style={{ color: "red", padding: "10px" }}><GrNotification /></span>
+          <span>{message}</span>
+        </div>}
       </div>
     </>
   );
