@@ -48,7 +48,7 @@ const Body = () => {
   const onClickFav = (id) => {
     let idx = favlist.indexOf(id);
     if (idx >= 0) {
-      favlist.splice(idx);
+      favlist.splice(idx, 1);
       setMessage("Resturant removed from favorite list");
 
     }
@@ -61,6 +61,9 @@ const Body = () => {
       setMessage(null);
     }, 2000);
     if (showFav) setfilteredlistOfRestuarants(filteredlistOfRestuarants.filter(it => it.info.id !== id));
+    if (favlist.length === 0 && showFav) {
+      window.location.href = "/";
+    }
   }
   // avoid rendering component (Early)
   if (!AlllistOfRestuarants) return null;
