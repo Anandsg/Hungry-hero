@@ -4,8 +4,10 @@ import React from "react";
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [msg, setMsg] = useState("");
   const [emailError, setEmailError] = useState(true);
   const [nameError, setNameError] = useState(true);
+  const [msgError, setMsgError] = useState(true);
 
   const emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
   const nameRegex = /^[A-Za-z\s'-]+$/;
@@ -28,16 +30,26 @@ const Contact = () => {
     setEmail(e.target.value);
   };
 
+  const checkMsg = (e) => {
+    if(e.target.value == '' || e.target.value.match(allspace))
+      setMsgError(true)
+    else
+      setMsgError(false)
+    
+    setMsg(e.target.value)
+  }
+
   const handleSubmitButton = (e) => {
     e.preventDefault();
-    if (!nameError && !emailError) {
+    if (!nameError && !emailError && !msgError) {
       alert("Thanks for your submission, we will get back to you soon...");
       setTimeout(() => {
         window.location.href = "/";
       }, 1000);
-    } else {
+    } else if(nameError || emailError){
       alert("Please Fill Valid name or Email.");
-    }
+    } else if(msgError)
+      alert("Kindly fill suggestion/feedback message")
   };
 
   return (
@@ -91,6 +103,7 @@ const Contact = () => {
               className="mb-2 p-2 mt-3 border border-black rounded w-[100%] lg:w-[400px] min-h-[100px]"
               name="message"
               placeholder="Type your message here..."
+              onChange={checkMsg}
             ></textarea>
           </div>
 
