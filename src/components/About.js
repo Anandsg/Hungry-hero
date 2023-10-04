@@ -1,5 +1,4 @@
 import React from "react";
-import aboutus from "../assets/About.jpeg";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
 
 const About = () => {
