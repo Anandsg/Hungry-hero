@@ -17,7 +17,7 @@ import { persistor, store } from "./utils/store";
 import { PersistGate } from 'redux-persist/integration/react';
 import Cart from "./components/Cart";
 import Main from "./components/Main";
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
 const Instamart = lazy(() => import("./components/Instamart"));
 
 // out let is a place where below configuration fill in
@@ -25,11 +25,11 @@ const AppLayout = () => {
   return (
     <div className="app">
       <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </PersistGate>
+        <PersistGate loading={null} persistor={persistor}>
+          <Header />
+          <Outlet />
+          <Footer />
+        </PersistGate>
       </Provider>
     </div>
   );
@@ -38,7 +38,11 @@ const AppLayout = () => {
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout />,
+    element: (
+      <GoogleOAuthProvider clientId="<your_client_id>">
+        <AppLayout />
+      </GoogleOAuthProvider>
+    ),
     errorElement: <Error />,
     children: [
       // {
@@ -83,7 +87,6 @@ const appRouter = createBrowserRouter([
         path: "/Cart",
         element: <Cart />,
       },
-
     ],
   },
 ]);
