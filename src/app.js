@@ -39,7 +39,7 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: (
-      <GoogleOAuthProvider clientId="<your_client_id>">
+      <GoogleOAuthProvider clientId="994984866620-if48kse03d6ohijbf0hbg48rltvn77po.apps.googleusercontent.com" redirectUri="https://hungry-hero-ag.netlify.app">
         <AppLayout />
       </GoogleOAuthProvider>
     ),
