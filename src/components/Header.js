@@ -10,6 +10,7 @@ import {
   faBars,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
+import ScrollToTop from "./ScrollToTop";
 
 const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
@@ -30,6 +31,8 @@ const Header = () => {
   };
 
   return (
+    <>
+    <ScrollToTop/>
     <div className="shadow-md">
       <div className="container mx-auto py-1 px-4 md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
@@ -156,6 +159,7 @@ const Header = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
