@@ -20,26 +20,6 @@ Before pushing code please go through our guidelines:
 3. Avoid submitting multiple Pull Requests with the same code; it will be considered spam.
 4. Help everyone understand your code by adding helpful comments.
 
-### Note: CORS Extension Required 🚨
-
-Before running this application, make sure to install the CORS extension for Google Chrome. This extension is essential for proper functionality during development.
-
-### Why do you need this extension?
-
-Our application uses client-side rendering and fetches data from the Swiggy API. However, Swiggy's API may restrict access from the browser due to CORS (Cross-Origin Resource Sharing) policies. To bypass this restriction during development, we require you to install the CORS extension.
-
-Rest assured, we are actively working on making the app run smoothly without the need for any extensions. We plan to launch this improved version soon.
-
-#### To install the CORS extension, follow these steps:
-
-1. Go to the [CORS Extension on Chrome Web Store](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf).
-
-2. Click on the "Add to Chrome" button to install the extension.
-
-3. Once installed, you should be all set to use our application without any issues.
-
-Thank you for your understanding and cooperation! If you have any questions or encounter any problems, please let us know.
-
 ### All the best 🙌🏼
 
 <!-- readme: contributors -start -->
