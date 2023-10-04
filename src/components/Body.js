@@ -15,7 +15,7 @@ const Body = () => {
   const [showFav, setShowFav] = useState(false);
   const [showFitler, setShowFitler] = useState(false);
   const [searchText, setSearchText] = useState("");
-  const [message,setMessage] = useState(null);
+  const [message, setMessage] = useState(null);
   useEffect(() => {
     // Fetch API
     getRestaurants();
@@ -23,7 +23,7 @@ const Body = () => {
 
   async function getRestaurants() {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
     console.log(json);
@@ -52,7 +52,7 @@ const Body = () => {
       setMessage("Resturant removed from favorite list");
 
     }
-    else { 
+    else {
       favlist.push(id);
       setMessage("Resturant added to favorite list");
     }
@@ -159,11 +159,11 @@ const Body = () => {
         ))}
       </div>
       <div>
-        { message && <div style={{right:0,top:40,position:'fixed'}} 
-        className="z-10 absolute fixed w-100 border-2 border-orange-300 block p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center">
-            <span style={{color:"red",padding:"10px"}}><GrNotification /></span>
-            <span>{message}</span>
-          </div>}
+        {message && <div style={{ right: 0, top: 40, position: 'fixed' }}
+          className="z-10 absolute fixed w-100 border-2 border-orange-300 block p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center">
+          <span style={{ color: "red", padding: "10px" }}><GrNotification /></span>
+          <span>{message}</span>
+        </div>}
       </div>
     </>
   );
