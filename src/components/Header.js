@@ -140,7 +140,9 @@ const Header = () => {
             </div>
           </Link>
 
-          {isLoggedIn ? (
+          {/* Will enable login feature once i setup google client ID */}
+
+          {/* {isLoggedIn ? (
             <button
               className="w-24 text-lg font-medium shadow-md py-2 outline-none m-2 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
               onClick={() => {
@@ -156,7 +158,7 @@ const Header = () => {
             >
               Logout
             </button>
-          )}
+          )} */}
         </ul>
 
         {/* Menu for Small Screens */}

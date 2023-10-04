@@ -23,11 +23,13 @@ const Instamart = lazy(() => import("./components/Instamart"));
 // out let is a place where below configuration fill in
 const AppLayout = () => {
   return (
-    <div className="app">
+    <div className="app flex justify-between flex-col h-full">
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <Header />
-          <Outlet />
+          <div>
+            <Header />
+            <Outlet />
+          </div>
           <Footer />
         </PersistGate>
       </Provider>
@@ -39,7 +41,7 @@ const appRouter = createBrowserRouter([
   {
     path: "/",
     element: (
-      <GoogleOAuthProvider clientId="<your_client_id>">
+      <GoogleOAuthProvider clientId="994984866620-if48kse03d6ohijbf0hbg48rltvn77po.apps.googleusercontent.com" redirectUri="https://hungry-hero-ag.netlify.app">
         <AppLayout />
       </GoogleOAuthProvider>
     ),
