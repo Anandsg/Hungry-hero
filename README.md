@@ -123,5 +123,14 @@ Thank you for your understanding and cooperation! If you have any questions or e
         </a>
       </td>
       <!-- Contributor 8 end -->
-      </tr>
+     <!-- Contributor 9 start -->
+      <td align="center">
+        <a href="https://github.com/DarkSoul26">
+            <img src="https://avatars.githubusercontent.com/u/60578902?v=4" width="80;" alt="Sanchit Kalsi"/>
+            <br />
+            <sub><b>Sanchit Kalsi</b></sub>
+        </a>
+      </td>
+      <!-- Contributor 8 end -->
+    </tr>
 </table>
