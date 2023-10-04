@@ -8,8 +8,10 @@ const Contact = () => {
   const [nameError, setNameError] = useState(true);
 
   const emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+  const nameRegex = /^[A-Za-z\s'-]+$/;
+  const allspace = /^\s*$/;
   const validateName = (e) => {
-    if (e.target.value.length < 3) {
+    if ( e.target.value.match(allspace) || e.target.value.length < 3 || !e.target.value.match(nameRegex)) {
       setNameError(true);
     } else {
       setNameError(false);
@@ -58,7 +60,7 @@ const Contact = () => {
             ></input>
             {nameError && (
               <p className="mt-[-8px] text-xs text-red-400 font-semibold">
-                Name should be minimun 3 charcters.
+                Name should not be blank, <br/> must be minimun 3 charcters, <br/> integers not allowed
               </p>
             )}
           </div>
