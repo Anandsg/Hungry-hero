@@ -1,5 +1,5 @@
 .footer {
-  margin: 10px;
+  margin-top: 10px;
   width: auto;
   text-align: center;
   background-color: var(--footer-bg-color);
@@ -31,14 +31,14 @@
 }
 .github-logo {
   width: 40px; 
-  margin-top: -30px;
-  margin-left: 1280px;
+  /* margin-top: -30px;
+  margin-left: 1280px; */
   height: auto;
 }
 .peerlist-logo{
     width: 30px; 
-    margin-top: -34px;
-    margin-left: 1330px;
+    /* margin-top: -34px;
+    margin-left: 1330px; */
     height: auto;
 }
 

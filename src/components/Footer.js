@@ -3,7 +3,7 @@ import "../utils/index.css";
 
 const Footer = () => {
   return (
-    <div className="footer font-serif fixed">
+    <div className="footer font-serif relative flex w-full justify-center items-center">
       Developed with 🧡 and a lot of ☕️ by Anand
       <i className="fa-solid fa-heart"></i>
       {/* <a>Anand</a> */}
@@ -15,7 +15,7 @@ const Footer = () => {
         <img
           src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
           alt="GitHub"
-          className="github-logo"
+          className="github-logo mx-3"
         />
       </a>
       <div>
