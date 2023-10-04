@@ -48,7 +48,7 @@ const Body = () => {
   const onClickFav = (id) => {
     let idx = favlist.indexOf(id);
     if (idx >= 0) {
-      favlist.splice(idx);
+      favlist.splice(idx, 1);
       setMessage("Resturant removed from favorite list");
 
     }
