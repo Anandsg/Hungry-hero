@@ -95,7 +95,7 @@ const Body = () => {
               <input
                 type="text"
                 className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
-                placeholder="search restuarants"
+                placeholder="Search Restaurants"
                 value={searchText}
                 onChange={(e) => {
                   setSearchText(e.target.value);
