@@ -74,7 +74,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container pl-22 md:pl-24 pt-8 pb-8 border-black ">
+      <div className="search-container pl-22 pt-8 pb-8 border-black ">
          {filteredlistOfRestuarants?.length === 0 && searchText !== "" ? (
           <div className="flex flex-col items-center">
             <h2 className="font-bold text-center font-serif">
@@ -95,7 +95,7 @@ const Body = () => {
             <div className="flex items-center ">   
               <input
                 type="text"
-                className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded-none"
+                className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded-none md:mr-4"
                 placeholder="Search Restaurants"
                 value={searchText}
                 onChange={(e) => {
