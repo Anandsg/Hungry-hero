@@ -5,6 +5,8 @@ import Shimmer from "./Shimmer";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import { GrNotification } from "react-icons/gr";
+import EmptyFavTab from "../assets/Empty-fav-tab-img.png"
+import ArrowIcon from "../assets/arrow-icon.png"
 
 const Body = () => {
   const [AlllistOfRestuarants, setAlllistOfRestuarants] = useState([]);
@@ -16,6 +18,7 @@ const Body = () => {
   const [showFitler, setShowFitler] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [message, setMessage] = useState(null);
+
   useEffect(() => {
     // Fetch API
     getRestaurants();
@@ -60,9 +63,8 @@ const Body = () => {
     setTimeout(() => {
       setMessage(null);
     }, 2000);
-    if (showFav) setfilteredlistOfRestuarants(filteredlistOfRestuarants.filter(it => it.info.id !== id));
-    if (favlist.length === 0 && showFav) {
-      window.location.href = "/";
+    if (showFav) {
+      setfilteredlistOfRestuarants(filteredlistOfRestuarants.filter(it => it.info.id !== id));
     }
   }
   // avoid rendering component (Early)
@@ -93,7 +95,7 @@ const Body = () => {
               <input
                 type="text"
                 className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
-                placeholder="search restuarants"
+                placeholder="Search Restaurants"
                 value={searchText}
                 onChange={(e) => {
                   setSearchText(e.target.value);
@@ -144,22 +146,39 @@ const Body = () => {
                   setfilteredlistOfRestuarants(filteredList);
                 }}
               >
-                Favourite
+                Favourites
               </span>
             </div>
           </>
         )}
       </div>
-      <div className="px-28 grid grid-cols-2 md:grid md:grid-cols-5 gap-4 ">
-        {filteredlistOfRestuarants.map((restaurant) => (
-          <RestruarantCards
-            key={restaurant?.info.id}
-            id={restaurant?.info?.id}
-            resData={restaurant?.info}
-            favlist={favlist}
-            onClickFav={onClickFav}
-          />
-        ))}
+      <div >
+        {filteredlistOfRestuarants.length > 0 ?
+          (
+            <div
+              className="px-28 grid grid-cols-2 md:grid md:grid-cols-5 gap-4">
+              {filteredlistOfRestuarants.map((restaurant) => (
+                <RestruarantCards
+                  key={restaurant?.info.id}
+                  id={restaurant?.info?.id}
+                  resData={restaurant?.info}
+                  favlist={favlist}
+                  onClickFav={onClickFav}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="h-full w-full flex justify-center items-center px-10 flex-col">
+              <img src={EmptyFavTab} alt="icon" className="mt-8" />
+              <div className="flex sm:flex-row flex-col items-center mt-2">
+                <span className="sm:text-start text-center">
+                  Find your favourite restaurants now
+                </span>
+                <button className="sm:ms-2 sm:mt-0 mt-2" style={{ backgroundColor: "rgb(255, 99, 71,0.5)", borderRadius: "8px", padding: "2px" }} type="button" onClick={() => window.location.href = "/"}><img src={ArrowIcon} alt="arrow" height={30} width={30} /></button>
+              </div>
+            </div>
+          )}
+
       </div>
       <div>
         {message && <div style={{ right: 0, top: 40, position: 'fixed' }}
