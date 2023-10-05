@@ -144,7 +144,7 @@ const Body = () => {
                   setfilteredlistOfRestuarants(filteredList);
                 }}
               >
-                Favourite
+                Favourites
               </span>
             </div>
           </>
