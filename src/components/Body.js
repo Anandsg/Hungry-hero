@@ -74,7 +74,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container pl-22 pt-8 pb-8 border-black ">
+      <div className="search-container ml-auto p-4 border-black ">
          {filteredlistOfRestuarants?.length === 0 && searchText !== "" ? (
           <div className="flex flex-col items-center">
             <h2 className="font-bold text-center font-serif">
@@ -91,7 +91,7 @@ const Body = () => {
           </div>
         ) : (
           <>
-          <div className="flex flex-col md:flex-row items-center  md:items-centre md:pl-9">
+          <div className="flex flex-col md:flex-row items-center md:pl-96  md:items-centre md:pl-9">
             <div className="flex items-center ">   
               <input
                 type="text"
