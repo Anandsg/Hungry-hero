@@ -5,7 +5,7 @@ import Shimmer from "./Shimmer";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import { GrNotification } from "react-icons/gr";
-import logo from '../assets/notfound.gif';
+import logo from '../assets/404.gif';
 
 
 const Body = () => {
