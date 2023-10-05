@@ -5,7 +5,7 @@ import Shimmer from "./Shimmer";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import { GrNotification } from "react-icons/gr";
-import logo from '../assets/404.gif';
+import logo from '../assets/404.jpg';
 import EmptyFavTab from "../assets/Empty-fav-tab-img.png"
 import ArrowIcon from "../assets/arrow-icon.png"
 
@@ -80,7 +80,7 @@ const Body = () => {
           <div className="flex flex-col items-center">
             <h2 className="font-bold text-center font-serif">
 
-       <img src={logo} alt="Not Found"/>
+       <img  style={{ width: '40vw', height: '80vh' }} src={logo} alt="Not Found" />
          
             </h2>
            
