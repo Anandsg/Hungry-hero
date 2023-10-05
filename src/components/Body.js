@@ -170,11 +170,11 @@ const Body = () => {
           ) : (
             <div className="h-full w-full flex justify-center items-center px-10 flex-col">
               <img src={EmptyFavTab} alt="icon" className="mt-8" />
-              <div className="flex items-center mt-2">
-                <span>
+              <div className="flex sm:flex-row flex-col items-center mt-2">
+                <span className="sm:text-start text-center">
                   Find your favourite restaurants now
                 </span>
-                <button className="ms-2" style={{ backgroundColor: "rgb(255, 99, 71,0.5)", borderRadius: "8px", padding: "2px" }} type="button" onClick={() => window.location.href = "/"}><img src={ArrowIcon} alt="arrow" height={30} width={30} /></button>
+                <button className="sm:ms-2 sm:mt-0 mt-2" style={{ backgroundColor: "rgb(255, 99, 71,0.5)", borderRadius: "8px", padding: "2px" }} type="button" onClick={() => window.location.href = "/"}><img src={ArrowIcon} alt="arrow" height={30} width={30} /></button>
               </div>
             </div>
           )}
