@@ -9,57 +9,58 @@ const ResShimmer = () => {
         <div className="flex flex-col justify-between pb-4 border-b md:flex-row gap-3">
           <Box className="flex flex-col text-xs text-[#535665] font-medium gap-1">
             <span className="text-xl font-bold text-black">
-              <Skeleton width={200} height={24} />
+              <Skeleton width={200} height={30} /> {/* Increased height */}
             </span>
             <span>
-              <Skeleton width={150} height={18} /> 
+              <Skeleton width={150} height={24} /> {/* Increased height */}
             </span>
             <span>
-              <Skeleton width={200} height={18} />
+              <Skeleton width={200} height={24} /> {/* Increased height */}
             </span>
-            <Skeleton variant="rectangular" width={150} height={80} /> 
+            <Skeleton variant="rectangular" width={200} height={100} /> {/* Increased dimensions */}
             <span>
-              <Skeleton width={100} height={18} /> 
+              <Skeleton width={100} height={24} /> {/* Increased height */}
             </span>
             <div className="flex gap-8 items-center border-b py-3 text-sm md:text-base">
-              <Skeleton width={50} height={18} />
-              <Skeleton width={50} height={18} /> 
+              <Skeleton width={50} height={24} /> {/* Increased height */}
+              <Skeleton width={50} height={24} /> {/* Increased height */}
             </div>
             <div className="flex items-center gap-2 font-semibold">
               <span>
-                <Skeleton width={30} height={16} /> 
+                <Skeleton width={30} height={20} /> {/* Increased height */}
               </span>
               <span>
-                <Skeleton width={100} height={16} /> 
+                <Skeleton width={100} height={20} /> {/* Increased height */}
               </span>
             </div>
             {[1, 2].map((index) => (
               <div
-                className="flex flex-col justify-between border-b pb-6 mb-4 gap-6 md:flex-row"
+                style={{display:'flex',gap:'25rem'}}
                 key={index}
               >
                 <div className="flex flex-col gap-2 w-full md:w-3/4">
                   <span>
-                    <Skeleton width={200} height={20} /> 
+                    <Skeleton width={200} height={24} /> {/* Increased height */}
                   </span>
                   <div className="flex items-center gap-2">
                     <span>
-                      <Skeleton width={30} height={16} /> 
+                      <Skeleton width={30} height={20} /> {/* Increased height */}
                     </span>
                     <span>
-                      <Skeleton width={50} height={16} /> 
+                      <Skeleton width={50} height={20} /> {/* Increased height */}
                     </span>
                   </div>
                   <p>
-                    <Skeleton width={150} height={14} /> 
+                    <Skeleton width={150} height={18} /> {/* Increased height */}
                   </p>
                 </div>
-                <div className="flex flex-col gap-1 relative md:w-1/4 w-auto">
-                  <Skeleton variant="rectangular" width={80} height={50} /> 
+                <div style={{margin:'1rem 0'}} className="flex flex-col gap-1 relative md:w-1/4 w-auto" >
+                    <Skeleton  style={{marginBottom:'1rem'}}  variant="rectangular" width={130} height={100} /> {/* Further increased dimensions */}
                   <Skeleton
+                 
                     className="absolute bottom-[-8px] bg-white shadow-md border self-center text-[10px] py-1 px-4 font-medium rounded  active:scale-90 hover:bg-orange-200 transition-all duration-300 ease-in-out"
-                    width={120}
-                    height={24}
+                    width={130}
+                    height={28}
                   />
                 </div>
               </div>
