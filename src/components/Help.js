@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import faqsJsonData from "../utils/help.json";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronUp,
-  faChevronDown,
-} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faChevronUp, faChevronDown} from "@fortawesome/free-solid-svg-icons";
 
-const Section = ({ title, description, isVisible, onClick }) => {
+const Section = ({title, description, isVisible, onClick}) => {
   return (
     <div
       onClick={onClick}
@@ -43,20 +40,19 @@ const Help = () => {
   };
 
   return (
-<div className="px-28 items-center justify-center flex flex-col min-h-[75vh]">
-  <h1 className="text-center p-2 m-2 font-semibold">FAQs</h1>
-  {faqsData.map((item, index) => (
-    <div key={item.id} className="w-full">
-      <Section
-        title={item.title}
-        description={item.description}
-        isVisible={openSectionIndex === index}
-        onClick={() => toggleSectionVisibility(index)}
-      />
+    <div className="px-28 flex flex-col min-h-[75vh]">
+      <h1 className="text-center p-2 m-2 font-semibold">FAQs</h1>
+      {faqsData.map((item, index) => (
+        <div key={item.id} className="w-full">
+          <Section
+            title={item.title}
+            description={item.description}
+            isVisible={openSectionIndex === index}
+            onClick={() => toggleSectionVisibility(index)}
+          />
+        </div>
+      ))}
     </div>
-  ))}
-</div>
-
   );
 };
 
