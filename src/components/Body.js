@@ -52,9 +52,7 @@ const Body = () => {
   }
 
   const toggleDropdown = () => {
-    // console.log("in toggle dropdown...", isDropdownVisible);
     setDropdownVisible(!isDropdownVisible);
-    // console.log("in toggle dropdown...", isDropdownVisible);
   };
 
   const onClickFav = (id) => {
@@ -148,7 +146,7 @@ const Body = () => {
                         className="px-4 py-2 cursor-pointer hover:bg-gray-200 text-xs font-medium"
                         onClick={() => {
                           setDropdownVisible(false);
-                          // console.log("Discount");
+                        
                           let filteredList = [...AlllistOfRestuarants];
                           const parsedCosts = filteredlistOfRestuarants.map(
                             (ele) => {
@@ -164,7 +162,7 @@ const Body = () => {
                           filteredList = parsedCosts.map(
                             (item) => item.restaurant
                           );
-                          // console.log(filteredList);
+                         
                           setfilteredlistOfRestuarants(filteredList);
                         }}
                       >
@@ -174,7 +172,7 @@ const Body = () => {
                         className="px-4 py-2 cursor-pointer hover:bg-gray-200 text-xs font-medium"
                         onClick={() => {
                           setDropdownVisible(false);
-                          // console.log("Discount");
+                         
                           let filteredList = [...AlllistOfRestuarants];
                           const parsedCosts = filteredlistOfRestuarants.map(
                             (ele) => {
@@ -190,7 +188,7 @@ const Body = () => {
                           filteredList = parsedCosts.map(
                             (item) => item.restaurant
                           );
-                          // console.log(filteredList);
+                          
                           setfilteredlistOfRestuarants(filteredList);
                         }}
                       >
@@ -201,12 +199,12 @@ const Body = () => {
                         className="px-4 py-2 cursor-pointer hover:bg-gray-200 text-xs font-medium"
                         onClick={() => {
                           setDropdownVisible(false);
-                          // console.log("Rating");
+                          
                           let filteredList = [...AlllistOfRestuarants];
                           filteredList.sort(
                             (a, b) => b.info.avgRating - a.info.avgRating
                           );
-                          // console.log(filteredList);
+                          
                           setfilteredlistOfRestuarants(filteredList);
                         }}
                       >
@@ -218,7 +216,7 @@ const Body = () => {
                         className="px-4 py-2 cursor-pointer hover:bg-gray-200 text-xs font-medium"
                         onClick={() => {
                           setDropdownVisible(false);
-                          // console.log("Price");
+                          
                         }}
                       >
                         Discount
@@ -228,9 +226,9 @@ const Body = () => {
                         className="px-4 py-2 cursor-pointer hover:bg-gray-200 text-xs font-medium"
                         onClick={() => {
                           setDropdownVisible(false);
-                          // console.log("Clear");
+                          
                           let filteredList = [...AlllistOfRestuarants];
-                          // console.log(filteredList);
+                          
                           setfilteredlistOfRestuarants(filteredList);
                         }}
                       >
