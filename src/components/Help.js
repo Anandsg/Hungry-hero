@@ -1,56 +1,52 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { Accordion, AccordionSummary, AccordionDetails, Typography } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import faqsJsonData from "../utils/help.json";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronUp, faChevronDown} from "@fortawesome/free-solid-svg-icons";
 
-const Section = ({title, description, isVisible, onClick}) => {
+const Section = ({ title, description, isVisible, onClick }) => {
   return (
-    <div
-      onClick={onClick}
-      className="border border-separate rounded-lg p-3 m-2 transition-all w-full"
+    <Accordion
+      expanded={isVisible}
+      onChange={onClick}
+      style={{borderRadius:'1rem',transition:'ease-in-out .13s',boxShadow: 'rgba(17, 17, 26, 0.1) 0px 0px 16px' }}
+      className="border rounded-2xl m-4 overflow-hidden transition-all transform hover:scale-105 duration-300 ease-in"
     >
-      <div className="flex items-center justify-between hover:cursor-pointer">
-        <h3 className="font-serif font-bold">{title}</h3>
-
-        <div className="cursor-pointer underline text-sm rounded-full p-2 hover:bg-gray-100">
-          {isVisible ? (
-            <FontAwesomeIcon icon={faChevronDown} className="w-5 h-5" />
-          ) : (
-            <FontAwesomeIcon icon={faChevronUp} className="w-5 h-5" />
-          )}
-        </div>
-      </div>
-      {isVisible && (
-        <p className="font-serif mt-2 text-gray-700">{description}</p>
-      )}
-    </div>
+      <AccordionSummary
+        expandIcon={<ExpandMoreIcon />}
+        className="bg-blue-200  transition-all rounded-t-2xl"
+      >
+        <Typography variant="h6" className="text-blue-800 hover:text-blue-800">
+          {title}
+        </Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography>{description}</Typography>
+      </AccordionDetails>
+    </Accordion>
   );
 };
 
 const Help = () => {
   const faqsData = faqsJsonData.faqs;
-  const [openSectionIndex, setOpenSectionIndex] = useState(0);
+  const [openSectionIndex, setOpenSectionIndex] = useState(-1);
 
   const toggleSectionVisibility = (index) => {
-    if (openSectionIndex === index) {
-      setOpenSectionIndex(-1);
-    } else {
-      setOpenSectionIndex(index);
-    }
+    setOpenSectionIndex((prevIndex) => (prevIndex === index ? -1 : index));
   };
 
   return (
-    <div className="px-28 flex flex-col min-h-[75vh]">
-      <h1 className="text-center p-2 m-2 font-semibold">FAQs</h1>
+    <div className="container mx-auto p-8">
+      <Typography variant="h4" align="center" className="text-blue-800 mb-8">
+        FAQs
+      </Typography>
       {faqsData.map((item, index) => (
-        <div key={item.id} className="w-full">
-          <Section
-            title={item.title}
-            description={item.description}
-            isVisible={openSectionIndex === index}
-            onClick={() => toggleSectionVisibility(index)}
-          />
-        </div>
+        <Section
+          key={item.id}
+          title={item.title}
+          description={item.description}
+          isVisible={openSectionIndex === index}
+          onClick={() => toggleSectionVisibility(index)}
+        />
       ))}
     </div>
   );
