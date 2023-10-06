@@ -74,14 +74,14 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container p-4 ml-auto border-black">
-        {filteredlistOfRestuarants?.length === 0 && searchText !== "" ? (
+      <div className="search-container ml-auto p-4 border-black ">
+         {filteredlistOfRestuarants?.length === 0 && searchText !== "" ? (
           <div className="flex flex-col items-center">
             <h2 className="font-bold text-center font-serif">
               The restaurant you're searching for doesn't exist.
             </h2>
             <button
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+              className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 right-10 rounded border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none" 
               onClick={() => {
                 window.location.href = "/";
               }}
@@ -91,10 +91,11 @@ const Body = () => {
           </div>
         ) : (
           <>
-            <div className="flex items-center justify-center">
+          <div className="flex flex-col md:flex-row items-center md:pl-96  md:items-centre md:pl-9">
+            <div className="flex items-center ">   
               <input
                 type="text"
-                className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
+                className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded-none md:mr-4"
                 placeholder="Search Restaurants"
                 value={searchText}
                 onChange={(e) => {
@@ -104,7 +105,7 @@ const Body = () => {
 
               <button
                 data-testid="search-btn"
-                className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700"
+                className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 md:mr-2 right-10 rounded border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none md:bg-white md:text-black"
                 onClick={() => {
                   const data = filterData(searchText, AlllistOfRestuarants);
                   setfilteredlistOfRestuarants(data);
@@ -115,9 +116,10 @@ const Body = () => {
               >
                 Search
               </button>
-
+                </div>   
+              <div className="flex items-center  mt-2  md:mt-0"> 
               <span
-                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer ${showFitler ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
+                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${showFitler ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
                 onClick={() => {
                   let filteredList = AlllistOfRestuarants;
                   if (!showFitler) {
@@ -133,7 +135,7 @@ const Body = () => {
                 Rating: 4.0+
               </span>
               <span
-                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer ${showFav ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
+                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${showFav ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
                 onClick={() => {
                   let filteredList = AlllistOfRestuarants;
                   if (!showFav) {
@@ -149,14 +151,14 @@ const Body = () => {
                 Favourites
               </span>
             </div>
+       </div>       
           </>
         )}
       </div>
       <div >
         {filteredlistOfRestuarants.length > 0 ?
-          (
-            <div
-              className="px-28 grid grid-cols-2 md:grid md:grid-cols-5 gap-4">
+          ( 
+          <div className="px-14 md:px-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
               {filteredlistOfRestuarants.map((restaurant) => (
                 <RestruarantCards
                   key={restaurant?.info.id}
