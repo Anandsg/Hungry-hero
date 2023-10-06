@@ -29,8 +29,15 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const headerStyle = {
+    position: 'sticky',
+    top: '0',      // Stick to the top of the viewport
+    backgroundColor: 'white',
+    zIndex: '100', // Set a z-index to control stacking order  
+  };
+
   return (
-    <div className="shadow-md">
+    <div className="shadow-md" style={headerStyle}>
       <div className="container mx-auto py-1 px-4 md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
           <Link to="/">
