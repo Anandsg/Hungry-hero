@@ -17,19 +17,21 @@ import { persistor, store } from "./utils/store";
 import { PersistGate } from 'redux-persist/integration/react';
 import Cart from "./components/Cart";
 import Main from "./components/Main";
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
 const Instamart = lazy(() => import("./components/Instamart"));
 
 // out let is a place where below configuration fill in
 const AppLayout = () => {
   return (
-    <div className="app">
+    <div className="app flex justify-between flex-col h-full">
       <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <Header />
-        <Outlet />
-        <Footer />
-      </PersistGate>
+        <PersistGate loading={null} persistor={persistor}>
+          <div>
+            <Header />
+            <Outlet />
+          </div>
+          <Footer />
+        </PersistGate>
       </Provider>
     </div>
   );
@@ -38,7 +40,11 @@ const AppLayout = () => {
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout />,
+    element: (
+      <GoogleOAuthProvider clientId="994984866620-if48kse03d6ohijbf0hbg48rltvn77po.apps.googleusercontent.com" redirectUri="https://hungry-hero-ag.netlify.app">
+        <AppLayout />
+      </GoogleOAuthProvider>
+    ),
     errorElement: <Error />,
     children: [
       // {
@@ -83,7 +89,6 @@ const appRouter = createBrowserRouter([
         path: "/Cart",
         element: <Cart />,
       },
-
     ],
   },
 ]);

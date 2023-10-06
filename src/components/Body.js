@@ -6,7 +6,8 @@ import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import { GrNotification } from "react-icons/gr";
 import { BiSort } from "react-icons/bi";
-
+import EmptyFavTab from "../assets/Empty-fav-tab-img.png"
+import ArrowIcon from "../assets/arrow-icon.png"
 
 const Body = () => {
   const [AlllistOfRestuarants, setAlllistOfRestuarants] = useState([]);
@@ -59,7 +60,7 @@ const Body = () => {
   const onClickFav = (id) => {
     let idx = favlist.indexOf(id);
     if (idx >= 0) {
-      favlist.splice(idx);
+      favlist.splice(idx, 1);
       setMessage("Resturant removed from favorite list");
 
     }
@@ -71,7 +72,9 @@ const Body = () => {
     setTimeout(() => {
       setMessage(null);
     }, 2000);
-    if (showFav) setfilteredlistOfRestuarants(filteredlistOfRestuarants.filter(it => it.info.id !== id));
+    if (showFav) {
+      setfilteredlistOfRestuarants(filteredlistOfRestuarants.filter(it => it.info.id !== id));
+    }
   }
   // avoid rendering component (Early)
   if (!AlllistOfRestuarants) return null;
@@ -80,14 +83,14 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container p-4 ml-auto border-black">
-        {filteredlistOfRestuarants?.length === 0 && searchText !== "" ? (
+      <div className="search-container ml-auto p-4 border-black ">
+         {filteredlistOfRestuarants?.length === 0 && searchText !== "" ? (
           <div className="flex flex-col items-center">
             <h2 className="font-bold text-center font-serif">
               The restaurant you're searching for doesn't exist.
             </h2>
             <button
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+              className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 right-10 rounded border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none" 
               onClick={() => {
                 window.location.href = "/";
               }}
@@ -97,11 +100,12 @@ const Body = () => {
           </div>
         ) : (
           <>
-            <div className="flex items-center justify-center">
+          <div className="flex flex-col md:flex-row items-center md:pl-96  md:items-centre md:pl-9">
+            <div className="flex items-center ">   
               <input
                 type="text"
-                className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded"
-                placeholder="search restuarants"
+                className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded-none md:mr-4"
+                placeholder="Search Restaurants"
                 value={searchText}
                 onChange={(e) => {
                   setSearchText(e.target.value);
@@ -110,7 +114,7 @@ const Body = () => {
 
               <button
                 data-testid="search-btn"
-                className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700"
+                className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 md:mr-2 right-10 rounded border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none md:bg-white md:text-black"
                 onClick={() => {
                   const data = filterData(searchText, AlllistOfRestuarants);
                   setfilteredlistOfRestuarants(data);
@@ -237,8 +241,10 @@ const Body = () => {
                 )}
               </div>
 
+                </div>   
+              <div className="flex items-center  mt-2  md:mt-0"> 
               <span
-                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer ${showFitler ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
+                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${showFitler ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
                 onClick={() => {
                   let filteredList = AlllistOfRestuarants;
                   if (!showFitler) {
@@ -254,7 +260,7 @@ const Body = () => {
                 Rating: 4.0+
               </span>
               <span
-                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer ${showFav ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
+                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${showFav ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
                 onClick={() => {
                   let filteredList = AlllistOfRestuarants;
                   if (!showFav) {
@@ -267,22 +273,39 @@ const Body = () => {
                   setfilteredlistOfRestuarants(filteredList);
                 }}
               >
-                Favourite
+                Favourites
               </span>
             </div>
+       </div>       
           </>
         )}
       </div>
-      <div className="px-28 grid grid-cols-2 md:grid md:grid-cols-5 gap-4 ">
-        {filteredlistOfRestuarants.map((restaurant) => (
-          <RestruarantCards
-            key={restaurant?.info.id}
-            id={restaurant?.info?.id}
-            resData={restaurant?.info}
-            favlist={favlist}
-            onClickFav={onClickFav}
-          />
-        ))}
+      <div >
+        {filteredlistOfRestuarants.length > 0 ?
+          ( 
+          <div className="px-14 md:px-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+              {filteredlistOfRestuarants.map((restaurant) => (
+                <RestruarantCards
+                  key={restaurant?.info.id}
+                  id={restaurant?.info?.id}
+                  resData={restaurant?.info}
+                  favlist={favlist}
+                  onClickFav={onClickFav}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="h-full w-full flex justify-center items-center px-10 flex-col">
+              <img src={EmptyFavTab} alt="icon" className="mt-8" />
+              <div className="flex sm:flex-row flex-col items-center mt-2">
+                <span className="sm:text-start text-center">
+                  Find your favourite restaurants now
+                </span>
+                <button className="sm:ms-2 sm:mt-0 mt-2" style={{ backgroundColor: "rgb(255, 99, 71,0.5)", borderRadius: "8px", padding: "2px" }} type="button" onClick={() => window.location.href = "/"}><img src={ArrowIcon} alt="arrow" height={30} width={30} /></button>
+              </div>
+            </div>
+          )}
+
       </div>
       <div>
         {message && <div style={{ right: 0, top: 40, position: 'fixed' }}
