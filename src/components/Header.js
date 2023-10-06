@@ -69,6 +69,28 @@ const Header = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
+  const headerStyle = {
+    position: 'sticky',
+    top: '0',      // Stick to the top of the viewport
+    backgroundColor: 'white',
+    zIndex: '100', // Set a z-index to control stacking order  
+  };
+
+  return (
+    <div className="shadow-md" style={headerStyle}>
+      <div className="container mx-auto py-1 px-4 md:flex md:justify-between md:items-center">
+        <div className="flex items-center justify-between">
+          <Link to="/">
+            <img
+              data-testid="logo"
+              className="h-12 md:h-20"
+              src={LOGO_URL}
+              alt="Logo"
+            />
+          </Link>
+          {/* <span className="ml-2 text-xl font-bold">
+
   //For retrieving the accessToken on page referesh
   useEffect(() => {
     if (localStorage.getItem("accessToken")) {
@@ -91,6 +113,7 @@ const Header = () => {
               />
             </Link>
             {/* <span className="ml-2 text-xl font-bold">
+
             <span className="text-orange-500">Browse</span> Order{" "}
             <span className="text-orange-500">Enjoy!</span>
           </span> */}
@@ -225,7 +248,7 @@ const Header = () => {
           )}
         </div>
       </div>
-    </>
+    // </>
   );
 };
 

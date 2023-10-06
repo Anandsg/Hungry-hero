@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import { GrNotification } from "react-icons/gr";
+import { BiSort } from "react-icons/bi";
 import EmptyFavTab from "../assets/Empty-fav-tab-img.png"
 import ArrowIcon from "../assets/arrow-icon.png"
 
@@ -18,6 +19,7 @@ const Body = () => {
   const [showFitler, setShowFitler] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [message, setMessage] = useState(null);
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
 
   useEffect(() => {
     // Fetch API
@@ -48,6 +50,11 @@ const Body = () => {
       </h3>
     );
   }
+
+  const toggleDropdown = () => {
+    setDropdownVisible(!isDropdownVisible);
+  };
+
   const onClickFav = (id) => {
     let idx = favlist.indexOf(id);
     if (idx >= 0) {
@@ -116,6 +123,122 @@ const Body = () => {
               >
                 Search
               </button>
+
+              <div className="relative inline-block">
+              <button
+                data-testid="search-btn"
+                className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700"
+                onClick={toggleDropdown}
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                <span style={{ color: "red", marginRight: "5px" }}>
+                  <BiSort />
+                </span>
+                Sort by
+              </button>
+                {isDropdownVisible && (
+                  <div
+                    className="absolute mt-1 w-36 bg-white border border-gray-300 shadow-md rounded"
+                    style={{ zIndex: 10 }}
+                  >
+                    <ul className="py-1">
+                      <li
+                        className="px-4 py-2 cursor-pointer hover:bg-gray-200 text-xs font-medium"
+                        onClick={() => {
+                          setDropdownVisible(false);
+                        
+                          let filteredList = [...AlllistOfRestuarants];
+                          const parsedCosts = filteredlistOfRestuarants.map(
+                            (ele) => {
+                              const arr = ele.info.costForTwo.split(" ");
+                              const cost = parseInt(
+                                arr[0].replace("₹", "").replace("$", ""),
+                                10
+                              );
+                              return { restaurant: ele, cost };
+                            }
+                          );
+                          parsedCosts.sort((a, b) => a.cost - b.cost);
+                          filteredList = parsedCosts.map(
+                            (item) => item.restaurant
+                          );
+                         
+                          setfilteredlistOfRestuarants(filteredList);
+                        }}
+                      >
+                        Price low to high
+                      </li>
+                      <li
+                        className="px-4 py-2 cursor-pointer hover:bg-gray-200 text-xs font-medium"
+                        onClick={() => {
+                          setDropdownVisible(false);
+                         
+                          let filteredList = [...AlllistOfRestuarants];
+                          const parsedCosts = filteredlistOfRestuarants.map(
+                            (ele) => {
+                              const arr = ele.info.costForTwo.split(" ");
+                              const cost = parseInt(
+                                arr[0].replace("₹", "").replace("$", ""),
+                                10
+                              );
+                              return { restaurant: ele, cost };
+                            }
+                          );
+                          parsedCosts.sort((a, b) => b.cost - a.cost);
+                          filteredList = parsedCosts.map(
+                            (item) => item.restaurant
+                          );
+                          
+                          setfilteredlistOfRestuarants(filteredList);
+                        }}
+                      >
+                        Price high to low
+                      </li>
+
+                      <li
+                        className="px-4 py-2 cursor-pointer hover:bg-gray-200 text-xs font-medium"
+                        onClick={() => {
+                          setDropdownVisible(false);
+                          
+                          let filteredList = [...AlllistOfRestuarants];
+                          filteredList.sort(
+                            (a, b) => b.info.avgRating - a.info.avgRating
+                          );
+                          
+                          setfilteredlistOfRestuarants(filteredList);
+                        }}
+                      >
+                        Rating
+                      </li>
+
+
+                      <li
+                        className="px-4 py-2 cursor-pointer hover:bg-gray-200 text-xs font-medium"
+                        onClick={() => {
+                          setDropdownVisible(false);
+                          
+                        }}
+                      >
+                        Discount
+                      </li>
+
+                      <li
+                        className="px-4 py-2 cursor-pointer hover:bg-gray-200 text-xs font-medium"
+                        onClick={() => {
+                          setDropdownVisible(false);
+                          
+                          let filteredList = [...AlllistOfRestuarants];
+                          
+                          setfilteredlistOfRestuarants(filteredList);
+                        }}
+                      >
+                        Reset 
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+
                 </div>   
               <div className="flex items-center  mt-2  md:mt-0"> 
               <span
