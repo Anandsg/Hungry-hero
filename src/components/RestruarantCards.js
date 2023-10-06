@@ -15,9 +15,12 @@ const RestruarantCards = (props) => {
     slaString,
     costForTwo,
     aggregatedDiscountInfo,
-  } = resData;
+} = resData;
   return (
     <div className="md:w-60 shadow-md md:shadow-none py-4 px-4 md:py-2  hover:shadow-xl rounded flex flex-col gap-1 text-[0.7rem] text-[#535665] " >
+<Link
+  to={"/restaurants/" + id}
+>
       <div className="relative">
         <img
           src={
@@ -29,13 +32,10 @@ const RestruarantCards = (props) => {
           alt=""
           className=" rounded object-cover"
         />
-        <span className={ `absolute text-xl top-0.5 right-0.5 cursor-pointer ${!isfav ? "text-[red]" : "text-[gray] hover:text-[red] duration-200" }`  } onClick={() => { setfav(!isfav); onClickFav(id) }}>
+        <span className={ `absolute text-xl top-0.5 right-0.5 cursor-pointer ${!isfav ? "text-[red]" : "text-[gray] hover:text-[red] duration-200" }`  } onClick={(e) => { setfav(!isfav); onClickFav(id);e.preventDefault(); }}>
           <AiFillHeart />
         </span>
       </div>
-      <Link
-        to={"/restaurants/" + id}
-      >
         <div className="res-details px-2">
           <h4 className="font-medium text-base text-black">{name}</h4>
           <span className="text-[0.8rem]">{cuisines.join(", ")}</span>
