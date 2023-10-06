@@ -38,7 +38,7 @@ const RestruarantCards = (props) => {
       >
         <div className="res-details px-2">
           <h4 className="font-medium text-base text-black">{name}</h4>
-          <span className="">{cuisines.join(", ")}</span>
+          <span className="text-[0.8rem]">{cuisines.join(", ")}</span>
           <div className="flex justify-between items-center my-2 font-medium">
             <div className="flex items-center gap-1 px-1 text-white bg-green-500 font-semibold">
               <span className="text-[0.6rem]">&#9733;</span>

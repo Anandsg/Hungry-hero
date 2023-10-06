@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import faqsJsonData from "../utils/help.json";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChevronUp,
-  faChevronDown,
-} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faChevronUp, faChevronDown} from "@fortawesome/free-solid-svg-icons";
 
-const Section = ({ title, description, isVisible, onClick }) => {
+const Section = ({title, description, isVisible, onClick}) => {
   return (
     <div
       onClick={onClick}
-      className="border border-separate p-2 m-2 transition-all"
+      className="border border-separate rounded-lg p-3 m-2 transition-all w-full"
     >
       <div className="flex items-center justify-between hover:cursor-pointer">
         <h3 className="font-serif font-bold">{title}</h3>
@@ -43,10 +40,10 @@ const Help = () => {
   };
 
   return (
-    <div>
+    <div className="px-28 flex flex-col min-h-[75vh]">
       <h1 className="text-center p-2 m-2 font-semibold">FAQs</h1>
       {faqsData.map((item, index) => (
-        <div key={item.id}>
+        <div key={item.id} className="w-full">
           <Section
             title={item.title}
             description={item.description}

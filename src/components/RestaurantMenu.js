@@ -5,28 +5,31 @@ import useRestaurant from "../utils/useRestaurant";
 import ResShimmer from "./ResShimmer";
 import { addItem } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
 
 const RestruarantMenu = () => {
   // Read dynamic URL params
   const { resId } = useParams();
   // CUSTOM HOOK
   const [restaurant, resmenu] = useRestaurant(resId);
-
+  
   const dispatch = useDispatch();
-
+  
   const addFoodItem = (card) => {
     dispatch(addItem(card));
+    toast.success("Item added to cart");
   };
-
+  
   return !restaurant ? (
     <ResShimmer />
-  ) : (
-    <div className="flex">
-      <div>
+    ) : (
+      <div className="flex justify-center">
+        <Toaster position="top-center"/>
+      <div class="w-4/6">
         {/* <h1> Res-ID : {resId} </h1> */}
-        <div className="flex flex-col w-[80%] md:w-2/3 p-4 border m-auto">
-          <div className="flex flex-col justify-between pb-4 border-b md:flex-row gap-3">
-            <div className="flex flex-col text-xs text-[#535665] font-medium gap-1">
+        <div className="flex flex-col  md:w-full p-4 border m-auto">
+          <div className="flex flex-col  justify-between pb-4 border-b md:flex-row gap-3">
+            <div className="flex flex-col text-xs w-full text-[#535665] font-medium gap-1">
               <span className="text-xl font-bold text-black">
                 <h2> {restaurant.name} </h2>
               </span>
