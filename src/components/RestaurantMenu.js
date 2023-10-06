@@ -5,6 +5,7 @@ import useRestaurant from "../utils/useRestaurant";
 import ResShimmer from "./ResShimmer";
 import { addItem } from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
 
 const RestruarantMenu = () => {
   // Read dynamic URL params
@@ -16,12 +17,14 @@ const RestruarantMenu = () => {
   
   const addFoodItem = (card) => {
     dispatch(addItem(card));
+    toast.success("Item added to cart");
   };
   
   return !restaurant ? (
     <ResShimmer />
     ) : (
       <div className="flex justify-center">
+        <Toaster position="top-center"/>
       <div class="w-4/6">
         {/* <h1> Res-ID : {resId} </h1> */}
         <div className="flex flex-col  md:w-full p-4 border m-auto">
