@@ -141,7 +141,7 @@ const Body = () => {
                 {isDropdownVisible && (
                   <div
                     className="absolute mt-1 w-36 bg-white border border-gray-300 shadow-md rounded"
-                    style={{ zIndex: 100 }}
+                    style={{ zIndex: 10 }}
                   >
                     <ul className="py-1">
                       <li
