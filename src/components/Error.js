@@ -1,9 +1,7 @@
 import React from "react";
 import { useRouteError } from "react-router-dom";
 import ErrorImage from "../assets/404-Error.png";
-import { Link } from "react-router-dom"
-import Body from "./Body";
-import Main from "./Main";
+import { Link } from "react-router-dom";
 
 const Error = () => {
   const err = useRouteError();
