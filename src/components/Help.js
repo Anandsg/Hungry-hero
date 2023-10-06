@@ -15,7 +15,7 @@ const Section = ({ title, description, isVisible, onClick }) => {
         expandIcon={<ExpandMoreIcon />}
         className="bg-blue-200 transition-all rounded-t-2xl"
       >
-        <Typography variant="h6" style={{fontWeight:'550'}} className="text-gray-800 hover:text-gray-900 font-semibold">
+        <Typography variant="h6" style={{ fontSize: '1.25rem',fontWeight:'500' }} className="text-gray-800 hover:text-gray-900">
           {title}
         </Typography>
       </AccordionSummary>
