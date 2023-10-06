@@ -8,14 +8,14 @@ const Section = ({ title, description, isVisible, onClick }) => {
     <Accordion
       expanded={isVisible}
       onChange={onClick}
-      style={{borderRadius:'1rem',transition:'ease-in-out .13s',boxShadow: 'rgba(17, 17, 26, 0.1) 0px 0px 16px' }}
+      style={{ borderRadius: '1rem', transition: 'ease-in-out .13s', boxShadow: 'rgba(17, 17, 26, 0.1) 0px 0px 16px' }}
       className="border rounded-2xl m-4 overflow-hidden transition-all transform hover:scale-105 duration-300 ease-in"
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
-        className="bg-blue-200  transition-all rounded-t-2xl"
+        className="bg-blue-200 transition-all rounded-t-2xl"
       >
-        <Typography variant="h6" className="text-blue-800 hover:text-blue-800">
+        <Typography variant="h6" style={{fontWeight:'550'}} className="text-gray-800 hover:text-gray-900 font-semibold">
           {title}
         </Typography>
       </AccordionSummary>
@@ -36,7 +36,7 @@ const Help = () => {
 
   return (
     <div className="container mx-auto p-8">
-      <Typography variant="h4" align="center" className="text-blue-800 mb-8">
+      <Typography variant="h4" align="center" className="text-gray-900 mb-8">
         FAQs
       </Typography>
       {faqsData.map((item, index) => (
