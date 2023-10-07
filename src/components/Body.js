@@ -106,8 +106,8 @@ const Body = () => {
             </button>
           </div>
         ) : (
-          <>
-            <div className="flex flex-col md:flex-row items-center md:pl-96  md:items-centre md:pl-9">
+          <div className="lg:block md:flex md:justify-center">
+            <div className="flex flex-col md:flex-row items-center lg:pl-96  md:items-center lg:pl-9">
               <div className="flex items-center ">
                 <input
                   type="text"
@@ -171,7 +171,7 @@ const Body = () => {
                 </span>
               </div>
             </div>
-          </>
+          </div>
         )}
       </div>
       <div>
