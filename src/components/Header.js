@@ -1,10 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
-import { LOGO_URL } from "../utils/constants";
-import { Link } from "react-router-dom";
+import React, {useState, useContext, useEffect} from "react";
+import {LOGO_URL} from "../utils/constants";
+import {Link} from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/userContext";
-import { useSelector } from "react-redux";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {useSelector} from "react-redux";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
   faBars,
@@ -12,14 +12,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import ScrollToTop from "./ScrollToTop";
-import { useGoogleLogin } from "@react-oauth/google";
+import {useGoogleLogin} from "@react-oauth/google";
 
 const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Track whether the menu is open
 
   const isOnline = useOnline();
-  const { user } = useContext(UserContext);
+  const {user} = useContext(UserContext);
   const cartItems = useSelector((store) => store.cart.items);
 
   //Function to get userInfo
@@ -29,7 +29,7 @@ const Header = () => {
       Authorization: `Bearer ${access_token}`,
     };
     try {
-      const response = await fetch(url, { headers });
+      const response = await fetch(url, {headers});
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -79,8 +79,8 @@ const Header = () => {
   return (
     <>
       <ScrollToTop />
-      <div className="shadow-md">
-        <div className="container mx-auto py-1 px-4 md:flex md:justify-between md:items-center">
+      <div className="shadow-md lg:px-36">
+        <div className="md:flex md:justify-between md:items-center lg:w-full p-2">
           <div className="flex items-center justify-between">
             <Link to="/">
               <img
@@ -95,7 +95,7 @@ const Header = () => {
             <span className="text-orange-500">Enjoy!</span>
           </span> */}
 
-            <div className="flex md:space-x-6 mt-4 md:mt-0">
+            <div className="flex md:space-x-6 md:mt-0">
               {/* Hamburger Menu Button */}
               <button
                 onClick={toggleMenu}

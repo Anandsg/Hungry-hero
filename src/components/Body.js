@@ -1,10 +1,10 @@
 import React from "react";
 import RestruarantCards from "./RestruarantCards";
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import Shimmer from "./Shimmer";
-import { filterData } from "../utils/helper";
+import {filterData} from "../utils/helper";
 import useOnline from "../utils/useOnline";
-import { GrNotification } from "react-icons/gr";
+import {GrNotification} from "react-icons/gr";
 import EmptyFavTab from "../assets/Empty-fav-tab-img.png";
 import ArrowIcon from "../assets/arrow-icon.png";
 
@@ -107,7 +107,7 @@ const Body = () => {
           </div>
         ) : (
           <>
-            <div className="flex flex-col md:flex-row items-center md:pl-96  md:items-centre md:pl-9">
+            <div className="flex flex-col md:flex-row items-center lg:px-36 justify-center">
               <div className="flex items-center ">
                 <input
                   type="text"
@@ -176,7 +176,7 @@ const Body = () => {
       </div>
       <div>
         {filteredlistOfRestuarants.length > 0 ? (
-          <div className="px-14 md:px-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="px-14 md:px-14 lg:px-36 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 items-center">
             {filteredlistOfRestuarants.map((restaurant) => (
               <RestruarantCards
                 key={restaurant?.info.id}
@@ -213,10 +213,10 @@ const Body = () => {
       <div>
         {message && (
           <div
-            style={{ right: 0, top: 40, position: "fixed" }}
+            style={{right: 0, top: 40, position: "fixed"}}
             className="z-10 absolute fixed w-100 border-2 border-orange-300 block p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center"
           >
-            <span style={{ color: "red", padding: "10px" }}>
+            <span style={{color: "red", padding: "10px"}}>
               <GrNotification />
             </span>
             <span>{message}</span>
