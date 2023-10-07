@@ -106,7 +106,7 @@ const Body = () => {
             </button>
           </div>
         ) : (
-          <div className="lg:block md:flex md:justify-center">
+          <div className="md:flex md:justify-center md:items-center">
             <div className="flex flex-col md:flex-row items-center  md:items-center lg:pl-9">
               <div className="flex items-center ">
                 <input
