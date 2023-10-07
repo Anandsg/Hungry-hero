@@ -35,7 +35,7 @@ const Contact = () => {
       setMsgError(true)
     else
       setMsgError(false)
-    
+
     setMsg(e.target.value)
   }
 
@@ -54,11 +54,12 @@ const Contact = () => {
 
   return (
     <>
-      <div className="max-w-[1320px] mx-6 lg:mx-auto flex justify-center items-center flex-wrap flex-col my-16">
-        <p className="font-serif text-gray-500 text-1xl font-bold text-gradient-orange">
+      <div className="max-w-[100vw] mx-6 lg:mx-auto flex justify-center items-center flex-wrap flex-col my-16" >
+        <div className="max-w-[600px] md-w-[200px] bg-white rounded-lg shadow-xl p-8" style={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column"}}>
+        <p className="font-serif text-gray-500 text-2xl text-center px-5 font-bold text-gradient-orange">
           We're Eager to Receive Your Feedback and Suggestions!
         </p>
-        <form className="mt-14">
+        <form className="mt-8">
           <div className="mb-4">
             <label htmlFor="userName" className="font-semibold font-serif">
               Name:
@@ -66,13 +67,13 @@ const Contact = () => {
             <br />
             <input
               type="text"
-              className="mb-2 border p-2 mt-3 border-black rounded-lg w-[400px]"
+              className="mb-2 border p-2 mt-3 border-black rounded-lg lg:w-[400px] sm:w-[300px]"
               name="userName"
               onChange={validateName}
             ></input>
             {nameError && (
-              <p className="mt-[-8px] text-xs text-red-400 font-semibold">
-                Name should not be blank, <br/> must be minimun 3 charcters, <br/> integers not allowed
+              <p className="mt-[-8px] text-xs text-orange-400 font-semibold">
+                Name should not be blank, <br/> Must be minimun 3 charcters, <br/> Integers not allowed
               </p>
             )}
           </div>
@@ -83,12 +84,12 @@ const Contact = () => {
             <br />
             <input
               type="email"
-              className="mb-2 p-2 mt-3 border border-black rounded-lg w-[400px]"
+              className="mb-2 p-2 mt-3 border border-black rounded-lg lg:w-[400px] sm:w-[300px]"
               name="userEmail"
               onChange={validateEmail}
             ></input>
             {emailError && (
-              <p className="mt-[-8px] text-xs text-red-400 font-semibold">
+              <p className="mt-[-8px] text-xs text-orange-400 font-semibold">
                 Enter a valid email address.
               </p>
             )}
@@ -100,7 +101,7 @@ const Contact = () => {
             <br />
             <textarea
               type="text"
-              className="mb-2 p-2 mt-3 border border-black rounded w-[100%] lg:w-[400px] min-h-[100px]"
+              className="mb-2 p-2 mt-3 border border-black rounded w-[100%] lg:w-[400px] sm:w-[300px] min-h-[100px]"
               name="message"
               placeholder="Type your message here..."
               onChange={checkMsg}
@@ -110,18 +111,19 @@ const Contact = () => {
           <div className="flex justify-around">
             <button
               type="reset"
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+              className="text-xs font-medium shadow-lg px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
             >
-              Clear 
+              Clear
             </button>
             <input
               type="submit"
               value="Submit"
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+              className="text-xs font-medium shadow-lg px-2 py-2 outline-none m-2 right-10 rounded border hover:border-black hover:bg-orange-300 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer bg-orange-400"
               onClick={handleSubmitButton}
             ></input>
           </div>
         </form>
+        </div>
       </div>
     </>
   );

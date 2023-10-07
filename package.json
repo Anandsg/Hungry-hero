@@ -29,9 +29,9 @@
     "@react-oauth/google": "^0.11.1",
     "@reduxjs/toolkit": "^1.9.5",
     "@types/react": "^18.2.6",
-    "autoprefixer": "^9.8.8",
     "lodash": "^4.17.21",
-    "postcss": "^7.0.39",
+    "parcel": "^2.9.3",
+    "postcss": "^8.4.31",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
@@ -42,8 +42,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
     "react-type-animation": "^3.0.1",
-    "redux-persist": "^6.0.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-0",

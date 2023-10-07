@@ -23,7 +23,7 @@ const Instamart = lazy(() => import("./components/Instamart"));
 // out let is a place where below configuration fill in
 const AppLayout = () => {
   return (
-    <div className="app flex justify-between flex-col h-full">
+    <div className="app flex justify-between align-center flex-col h-full">
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <div>
