@@ -40,7 +40,12 @@ const RestruarantCards = (props) => {
           <h4 className="font-medium text-base text-black">{name}</h4>
           <span className="text-[0.8rem]">{cuisines.join(", ")}</span>
           <div className="flex justify-between items-center my-2 font-medium">
-            <div className="flex items-center gap-1 px-1 text-white bg-green-500 font-semibold">
+            <div className={`flex items-center gap-1 px-1 text-white ${avgRating >= 4
+              ? 'bg-green-500'
+              : avgRating >= 2
+                ? 'bg-amber-500'
+                : 'bg-red-500'
+              } font-semibold`}>
               <span className="text-[0.6rem]">&#9733;</span>
               <span className="text-[0.6rem]">
                 {avgRating === "--" ? "4.2" : avgRating}
