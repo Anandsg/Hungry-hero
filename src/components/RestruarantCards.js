@@ -4,6 +4,9 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { Link } from "react-router-dom";
 
 const RestruarantCards = (props) => {
+
+  const [rating, setRating] = useState('bg-green-500')
+
   const { resData, id, favlist, onClickFav } = props;
   const [isfav, setfav] = useState(favlist.indexOf(id) == -1);
   const {
@@ -21,7 +24,7 @@ const RestruarantCards = (props) => {
 <Link
   to={"/restaurants/" + id}
 >
-      <div className="relative">
+      <div className="">
         <img
           src={
             CDN_URL +
@@ -30,7 +33,7 @@ const RestruarantCards = (props) => {
               : cloudinaryImageId)
           }
           alt=""
-          className=" rounded object-cover"
+          className="rounded object-cover"
         />
         <span className={ `absolute text-xl top-0.5 right-0.5 cursor-pointer ${!isfav ? "text-[red]" : "text-[gray] hover:text-[red] duration-200" }`  } onClick={(e) => { setfav(!isfav); onClickFav(id);e.preventDefault(); }}>
           <AiFillHeart />
@@ -40,7 +43,7 @@ const RestruarantCards = (props) => {
           <h4 className="font-medium text-base text-black">{name}</h4>
           <span className="text-[0.8rem]">{cuisines.join(", ")}</span>
           <div className="flex justify-between items-center my-2 font-medium">
-            <div className="flex items-center gap-1 px-1 text-white bg-green-500 font-semibold">
+            <div className={`flex items-center gap-1 px-1 text-white bg-green-500 font-semibold`}>
               <span className="text-[0.6rem]">&#9733;</span>
               <span className="text-[0.6rem]">
                 {avgRating === "--" ? "4.2" : avgRating}
@@ -73,3 +76,4 @@ const RestruarantCards = (props) => {
 };
 
 export default RestruarantCards;
+
