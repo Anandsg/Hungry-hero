@@ -5,8 +5,8 @@ import Shimmer from "./Shimmer";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import { GrNotification } from "react-icons/gr";
-import EmptyFavTab from "../assets/Empty-fav-tab-img.png"
-import ArrowIcon from "../assets/arrow-icon.png"
+import EmptyFavTab from "../assets/Empty-fav-tab-img.png";
+import ArrowIcon from "../assets/arrow-icon.png";
 
 const Body = () => {
   const [AlllistOfRestuarants, setAlllistOfRestuarants] = useState([]);
@@ -23,6 +23,23 @@ const Body = () => {
     // Fetch API
     getRestaurants();
   }, []);
+
+  //Search function
+  function initiateSearch() {
+    const data = filterData(searchText, AlllistOfRestuarants);
+    setfilteredlistOfRestuarants(data);
+    if (data.length === 0 && searchText !== "") {
+      setfilteredlistOfRestuarants([]);
+    }
+  }
+
+  //Listening to Enter key press
+  const handleKeyUp = (e) => {
+    //Check if keypressed is enter key (key code 13)
+    if (e.keyCode === 13) {
+      initiateSearch();
+    }
+  };
 
   async function getRestaurants() {
     const data = await fetch(
@@ -53,9 +70,7 @@ const Body = () => {
     if (idx >= 0) {
       favlist.splice(idx, 1);
       setMessage("Resturant removed from favorite list");
-
-    }
-    else {
+    } else {
       favlist.push(id);
       setMessage("Resturant added to favorite list");
     }
@@ -64,12 +79,13 @@ const Body = () => {
       setMessage(null);
     }, 2000);
     if (showFav) {
-      setfilteredlistOfRestuarants(filteredlistOfRestuarants.filter(it => it.info.id !== id));
+      setfilteredlistOfRestuarants(
+        filteredlistOfRestuarants.filter((it) => it.info.id !== id)
+      );
     }
-  }
+  };
   // avoid rendering component (Early)
   if (!AlllistOfRestuarants) return null;
-  ;
   return AlllistOfRestuarants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -98,6 +114,7 @@ const Body = () => {
                   className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded-none md:mr-4"
                   placeholder="Search Restaurants"
                   value={searchText}
+                  onKeyUp={handleKeyUp}
                   onChange={(e) => {
                     setSearchText(e.target.value);
                   }}
@@ -106,21 +123,18 @@ const Body = () => {
                 <button
                   data-testid="search-btn"
                   className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 md:mr-2 right-10 rounded border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none md:bg-white md:text-black"
-                  onClick={() => {
-                    const data = filterData(searchText, AlllistOfRestuarants);
-                    setfilteredlistOfRestuarants(data);
-                    if (data.length === 0 && searchText !== "") {
-                      setfilteredlistOfRestuarants([]);
-                    }
-                    if (showFav) setShowFav(false)
-                  }}
+                  onClick={() => initiateSearch()}
                 >
                   Search
                 </button>
               </div>
               <div className="flex items-center  mt-2  md:mt-0">
                 <span
-                  className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${showFitler ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
+                  className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${
+                    showFitler
+                      ? "border-orange-300 text-orange-300 hover:border-orange-500"
+                      : ""
+                  }`}
                   onClick={() => {
                     let filteredList = AlllistOfRestuarants;
                     if (!showFitler) {
@@ -136,12 +150,16 @@ const Body = () => {
                   Rating: 4.0+
                 </span>
                 <span
-                  className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${showFav ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""}`}
+                  className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${
+                    showFav
+                      ? "border-orange-300 text-orange-300 hover:border-orange-500"
+                      : ""
+                  }`}
                   onClick={() => {
                     let filteredList = AlllistOfRestuarants;
                     if (!showFav) {
-                      filteredList = AlllistOfRestuarants.filter(
-                        (res) => favlist.includes(res.info.id)
+                      filteredList = AlllistOfRestuarants.filter((res) =>
+                        favlist.includes(res.info.id)
                       );
                     }
                     setShowFav(!showFav);
@@ -156,39 +174,54 @@ const Body = () => {
           </>
         )}
       </div>
-      <div >
-        {filteredlistOfRestuarants.length > 0 ?
-          (
-            <div className="px-14 md:px-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-              {filteredlistOfRestuarants.map((restaurant) => (
-                <RestruarantCards
-                  key={restaurant?.info.id}
-                  id={restaurant?.info?.id}
-                  resData={restaurant?.info}
-                  favlist={favlist}
-                  onClickFav={onClickFav}
-                />
-              ))}
+      <div>
+        {filteredlistOfRestuarants.length > 0 ? (
+          <div className="px-14 md:px-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+            {filteredlistOfRestuarants.map((restaurant) => (
+              <RestruarantCards
+                key={restaurant?.info.id}
+                id={restaurant?.info?.id}
+                resData={restaurant?.info}
+                favlist={favlist}
+                onClickFav={onClickFav}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="h-full w-full flex justify-center items-center px-10 flex-col">
+            <img src={EmptyFavTab} alt="icon" className="mt-8" />
+            <div className="flex sm:flex-row flex-col items-center mt-2">
+              <span className="sm:text-start text-center">
+                Find your favourite restaurants now
+              </span>
+              <button
+                className="sm:ms-2 sm:mt-0 mt-2"
+                style={{
+                  backgroundColor: "rgb(255, 99, 71,0.5)",
+                  borderRadius: "8px",
+                  padding: "2px",
+                }}
+                type="button"
+                onClick={() => (window.location.href = "/")}
+              >
+                <img src={ArrowIcon} alt="arrow" height={30} width={30} />
+              </button>
             </div>
-          ) : (
-            <div className="h-full w-full flex justify-center items-center px-10 flex-col">
-              <img src={EmptyFavTab} alt="icon" className="mt-8" />
-              <div className="flex sm:flex-row flex-col items-center mt-2">
-                <span className="sm:text-start text-center">
-                  Find your favourite restaurants now
-                </span>
-                <button className="sm:ms-2 sm:mt-0 mt-2" style={{ backgroundColor: "rgb(255, 99, 71,0.5)", borderRadius: "8px", padding: "2px" }} type="button" onClick={() => window.location.href = "/"}><img src={ArrowIcon} alt="arrow" height={30} width={30} /></button>
-              </div>
-            </div>
-          )}
-
+          </div>
+        )}
       </div>
       <div>
-        {message && <div style={{ right: 0, top: 40, position: 'fixed' }}
-          className="z-10 absolute fixed w-100 border-2 border-orange-300 block p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center">
-          <span style={{ color: "red", padding: "10px" }}><GrNotification /></span>
-          <span>{message}</span>
-        </div>}
+        {message && (
+          <div
+            style={{ right: 0, top: 40, position: "fixed" }}
+            className="z-10 absolute fixed w-100 border-2 border-orange-300 block p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center"
+          >
+            <span style={{ color: "red", padding: "10px" }}>
+              <GrNotification />
+            </span>
+            <span>{message}</span>
+          </div>
+        )}
       </div>
     </>
   );
