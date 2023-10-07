@@ -5,7 +5,7 @@ import Shimmer from "./Shimmer";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import { GrNotification } from "react-icons/gr";
-import EmptyFavTab from "../assets/Empty-fav-tab-img.png";
+import EmptyFavTab from "../assets/non-exist-restaurant.png";
 import ArrowIcon from "../assets/arrow-icon.png";
 
 const Body = () => {
@@ -93,11 +93,12 @@ const Body = () => {
       <div className="search-container ml-auto p-4 border-black ">
         {filteredlistOfRestuarants?.length === 0 && searchText !== "" ? (
           <div className="flex flex-col items-center">
-            <h2 className="font-bold text-center font-serif">
+            
+            <h2 className="font-bold text-center font-serif my-1.5">
               The restaurant you're searching for doesn't exist.
             </h2>
             <button
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 right-10 rounded border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none"
+              className="bg-white hover:bg-orange-300 text-gray-800 font-semibold py-2 px-4 border border-orange-300 rounded shadow"
               onClick={() => {
                 window.location.href = "/";
               }}
@@ -197,7 +198,7 @@ const Body = () => {
               <button
                 className="sm:ms-2 sm:mt-0 mt-2"
                 style={{
-                  backgroundColor: "rgb(255, 99, 71,0.5)",
+                  backgroundColor: "#fa8e57",
                   borderRadius: "8px",
                   padding: "2px",
                 }}
