@@ -97,7 +97,7 @@ const Body = () => {
               The restaurant you're searching for doesn't exist.
             </h2>
             <button
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 right-10 rounded border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none"
+              className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 right-10 border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none"
               onClick={() => {
                 window.location.href = "/";
               }}
@@ -106,8 +106,8 @@ const Body = () => {
             </button>
           </div>
         ) : (
-          <div className="lg:block md:flex md:justify-center">
-            <div className="flex flex-col md:flex-row items-center lg:pl-96  md:items-center lg:pl-9">
+          <div className="md:flex md:justify-center md:items-center">
+            <div className="flex flex-col md:flex-row items-center  md:items-center lg:pl-9">
               <div className="flex items-center ">
                 <input
                   type="text"
@@ -176,7 +176,7 @@ const Body = () => {
       </div>
       <div>
         {filteredlistOfRestuarants.length > 0 ? (
-          <div className="px-14 md:px-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="px-14 md:px-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {filteredlistOfRestuarants.map((restaurant) => (
               <RestruarantCards
                 key={restaurant?.info.id}
