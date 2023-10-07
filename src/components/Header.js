@@ -227,7 +227,7 @@ const Header = () => {
 
                   {isLoggedIn ? (
                     <button
-                      className="w-26 text-lg font-medium shadow-md py-2 outline-none m-2 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+                      className="w-24 text-lg font-medium shadow-md py-2 outline-none m-2 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
                       onClick={() => {
                         login();
                       }}
@@ -236,7 +236,7 @@ const Header = () => {
                     </button>
                   ) : (
                     <button
-                      className="w-26 text-lg font-medium shadow-md py-2 outline-none m-2 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+                      className="w-24 text-lg font-medium shadow-md py-2 outline-none m-2 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
                       onClick={() => logout()}
                     >
                       Logout
