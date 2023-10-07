@@ -42,7 +42,7 @@ const RestruarantCards = (props) => {
           <div className="flex justify-between items-center my-2 font-medium">
             <div className={`flex items-center gap-1 px-1 text-white ${avgRating >= 4
               ? 'bg-green-500'
-              : avgRating >= 4
+              : avgRating >= 2
                 ? 'bg-amber-500'
                 : 'bg-red-500'
               } font-semibold`}>
