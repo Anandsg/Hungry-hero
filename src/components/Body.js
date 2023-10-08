@@ -130,7 +130,7 @@ const Body = () => {
               </div>
               <div className="flex items-center  mt-2  md:mt-0">
                 <span
-                  className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${
+                  className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out cursor-pointer md:bg-white md:text-black ${
                     showFitler
                       ? "border-orange-300 text-orange-300 hover:border-orange-500"
                       : ""
@@ -150,7 +150,7 @@ const Body = () => {
                   Rating: 4.0+
                 </span>
                 <span
-                  className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${
+                  className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out cursor-pointer md:bg-white md:text-black md:bg-white md:text-black ${
                     showFav
                       ? "border-orange-300 text-orange-300 hover:border-orange-500"
                       : ""
