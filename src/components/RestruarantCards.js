@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const RestruarantCards = (props) => {
   const { resData, id, favlist, onClickFav } = props;
-  const [isfav, setfav] = useState(favlist.indexOf(id) == -1);
+  const [isfav, setfav] = useState(favlist.indexOf(id) > -1);
   const {
     cloudinaryImageId,
     name,
@@ -15,27 +15,28 @@ const RestruarantCards = (props) => {
     slaString,
     costForTwo,
     aggregatedDiscountInfo,
-} = resData;
+  } = resData;
   return (
     <div className="overflow-hidden shadow-md md:shadow-none py-4 px-4 md:py-2  hover:shadow-xl rounded flex flex-col gap-1 text-[0.7rem] text-[#535665] " >
-<Link
-  to={"/restaurants/" + id}
->
-      <div className="relative">
-        <img
-          src={
-            CDN_URL +
-            (cloudinaryImageId === ""
-              ? "s6fhwzl0tss0vgrqvcid"
-              : cloudinaryImageId)
-          }
-          alt=""
-          className=" rounded object-cover"
-        />
-        <span className={ `absolute text-xl top-0.5 right-0.5 cursor-pointer ${!isfav ? "text-[red]" : "text-[gray] hover:text-[red] duration-200" }`  } onClick={(e) => { setfav(!isfav); onClickFav(id);e.preventDefault(); }}>
-          <AiFillHeart />
-        </span>
-      </div>
+      <Link
+        to={"/restaurants/" + id}
+      >
+        <div className="relative">
+          <img
+            src={
+              CDN_URL +
+              (cloudinaryImageId === ""
+                ? "s6fhwzl0tss0vgrqvcid"
+                : cloudinaryImageId)
+            }
+            alt=""
+            className=" rounded object-cover"
+          />
+          <span className={"group absolute text-xl top-0.5 right-0.5 cursor-pointer"} onClick={(e) => { setfav(!isfav); onClickFav(id); e.preventDefault(); }}>
+            <AiFillHeart className={`${isfav ? "text-red-500" : "text-black"} group-hover:text-red-500`} />
+            <AiOutlineHeart className="absolute top-0" color="white" />
+          </span>
+        </div>
         <div className="res-details px-2">
           <h4 className="font-medium text-base text-black">{name}</h4>
           <span className="text-[0.8rem]">{cuisines.join(", ")}</span>
