@@ -12,6 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { HiPhone } from "react-icons/hi";
 import { HiHome, HiBuildingOffice, HiShoppingBag } from "react-icons/hi2";
+import { FaQuestionCircle } from "react-icons/fa";
 
 import ScrollToTop from "./ScrollToTop";
 import { useGoogleLogin } from "@react-oauth/google";
@@ -137,6 +138,9 @@ const Header = () => {
             </Link>
             <Link to="/Help">
               <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                <span>
+                  <FaQuestionCircle />
+                </span>
                 Help
               </li>
             </Link>
@@ -213,6 +217,9 @@ const Header = () => {
                   </Link>
                   <Link to="/Help" onClick={closeMenu}>
                     <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                      <span>
+                        <FaQuestionCircle />
+                      </span>
                       Help
                     </li>
                   </Link>
