@@ -5,6 +5,8 @@ import useOnline from "../utils/useOnline";
 import { GrNotification } from "react-icons/gr";
 import EmptyFavTab from "../assets/Empty-fav-tab-img.png";
 import ArrowIcon from "../assets/arrow-icon.png";
+import DownArrow from '../assets/down-arrow.png' 
+
 
 const Body = () => {
   const [AlllistOfRestuarants, setAlllistOfRestuarants] = useState([]);
@@ -14,8 +16,8 @@ const Body = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [message, setMessage] = useState(null);
-  const [ratingFilter, setRatingFilter] = useState("4+"); // Default to "4+"
-  const [showDropdown, setShowDropdown] = useState(false); // Dropdown visibility
+  const [ratingFilter, setRatingFilter] = useState("");
+  const [showDropdown, setShowDropdown] = useState(false); 
 
   useEffect(() => {
     // Fetch API
@@ -84,22 +86,23 @@ const Body = () => {
     }
   };
 
-  // Filter restaurants based on selected rating
+ 
   useEffect(() => {
     let filteredList = AlllistOfRestuarants;
-    if (ratingFilter === "4+") {
-      filteredList = AlllistOfRestuarants.filter(
-        (res) => res.info.avgRating >= 4.0
-      );
-    } else if (ratingFilter === "3+") {
-      filteredList = AlllistOfRestuarants.filter(
-        (res) => res.info.avgRating >= 3.0 && res.info.avgRating < 4.0
-      );
+    if (ratingFilter === "Filter") {
+      filteredList = AlllistOfRestuarants.filter((res) => res.info.avgRating > 0);
+    } else if (ratingFilter === "4.2+") {
+      filteredList = AlllistOfRestuarants.filter((res) => res.info.avgRating >= 4.2);
+    } else if (ratingFilter === "HighToLow") {
+      filteredList = [...AlllistOfRestuarants].sort((a, b) => b.info.avgRating - a.info.avgRating);
+    } else if (ratingFilter === "LowToHigh") {
+      filteredList = [...AlllistOfRestuarants].sort((a, b) => a.info.avgRating - b.info.avgRating);
+
     }
     setfilteredlistOfRestuarants(filteredList);
   }, [ratingFilter, AlllistOfRestuarants]);
 
-  // avoid rendering component (Early)
+
   if (!AlllistOfRestuarants) return null;
 
   return (
@@ -143,32 +146,35 @@ const Body = () => {
                 </button>
               </div>
               <div className="flex items-center mt-2 md:mt-0">
-                <span
-                  className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${
+               
+                <span style={{justifyContent: 'center', alignItems: 'center'}}
+                  className={`text-xs flex-row flex gap-3 font-medium shadow-md px-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${
                     showFilter ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""
                   }`}
                   onClick={() => {
-                    setRatingFilter(showDropdown ? "" : "4+");
+                    setRatingFilter(showDropdown ? "All" : "4+");
                     setShowFilter(!showFilter);
                     setShowFav(false);
                   }}
                 >
-                  Rating: {showDropdown ? "All" : ratingFilter}
-                </span>
-                {showFilter && (
-                  <div className="relative inline-block text-left">
-                    <div>
+                  Filter : {showDropdown ? "All" : ratingFilter} 
+                 <div>
                       <button
                         onClick={() => setShowDropdown(!showDropdown)}
                         type="button"
-                        className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer"
+                        className="text-xs mx-0  font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer"
                         id="dropdown-menu"
                         aria-haspopup="true"
                         aria-expanded="true"
                       >
-                        {showDropdown ? "Close" : "Select"}
+                        {showDropdown ? <img src={`${DownArrow}`} width={12} height={12} /> : <img className="transform rotate-180" width={12} height={12} src={`${DownArrow}`} />}
                       </button>
                     </div>
+                  
+                </span>
+                {showFilter && (
+                  <div className="relative inline-block text-left">
+                    
                     {showDropdown && (
                       <div
                         className="origin-top-right absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100"
@@ -178,25 +184,25 @@ const Body = () => {
                       >
                         <div className="py-1 z-10">
                           <button
-                            onClick={() => setRatingFilter("4+")}
+                            onClick={() => setRatingFilter("4.2+")}
                             className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                             role="menuitem"
                           >
-                            4.0+
+                            4.2+
                           </button>
                           <button
-                            onClick={() => setRatingFilter("3+")}
+                            onClick={() => setRatingFilter("HighToLow")}
                             className="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 "
                             role="menuitem"
                           >
-                            3.0+
+                            High To Low
                           </button>
                           <button
-                            onClick={() => setRatingFilter("3+")}
+                            onClick={() => setRatingFilter("LowToHigh")}
                             className="w-full block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 "
                             role="menuitem"
                           >
-                            2.0+
+                            Low to High
                           </button>
                         </div>
                       </div>
