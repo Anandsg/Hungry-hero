@@ -90,6 +90,7 @@ const Header = () => {
                 alt="Logo"
               />
             </Link>
+            <h1 className="ml-6 text-4xl font-bubblegum">Hungry Hero</h1>
             {/* <span className="ml-2 text-xl font-bold">
             <span className="text-orange-500">Browse</span> Order{" "}
             <span className="text-orange-500">Enjoy!</span>
