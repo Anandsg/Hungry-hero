@@ -10,6 +10,9 @@ import {
   faBars,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
+import { HiPhone } from "react-icons/hi";
+import { HiHome, HiBuildingOffice, HiShoppingBag } from "react-icons/hi2";
+import { FaQuestionCircle } from "react-icons/fa";
 
 import ScrollToTop from "./ScrollToTop";
 import { useGoogleLogin } from "@react-oauth/google";
@@ -110,22 +113,34 @@ const Header = () => {
           {/* Navigation Links (Hidden on Small Screens) */}
           <ul className="hidden md:flex items-center space-x-4">
             <Link to="/">
-              <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out">
+              <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                <span>
+                  <HiHome />
+                </span>
                 Home
               </li>
             </Link>
             <Link to="/About">
-              <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out">
+              <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                <span>
+                  <HiBuildingOffice />
+                </span>
                 About
               </li>
             </Link>
             <Link to="/Contact">
-              <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out">
+              <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                <span>
+                  <HiPhone />
+                </span>
                 Contact
               </li>
             </Link>
             <Link to="/Help">
-              <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out">
+              <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                <span>
+                  <FaQuestionCircle />
+                </span>
                 Help
               </li>
             </Link>
@@ -175,29 +190,44 @@ const Header = () => {
                 >
                   <FontAwesomeIcon icon={faTimes} className="w-6 h-6" />
                 </button>
-                <ul className="flex flex-col space-y-4 items-center">
+                <ul className="flex flex-col space-y-4">
                   <Link to="/" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out">
+                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                      <span>
+                        <HiHome />
+                      </span>
                       Home
                     </li>
                   </Link>
                   <Link to="/About" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out">
+                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                      <span>
+                        <HiBuildingOffice />
+                      </span>
                       About
                     </li>
                   </Link>
                   <Link to="/Contact" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out">
+                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                      <span>
+                        <HiPhone />
+                      </span>
                       Contact
                     </li>
                   </Link>
                   <Link to="/Help" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out">
+                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                      <span>
+                        <FaQuestionCircle />
+                      </span>
                       Help
                     </li>
                   </Link>
                   <Link to="/Cart" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out">
+                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                      <span>
+                        <HiShoppingBag />
+                      </span>
                       Cart
                     </li>
                   </Link>
