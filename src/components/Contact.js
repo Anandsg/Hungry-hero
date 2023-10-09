@@ -66,7 +66,7 @@ const Contact = () => {
             <br />
             <input
               type="text"
-              className="mb-2 border p-2 mt-3 border-black rounded-lg w-[400px] md:bg-white md:text-black"
+              className="mb-2 border p-2 mt-3 border-black rounded-lg w-[400px]"
               name="userName"
               onChange={validateName}
             ></input>
@@ -83,7 +83,7 @@ const Contact = () => {
             <br />
             <input
               type="email"
-              className="mb-2 p-2 mt-3 border border-black rounded-lg w-[400px] md:bg-white md:text-black"
+              className="mb-2 p-2 mt-3 border border-black rounded-lg w-[400px]"
               name="userEmail"
               onChange={validateEmail}
             ></input>
@@ -100,7 +100,7 @@ const Contact = () => {
             <br />
             <textarea
               type="text"
-              className="mb-2 p-2 mt-3 border border-black rounded w-[100%] lg:w-[400px] min-h-[100px] md:bg-white md:text-black"
+              className="mb-2 p-2 mt-3 border border-black rounded w-[100%] lg:w-[400px] min-h-[100px]"
               name="message"
               placeholder="Type your message here..."
               onChange={checkMsg}
@@ -110,14 +110,14 @@ const Contact = () => {
           <div className="flex justify-around">
             <button
               type="reset"
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer md:bg-white md:text-black"
+              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
             >
               Clear 
             </button>
             <input
               type="submit"
               value="Submit"
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer md:bg-white md:text-black"
+              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
               onClick={handleSubmitButton}
             ></input>
           </div>

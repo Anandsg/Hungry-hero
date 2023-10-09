@@ -28,7 +28,7 @@ const RestruarantMenu = () => {
             <Toaster position="top-center" />
             <div className="w-4/6">
                 {/* <h1> Res-ID : {resId} </h1> */}
-                <div className="flex flex-col  md:w-full p-4 border m-auto light-mode-menu">
+                <div className="flex flex-col  md:w-full p-4 border m-auto">
                     <div className="flex flex-col  justify-between border-b md:flex-row gap-3">
                         <div className="flex flex-col text-xs w-full text-[#535665] font-medium gap-1">
                             <span className="text-xl font-bold text-black">
