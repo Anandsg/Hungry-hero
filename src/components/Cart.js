@@ -9,6 +9,7 @@ import { CDN_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import cook from "../assets/Cook.jpg";
 import React from "react";
+import { Delete } from "@mui/icons-material";
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
   console.log(cartItems, "cart items");
@@ -57,12 +58,7 @@ const CartItem = ({ id, name, imageId, price, description, quantity }) => {
   }
   return (
     <div className="my-2 border-b py-2 md:flex-row flex flex-col text-sm  gap-8 relative">
-      <button
-        className="absolute bottom-0 right-0 mt-2 mr-2 px-2 py-1  hover:bg-gray-200 rounded-full focus:outline-none"
-        onClick={() => HandleRemoveItem()}
-      >
-        X
-      </button>
+      
       <img
         src={
           imageId
@@ -79,10 +75,10 @@ const CartItem = ({ id, name, imageId, price, description, quantity }) => {
           {!price ? "250" : Math.round(((price / 100) * quantity)*100)/100}
         </span>
         <span className="text-sm text-gray-500">{description}</span>
-        <div className="flex items-center space-x-2">
+        <div className="flex  items-center gap-2">
           <button
             id="decreaseQuantity"
-            className="px-2 py-1 bg-gray-200 hover:bg-gray-100 rounded-full focus:outline-none"
+            className="px-4 py-1 bg-red-200 hover:bg-gray-100 rounded focus:outline-none"
             onClick={() => HandleQuantityDecrease()}
           >
             -
@@ -90,11 +86,17 @@ const CartItem = ({ id, name, imageId, price, description, quantity }) => {
           <span>{quantity}</span>
           <button
             id="increaseQuantity"
-            className="px-2 py-1 bg-gray-200 hover:bg-gray-100 rounded-full focus:outline-none"
+            className=" px-4 py-1 bg-green-200 hover:bg-gray-100 rounded focus:outline-none"
             onClick={() => HandleQuantityIncrease()}
           >
             +
           </button>
+          <button
+        className="float-right flex-start px-2 py-1  hover:bg-gray-200 rounded-full focus:outline-none"
+        onClick={() => HandleRemoveItem()}
+      >
+        <Delete style={{color: "red"}}/>
+      </button>
         </div>
       </div>
     </div>
