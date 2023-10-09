@@ -9,13 +9,10 @@ import {
   faShoppingCart,
   faBars,
   faTimes,
-  faMoon, // Import the moon icon for dark mode
-  faSun,  // Import the sun icon for light mode
 } from "@fortawesome/free-solid-svg-icons";
 import { HiPhone } from "react-icons/hi";
 import { HiHome, HiBuildingOffice, HiShoppingBag } from "react-icons/hi2";
 import { FaQuestionCircle } from "react-icons/fa";
-import { ThemeSwitcher } from "../utils/ThemeSwitcher";
 
 import ScrollToTop from "./ScrollToTop";
 import { useGoogleLogin } from "@react-oauth/google";
@@ -23,7 +20,6 @@ import { useGoogleLogin } from "@react-oauth/google";
 const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Track whether the menu is open
-  const [isDarkMode, setIsDarkMode] = useState(false); // Track dark mode
 
   const isOnline = useOnline();
   const { user } = useContext(UserContext);
@@ -48,29 +44,6 @@ const Header = () => {
       throw error;
     }
   };
-
-   // Function to toggle dark mode
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode); // Toggle the dark mode state
-
-    // Apply dark mode styles based on the isDarkMode state
-    const body = document.body;
-    if (!isDarkMode) {
-      body.classList.add("dark-mode");
-    } else {
-      body.classList.remove("dark-mode");
-    }
-  };
-
-  useEffect(() => {
-    // Initialize dark mode styles based on the initial isDarkMode state
-    const body = document.body;
-    if (isDarkMode) { // Only add "dark-mode" class when isDarkMode is true
-      body.classList.add("dark-mode");
-    } else {
-      body.classList.remove("dark-mode");
-    }
-  }, [isDarkMode]);
 
   //Funtion to login with google account
   const login = useGoogleLogin({
@@ -137,24 +110,8 @@ const Header = () => {
               </button>
             </div>
           </div>
-           
           {/* Navigation Links (Hidden on Small Screens) */}
           <ul className="hidden md:flex items-center space-x-4">
-            {/* Dark Mode Toggle Button with Icon */}
-      <button
-        className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2"
-        onClick={toggleDarkMode}
-      >
-        {isDarkMode ? (
-          <>
-            <FontAwesomeIcon icon={faSun} className="mr-2" />
-          </>
-        ) : (
-          <>
-            <FontAwesomeIcon icon={faMoon} className="mr-2" />
-          </>
-        )}
-      </button>
             <Link to="/">
               <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
                 <span>
@@ -206,7 +163,7 @@ const Header = () => {
 
             {isLoggedIn ? (
               <button
-                className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer md:bg-white md:text-black"
+                className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
                 onClick={() => {
                   login();
                 }}
