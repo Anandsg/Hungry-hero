@@ -66,7 +66,7 @@ const Contact = () => {
             <br />
             <input
               type="text"
-              className="mb-2 border p-2 mt-3 border-black rounded-lg w-[400px]"
+              className="mb-2 border p-2 mt-3 border-black rounded-lg w-[400px] md:bg-white md:text-black"
               name="userName"
               onChange={validateName}
             ></input>
@@ -83,7 +83,7 @@ const Contact = () => {
             <br />
             <input
               type="email"
-              className="mb-2 p-2 mt-3 border border-black rounded-lg w-[400px]"
+              className="mb-2 p-2 mt-3 border border-black rounded-lg w-[400px] md:bg-white md:text-black"
               name="userEmail"
               onChange={validateEmail}
             ></input>
@@ -100,7 +100,7 @@ const Contact = () => {
             <br />
             <textarea
               type="text"
-              className="mb-2 p-2 mt-3 border border-black rounded w-[100%] lg:w-[400px] min-h-[100px]"
+              className="mb-2 p-2 mt-3 border border-black rounded w-[100%] lg:w-[400px] min-h-[100px] md:bg-white md:text-black"
               name="message"
               placeholder="Type your message here..."
               onChange={checkMsg}
