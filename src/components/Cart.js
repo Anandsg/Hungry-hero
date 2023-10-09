@@ -76,7 +76,7 @@ const CartItem = ({ id, name, imageId, price, description, quantity }) => {
         <span className="font-semibold">{name}</span>
         <span className="font-semibold">
           &#8377;
-          {!price ? "250" : (price / 100) * quantity}
+          {!price ? "250" : Math.round(((price / 100) * quantity)*100)/100}
         </span>
         <span className="text-sm text-gray-500">{description}</span>
         <div className="flex items-center space-x-2">
