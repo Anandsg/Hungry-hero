@@ -79,15 +79,15 @@ const Body = () => {
         );
     }
 
-    const isOnline = useOnline();
-    if (!isOnline) {
-        return (
-            <h3 className="flex flex-col items-center justify-center font-serif h-screen bg-gray-100 text-2xl font-bold text-red-500 mb-4">
-                {" "}
-                it appears that the user is currently offline
-            </h3>
-        );
-    }
+    // const isOnline = useOnline();
+    // if (!isOnline) {
+    //     return (
+    //         <h3 className="flex flex-col items-center justify-center font-serif h-screen bg-gray-100 text-2xl font-bold text-red-500 mb-4">
+    //             {" "}
+    //             it appears that the user is currently offline
+    //         </h3>
+    //     );
+    // }
     const onClickFav = (id) => {
         let idx = favlist.indexOf(id);
         if (idx >= 0) {
