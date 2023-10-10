@@ -35,7 +35,7 @@ const Cart = () => {
               </div>
               <div className="flex flex-col">
                 {cartItems.map((item) => (
-                  <CartItem key={item?.info?.id} {...item?.info} />
+                  <CartItem key={item?.info?.id} {...item.info} />
                 ))}
               </div>
             </div>
@@ -50,7 +50,7 @@ const Cart = () => {
   );
 
 };
-const CartItem = ({ id, name, imageId, price, description, quantity }) => {
+const CartItem = ({ id, name, imageId,defaultPrice, price, description, quantity }) => {
   const dispatch = useDispatch();
   function HandleRemoveItem() {
     dispatch(removeItem(id));
@@ -83,7 +83,7 @@ const CartItem = ({ id, name, imageId, price, description, quantity }) => {
         <span className="font-semibold">{name}</span>
         <span className="font-semibold">
           &#8377;
-          {!price ? "250" : Math.round(((price / 100) * quantity) * 100) / 100}{" "}<span className="text-xs text-gray-500">{`(${(price / 100)} x ${quantity})`}</span>
+          {!price ? Math.round(((defaultPrice / 100) * quantity) * 100) / 100 : Math.round(((price / 100) * quantity) * 100) / 100}{" "}<span className="text-xs text-gray-500">{!price?`(${(defaultPrice / 100)} x ${quantity})`:`(${(price / 100)} x ${quantity})`}</span>
         </span>
         <span className="text-sm text-gray-500">{description}</span>
         <div className="flex items-center space-x-2">
@@ -118,7 +118,7 @@ const OrderSummary = () => {
   useEffect(() => {
     let totalCartAmount = 0;
     for (let i = 0; i < cartItems.length; i++) {
-      totalCartAmount += Math.round((cartItems[i].info.price / 100) * cartItems[i].info.quantity * 100) / 100;
+      totalCartAmount += Math.round((cartItems[i].info.price?(cartItems[i].info.price / 100):(cartItems[i].info.defaultPrice / 100)) * cartItems[i].info.quantity * 100) / 100;
     }
 
     setTotalAmount(totalCartAmount);
