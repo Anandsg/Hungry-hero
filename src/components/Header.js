@@ -95,7 +95,7 @@ const Header = () => {
               />
             </Link>
             
-            <div className="mt-2">
+            <div className="mt-2 ml-2">
               <img src={headImg} height={140} width={160}/>
             </div>
             
