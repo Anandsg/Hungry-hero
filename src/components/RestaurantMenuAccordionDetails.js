@@ -8,6 +8,10 @@ const RestaurantMenuAccordionDetails = (props) => {
     const { cardInfo, onClickAddFoodItem } = props;
     console.log(cardInfo.card.card.itemCards,);
     const dispatch=useDispatch()
+    const addItemHandler=(card)=>{
+        dispatch(addItem(card))
+        onClickAddFoodItem()
+    }
 
 
     return cardInfo.card?.card?.itemCards?.map((card) => {
@@ -50,7 +54,7 @@ const RestaurantMenuAccordionDetails = (props) => {
                     />
                     <button
                         className="absolute bottom-[-8px] bg-white shadow-md border self-center text-[10px] py-1 px-4 font-medium rounded  active:scale-90 hover:bg-orange-200 transition-all duration-300 ease-in-out"
-                        onClick={() => dispatch(addItem(card))}
+                        onClick={() => addItemHandler(card)}
                     >
                         ADD TO CART
                     </button>
