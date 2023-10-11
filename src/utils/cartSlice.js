@@ -8,11 +8,12 @@ const cartSlice = createSlice({
 
   reducers: {
     addItem: (state, action) => {
-      // console.log(state.items, "STATE.ITEMS");
+      console.log(state.items, "STATE.ITEMS");
       const index = state.items.findIndex(
         ({ info }) => info.id === action.payload.card.info.id
       );
       console.log(index, "Index");
+      console.log(state.items[index], "Index");
       if (index < 0) {
         state.items.push({ ...action.payload.card });
         state.items[state.items.length - 1].info.quantity = 1;

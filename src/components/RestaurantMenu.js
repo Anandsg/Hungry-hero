@@ -17,7 +17,7 @@ const RestruarantMenu = () => {
     const dispatch = useDispatch();
 
     const addFoodItem = (card) => {
-        dispatch(addItem(card));
+        // dispatch(addItem(card)); //this is done in children component now
         toast.success("Item added to cart");
     };
 
@@ -89,7 +89,7 @@ const RestruarantMenu = () => {
                                                 <RestaurantMenuAccordion
                                                     cardInfo={cardInfo}
                                                     onClickAddFoodItem={
-                                                        addFoodItem
+                                                       ()=> addFoodItem()
                                                     }
                                                 />
                                                 <div className="pb-4 bg-zinc-100"></div>
