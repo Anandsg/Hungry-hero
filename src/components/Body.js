@@ -115,9 +115,8 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container ml-auto p-4 border-black ">
-        {filteredlistOfRestuarants?.length === 0 &&
-          searchText !== "" ? (
+      <div className="search-container ml-auto p-4 border-black mt-[55px] md:mt-[80px]">
+        {filteredlistOfRestuarants?.length === 0 && searchText !== "" ? (
           <div className="flex flex-col items-center">
             <ImSad size={100} className="mt-8" />
 
@@ -169,49 +168,41 @@ const Body = () => {
               </div>
               <div className="flex items-center  mt-2  md:mt-0">
                 <span
-                  className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${showFitler
-                    ? "border-orange-300 text-orange-300 hover:border-orange-500"
-                    : ""
-                    }`}
+                  className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${
+                    showFitler
+                      ? "border-orange-300 text-orange-300 hover:border-orange-500"
+                      : ""
+                  }`}
                   onClick={() => {
                     let filteredList = AlllistOfRestuarants;
                     if (!showFitler) {
-                      filteredList =
-                        AlllistOfRestuarants.filter(
-                          (res) =>
-                            res.info.avgRating > 4
-                        );
+                      filteredList = AlllistOfRestuarants.filter(
+                        (res) => res.info.avgRating > 4
+                      );
                     }
                     setShowFitler(!showFitler);
                     setShowFav(false);
-                    setfilteredlistOfRestuarants(
-                      filteredList
-                    );
+                    setfilteredlistOfRestuarants(filteredList);
                   }}
                 >
                   Rating: 4.0+
                 </span>
                 <span
-                  className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${showFav
-                    ? "border-orange-300 text-orange-300 hover:border-orange-500"
-                    : ""
-                    }`}
+                  className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${
+                    showFav
+                      ? "border-orange-300 text-orange-300 hover:border-orange-500"
+                      : ""
+                  }`}
                   onClick={() => {
                     let filteredList = AlllistOfRestuarants;
                     if (!showFav) {
-                      filteredList =
-                        AlllistOfRestuarants.filter(
-                          (res) =>
-                            favlist.includes(
-                              res.info.id
-                            )
-                        );
+                      filteredList = AlllistOfRestuarants.filter((res) =>
+                        favlist.includes(res.info.id)
+                      );
                     }
                     setShowFav(!showFav);
                     setShowFitler(false);
-                    setfilteredlistOfRestuarants(
-                      filteredList
-                    );
+                    setfilteredlistOfRestuarants(filteredList);
                   }}
                 >
                   Favourites
@@ -236,8 +227,8 @@ const Body = () => {
           </div>
         ) : (
           <div className="h-full w-full flex justify-center items-center px-10 flex-col">
-            {showFav ?
-              (<>
+            {showFav ? (
+              <>
                 <img src={EmptyFavTab} alt="icon" className="mt-8" />
                 <div className="flex sm:flex-row flex-col items-center mt-2">
                   <span className="sm:text-start text-center">
@@ -253,15 +244,11 @@ const Body = () => {
                     type="button"
                     onClick={() => (window.location.href = "/")}
                   >
-                    <img
-                      src={ArrowIcon}
-                      alt="arrow"
-                      height={30}
-                      width={30}
-                    />
+                    <img src={ArrowIcon} alt="arrow" height={30} width={30} />
                   </button>
                 </div>
-              </>) : null}
+              </>
+            ) : null}
           </div>
         )}
       </div>
