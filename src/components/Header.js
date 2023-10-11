@@ -113,7 +113,7 @@ const Header = () => {
             </div>
           </div>
           {/* Navigation Links (Hidden on Small Screens) */}
-          <ul className="hidden md:flex items-center space-x-10">
+          <ul className="hidden md:flex items-center space-x-5">
             <Link to="/">
               <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
                 <span>
