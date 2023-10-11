@@ -13,7 +13,6 @@ import {
 import { HiPhone } from "react-icons/hi";
 import { HiHome, HiBuildingOffice, HiShoppingBag } from "react-icons/hi2";
 import { FaQuestionCircle } from "react-icons/fa";
-import headImg from '../assets/headImg.png';
 
 import ScrollToTop from "./ScrollToTop";
 import { useGoogleLogin } from "@react-oauth/google";
@@ -84,7 +83,7 @@ const Header = () => {
     <>
       <ScrollToTop />
       <div className="shadow-md">
-        <div className="container mx-auto px-4 md:flex md:justify-between md:items-center">
+        <div className="container mx-auto py-1 px-4 md:flex md:justify-between md:items-center">
           <div className="flex items-center justify-between">
             <Link to="/">
               <img
@@ -94,11 +93,10 @@ const Header = () => {
                 alt="Logo"
               />
             </Link>
-            
-            <div className="mt-2 ml-2">
-              <img src={headImg} height={140} width={160}/>
-            </div>
-            
+            {/* <span className="ml-2 text-xl font-bold">
+            <span className="text-orange-500">Browse</span> Order{" "}
+            <span className="text-orange-500">Enjoy!</span>
+          </span> */}
 
             <div className="flex md:space-x-6 mt-4 md:mt-0">
               {/* Hamburger Menu Button */}
@@ -113,7 +111,9 @@ const Header = () => {
             </div>
           </div>
           {/* Navigation Links (Hidden on Small Screens) */}
+
           <ul className="hidden md:flex items-center space-x-5">
+          <ul className="hidden md:flex items-center space-x-4">
             <Link to="/">
               <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
                 <span>
