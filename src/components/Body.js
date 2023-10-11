@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import { GrNotification } from "react-icons/gr";
+import { ImSad } from "react-icons/im";
 import {
   faArrowLeft,
   faArrowLeftLong,
@@ -42,6 +43,7 @@ const Body = () => {
     if (data.length === 0 && searchText !== "") {
       setfilteredlistOfRestuarants([]);
     }
+    setShowFav(false);
   }
 
   //Reset to default on Back button press
@@ -117,11 +119,14 @@ const Body = () => {
         {filteredlistOfRestuarants?.length === 0 &&
           searchText !== "" ? (
           <div className="flex flex-col items-center">
-            <h2 className="font-bold text-center">
+            <ImSad size={100} className="mt-8" />
+
+            <h2 className="font-bold text-center mt-12">
               The restaurant you're searching for doesn't exist.
             </h2>
+
             <button
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 right-10 border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none"
+              className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 right-10 border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none mt-4"
               onClick={() => {
                 window.location.href = "/";
               }}
@@ -231,29 +236,32 @@ const Body = () => {
           </div>
         ) : (
           <div className="h-full w-full flex justify-center items-center px-10 flex-col">
-            <img src={EmptyFavTab} alt="icon" className="mt-8" />
-            <div className="flex sm:flex-row flex-col items-center mt-2">
-              <span className="sm:text-start text-center">
-                Find your favourite restaurants now
-              </span>
-              <button
-                className="sm:ms-2 sm:mt-0 mt-2"
-                style={{
-                  backgroundColor: "rgb(255, 99, 71,0.5)",
-                  borderRadius: "8px",
-                  padding: "2px",
-                }}
-                type="button"
-                onClick={() => (window.location.href = "/")}
-              >
-                <img
-                  src={ArrowIcon}
-                  alt="arrow"
-                  height={30}
-                  width={30}
-                />
-              </button>
-            </div>
+            {showFav ?
+              (<>
+                <img src={EmptyFavTab} alt="icon" className="mt-8" />
+                <div className="flex sm:flex-row flex-col items-center mt-2">
+                  <span className="sm:text-start text-center">
+                    Find your favourite restaurants now
+                  </span>
+                  <button
+                    className="sm:ms-2 sm:mt-0 mt-2"
+                    style={{
+                      backgroundColor: "rgb(255, 99, 71,0.5)",
+                      borderRadius: "8px",
+                      padding: "2px",
+                    }}
+                    type="button"
+                    onClick={() => (window.location.href = "/")}
+                  >
+                    <img
+                      src={ArrowIcon}
+                      alt="arrow"
+                      height={30}
+                      width={30}
+                    />
+                  </button>
+                </div>
+              </>) : null}
           </div>
         )}
       </div>
