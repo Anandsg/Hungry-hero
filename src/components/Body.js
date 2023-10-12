@@ -252,11 +252,11 @@ const Body = () => {
           </div>
         )}
       </div>
-      <div>
+      <div className=" relative bg-red-200">
         {message && (
           <div
             style={{ right: 0, top: 40, position: "fixed" }}
-            className="z-10 absolute fixed w-100 border-2 border-orange-300 block p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center"
+            className=" flex absolute top-0 mt-[60px] mr-4 z-10 w-fit text-sm md:text-base border-2 border-orange-300 p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex-row items-center  drop-shadow-md"
           >
             <span style={{ color: "red", padding: "10px" }}>
               <GrNotification />
