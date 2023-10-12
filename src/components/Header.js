@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { LOGO_URL } from "../utils/constants";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import UserContext from "../utils/userContext";
 import { useSelector } from "react-redux";
@@ -79,6 +79,7 @@ const Header = () => {
       setisLoggedIn(false);
     }
   }, []);
+
   return (
     <>
       <ScrollToTop />
@@ -112,43 +113,65 @@ const Header = () => {
           </div>
           {/* Navigation Links (Hidden on Small Screens) */}
           <ul className="hidden md:flex items-center space-x-4">
-            <Link to="/">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "text-orange-400 " : "text-black"
+              }
+            >
               <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
                 <span>
                   <HiHome />
                 </span>
                 Home
               </li>
-            </Link>
-            <Link to="/About">
+            </NavLink>
+            <NavLink
+              to="/About"
+              className={({ isActive }) =>
+                isActive ? "text-orange-400 " : "text-black"
+              }
+            >
               <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
                 <span>
                   <HiBuildingOffice />
                 </span>
                 About
               </li>
-            </Link>
-            <Link to="/Contact">
+            </NavLink>
+            <NavLink
+              to="/Contact"
+              className={({ isActive }) =>
+                isActive ? "text-orange-400 " : "text-black"
+              }
+            >
               <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
                 <span>
                   <HiPhone />
                 </span>
                 Contact
               </li>
-            </Link>
-            <Link to="/Help">
+            </NavLink>
+            <NavLink
+              to="/Help"
+              className={({ isActive }) =>
+                isActive ? "text-orange-400 " : "text-black"
+              }
+            >
               <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
                 <span>
                   <FaQuestionCircle />
                 </span>
                 Help
               </li>
-            </Link>
-            <Link
+            </NavLink>
+            <NavLink
               to="/Cart"
-              className="flex items-center hover:text-orange-400 transition-all duration-300 ease-in-out"
+              className={({ isActive }) =>
+                isActive ? "text-orange-400 " : "text-black"
+              }
             >
-              <div className="relative">
+              <div className="relative flex items-center hover:text-orange-400 transition-all duration-300 ease-in-out">
                 <FontAwesomeIcon icon={faShoppingCart} className="w-5 h-5" />
                 <span
                   className="absolute top-[-20%] right-[-32%] inline-flex items-center justify-center w-3 h-3.5 bg-orange-500 text-white rounded-full text-xs"
@@ -157,7 +180,7 @@ const Header = () => {
                   {cartItems.length}
                 </span>
               </div>
-            </Link>
+            </NavLink>
 
             {/* Will enable login feature once i setup google client ID */}
 
@@ -191,46 +214,76 @@ const Header = () => {
                   <FontAwesomeIcon icon={faTimes} className="w-6 h-6" />
                 </button>
                 <ul className="flex flex-col space-y-4">
-                  <Link to="/" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
+                  <NavLink
+                    to="/"
+                    onClick={closeMenu}
+                    className={({ isActive }) =>
+                      isActive ? "text-orange-400 " : "text-black"
+                    }
+                  >
+                    <li className="text-2xl hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
                       <span>
                         <HiHome />
                       </span>
                       Home
                     </li>
-                  </Link>
-                  <Link to="/About" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
+                  </NavLink>
+                  <NavLink
+                    to="/About"
+                    onClick={closeMenu}
+                    className={({ isActive }) =>
+                      isActive ? "text-orange-400 " : "text-gray-800"
+                    }
+                  >
+                    <li className="text-2xl hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
                       <span>
                         <HiBuildingOffice />
                       </span>
                       About
                     </li>
-                  </Link>
-                  <Link to="/Contact" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
+                  </NavLink>
+                  <NavLink
+                    to="/Contact"
+                    onClick={closeMenu}
+                    className={({ isActive }) =>
+                      isActive ? "text-orange-400 " : "text-gray-800"
+                    }
+                  >
+                    <li className="text-2xl  hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
                       <span>
                         <HiPhone />
                       </span>
                       Contact
                     </li>
-                  </Link>
-                  <Link to="/Help" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
+                  </NavLink>
+                  <NavLink
+                    to="/Help"
+                    onClick={closeMenu}
+                    className={({ isActive }) =>
+                      isActive ? "text-orange-400 " : "text-gray-800"
+                    }
+                  >
+                    <li className="text-2xl hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
                       <span>
                         <FaQuestionCircle />
                       </span>
                       Help
                     </li>
-                  </Link>
-                  <Link to="/Cart" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
+                  </NavLink>
+                  <NavLink
+                    to="/Cart"
+                    onClick={closeMenu}
+                    className={({ isActive }) =>
+                      isActive ? "text-orange-400 " : "text-gray-800"
+                    }
+                  >
+                    <li className="text-2xl hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
                       <span>
                         <HiShoppingBag />
                       </span>
                       Cart
                     </li>
-                  </Link>
+                  </NavLink>
 
                   {isLoggedIn ? (
                     <button
