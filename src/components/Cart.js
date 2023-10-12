@@ -116,13 +116,14 @@ const CartItem = ({ id, name, imageId, defaultPrice, price, description, quantit
         </div>
       </div>
 
-      <button
-        className="absolute bottom-1 right-0 mt-2 mr-2 px-2 py-1 hover:bg-gray-200 bg-transparent rounded-full focus:outline-none text-orange-400 rounded-3xl"
-        style={{ borderRadius: '7px' }}
-        onClick={() => HandleRemoveItem()}
-      >
-        Remove
-      </button>
+        <button
+          className="absolute bottom-1 right-0 mt-2 mr-2 px-2 py-1 hover:bg-gray-200 bg-orange-400 rounded-full focus:outline-none text-white rounded-3xl"
+          style={{ borderRadius: '7px' }}
+          onClick={() => HandleRemoveItem()}
+        >
+          Remove
+        </button>
+
     </div>
   );
 };
