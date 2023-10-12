@@ -161,7 +161,7 @@ const Body = () => {
 
                 <button
                   data-testid="search-btn"
-                  className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 md:mr-2 right-10 rounded border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none md:bg-white md:text-black"
+                  className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 md:mr-2 right-10 border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none md:bg-white md:text-black"
                   onClick={() => initiateSearch()}
                 >
                   Search
@@ -269,7 +269,7 @@ const Body = () => {
         {message && (
           <div
             style={{ right: 0, top: 40, position: "fixed" }}
-            className="z-10 absolute fixed w-100 border-2 border-orange-300 block p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center"
+            className="z-10 text-[14px] border-2 border-orange-300 p-1 pr-2 bg-white/70 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center mt-[40px] md:mt-[60px] mr-2 drop-shadow-md backdrop-blur-lg"
           >
             <span style={{ color: "red", padding: "10px" }}>
               <GrNotification />
