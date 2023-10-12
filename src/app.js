@@ -32,7 +32,9 @@ const AppLayout = () => {
           <PersistGate loading={null} persistor={persistor}>
             <div>
               <Header />
-              <Outlet />
+              <div className="mt-[55px] md:mt-[90px]">
+                <Outlet />
+              </div>
             </div>
             <Footer />
           </PersistGate>

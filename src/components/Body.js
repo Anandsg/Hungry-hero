@@ -115,7 +115,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container ml-auto p-4 border-black mt-[55px] md:mt-[80px]">
+      <div className="search-container ml-auto p-4 border-black ">
         {filteredlistOfRestuarants?.length === 0 && searchText !== "" ? (
           <div className="flex flex-col items-center">
             <ImSad size={100} className="mt-8" />
