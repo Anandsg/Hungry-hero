@@ -62,14 +62,9 @@ const CartItem = ({ id, name, imageId,defaultPrice, price, description, quantity
     dispatch(decreaseQuantity(id));
   }
   return (
-    <div className="my-2 border-b py-2 md:flex-row flex flex-col text-sm  gap-8 relative" style={{ height: '50%' }} >
-      <button
-        className="absolute bottom-1 border-2 border-orange-400 right-0 mt-2 mr-2 px-2 py-1 hover:bg-gray-200 bg-transparent rounded-full focus:outline-none text-orange-400 rounded-3xl" style={{ borderRadius: '7px' }}
-        onClick={() => HandleRemoveItem()}
-      >
-        Remove
-      </button>
-
+    //changed the height in the CSS rather then inline
+    <div className="my-4 border-b py-2 md:flex-row flex flex-col text-sm  gap-8 h-13" style={{ paddingBottom: '10px'}} >
+     
       <img
         src={
           imageId
@@ -77,16 +72,26 @@ const CartItem = ({ id, name, imageId,defaultPrice, price, description, quantity
             : "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/39cd5e4824e5c011ffaf56ddc39891e8"
         }
         alt=""
-        className="w-32 h-30 rounded object-cover"
+        className="w-32 h-30 rounded object-cover "
       />
+          {/* placed the remove button inside the div of col */}
       <div className="flex flex-col gap-1 ">
         <span className="font-semibold">{name}</span>
         <span className="font-semibold">
           &#8377;
           {!price ? Math.round(((defaultPrice / 100) * quantity) * 100) / 100 : Math.round(((price / 100) * quantity) * 100) / 100}{" "}<span className="text-xs text-gray-500">{!price?`(${(defaultPrice / 100)} x ${quantity})`:`(${(price / 100)} x ${quantity})`}</span>
         </span>
-        <span className="text-sm text-gray-500">{description}</span>
-        <div className="flex items-center space-x-2">
+
+        <div className="flex items-center ">
+          <span className="text-sm text-gray-500">{description}</span>
+          <button
+            className=" bottom-1 border-2 border-orange-400 right-0 mt-2 mr-2 px-2 py-2 hover:bg-gray-200 bg-transparent rounded-full focus:outline-none text-orange-400 rounded-3xl" style={{ borderRadius: '7px' }}
+            onClick={() => HandleRemoveItem()}
+           >
+            Remove
+          </button>
+        </div>
+        <div className="flex items-center space-x-2 ">
           <button
             id="decreaseQuantity"
             className="px-2 text-white py-1 font-bold  bg-orange-400 hover:bg-orange-300 rounded-full focus:outline-none"
