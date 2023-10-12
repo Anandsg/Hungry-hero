@@ -43,7 +43,6 @@ const Contact = () => {
   };
 
   const handleSubmitButton = (e) => {
-    console.log("Name ", nameError, "Email ", emailError, "Msg ", msgError);
     e.preventDefault();
     if (name == "" && email == "" && msg == "") {
       setNameError(true);
