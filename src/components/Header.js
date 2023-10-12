@@ -106,7 +106,7 @@ const Header = () => {
                 className="md:hidden focus:outline-none"
               >
                 {!isMenuOpen && (
-                  <FontAwesomeIcon icon={faBars} className="w-6 h-6" />
+                  <FontAwesomeIcon icon={faBars} className="w-6 h-6 pb-3" />
                 )}
               </button>
             </div>
