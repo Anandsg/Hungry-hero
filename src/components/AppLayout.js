@@ -17,7 +17,7 @@ const AppLayout = () => {
           <PersistGate loading={null} persistor={persistor}>
             <div>
               <Header />
-              <div className=" pt-[65px] md:pt-[87px]">
+              <div className=" pt-[57px] md:pt-[87px]">
                 <Outlet />
               </div>
             </div>
