@@ -6,6 +6,13 @@ Yes, it's an `open-source` web app!
 
 Is that all? Nope. You can also create your feature and share them with the world. The best part is that the ReactJS developer will `review` your project code before it gets part of the `Hungry-Hero` app.
 
+## Quick start :
+
+```
+$ npm install or yarn install
+$ npm start or yarn run
+```
+
 ## Want to Contribute 🔥 :
 
 - Refer to <a href="https://github.com/Anandsg/Hungry-hero/blob/master/CONTRIBUTING.md">Contributing Guide</a><br>
