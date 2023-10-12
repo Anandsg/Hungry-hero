@@ -32,16 +32,25 @@ const Body = () => {
     getRestaurants();
   }, []);
 
+  useEffect(() => {
+    initiateSearch();
+  }, [searchText]);
+
   //Search function
   function initiateSearch() {
-    const data = filterData(searchText, filteredListOfRestaurants);
-    setFilteredListOfRestaurants(data);
+    if(searchText === "") {
+      setFilteredListOfRestaurants(listOfRestaurants)
+    }
+    else {
+      const data = filterData(searchText, listOfRestaurants);
+      setFilteredListOfRestaurants(data);
 
-    //Check for toggling Searchbar back button
-    searchText !== "" ? setShowBackBtn(true) : setShowBackBtn(false);
+      //Check for toggling Searchbar back button
+      searchText !== "" ? setShowBackBtn(true) : setShowBackBtn(false);
 
-    if (data.length === 0 && searchText !== "") {
-      setFilteredListOfRestaurants([]);
+      if (data.length === 0 && searchText !== "") {
+        setFilteredListOfRestaurants([]);
+      }
     }
   }
 
