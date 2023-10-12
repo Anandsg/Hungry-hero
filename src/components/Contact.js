@@ -5,9 +5,9 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
-  const [emailError, setEmailError] = useState(true);
-  const [nameError, setNameError] = useState(true);
-  const [msgError, setMsgError] = useState(true);
+  const [emailError, setEmailError] = useState(false);
+  const [nameError, setNameError] = useState(false);
+  const [msgError, setMsgError] = useState(false);
 
   const emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
   const nameRegex = /^[A-Za-z\s'-]+$/;
