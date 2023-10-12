@@ -36,14 +36,14 @@ const appRouter = createBrowserRouter(
       }
       errorElement={<Error />}
     >
-      <Route path="/" element={<Body />} />
-      <Route path="/About" element={<About />}>
+      <Route index element={<Body />} />
+      <Route path="About" element={<About />}>
         <Route path="Profile" element={<Profile />} />
       </Route>
-      <Route path="/Contact" element={<Contact />} />
-      <Route path="/Help" element={<Help />} />
-      <Route path="/restaurants/:resId" element={<RestruarantMenu />} />
-      <Route path="/Cart" element={<Cart />} />
+      <Route path="Contact" element={<Contact />} />
+      <Route path="Help" element={<Help />} />
+      <Route path="restaurants/:resId" element={<RestruarantMenu />} />
+      <Route path="Cart" element={<Cart />} />
     </Route>
   )
 );
