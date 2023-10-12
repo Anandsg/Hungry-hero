@@ -39,8 +39,8 @@ const RestruarantCards = (props) => {
         </div>
         <div className="res-details px-2">
           <h4 className="font-medium text-base text-black">{name}</h4>
-          <span className="text-[0.8rem]">{cuisines.join(", ")}</span>
-          <div className="flex justify-between items-center my-2 font-medium">
+          <span className="text-[0.8rem] truncate">{cuisines.join(", ")}</span>
+          <div className="flex justify-between bottom-0 items-center my-2 font-medium">
             <div className={`flex items-center gap-1 px-1 text-white ${avgRating >= 4
               ? 'bg-green-500'
               : avgRating >= 2
