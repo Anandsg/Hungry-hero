@@ -26,6 +26,7 @@ const Body = () => {
   const [showFitler, setShowFitler] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [message, setMessage] = useState(null);
+  const [favourites,setFavourites] = useState([]);
 
   useEffect(() => {
     // Fetch API
@@ -38,11 +39,15 @@ const Body = () => {
 
   //Search function
   function initiateSearch() {
+    let searchList = showFav ? favourites : listOfRestaurants;
+    console.log(showFav,searchList)
     if(searchText === "") {
-      setFilteredListOfRestaurants(listOfRestaurants)
+      setFilteredListOfRestaurants(searchList);
     }
     else {
-      const data = filterData(searchText, listOfRestaurants);
+      console.log(searchList,searchText)
+      const data = filterData(searchText, searchList);
+      console.log("data",data);
       setFilteredListOfRestaurants(data);
 
       //Check for toggling Searchbar back button
@@ -205,21 +210,16 @@ const Body = () => {
                     : ""
                     }`}
                   onClick={() => {
-                    let filteredList = listOfRestaurants;
+                    let favouriteList = listOfRestaurants;
                     if (!showFav) {
-                      filteredList =
-                        listOfRestaurants.filter(
-                          (res) =>
-                            favlist.includes(
-                              res.info.id
-                            )
-                        );
+                      favouriteList = listOfRestaurants.filter((res) =>
+                        favlist.includes(res.info.id)
+                      );
                     }
                     setShowFav(!showFav);
                     setShowFitler(false);
-                    setFilteredListOfRestaurants(
-                      filteredList
-                    );
+                    setFilteredListOfRestaurants(favouriteList);
+                    setFavourites(favouriteList);
                   }}
                 >
                   Favourites
@@ -244,7 +244,7 @@ const Body = () => {
           </div>
         ) : (
           <div className="h-full w-full flex justify-center items-center px-10 flex-col">
-            {showFav ?
+            {showFav && favlist.length === 0?
               (<>
                 <img src={EmptyFavTab} alt="icon" className="mt-8" />
                 <div className="flex sm:flex-row flex-col items-center mt-2">
