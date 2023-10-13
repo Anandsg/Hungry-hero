@@ -94,24 +94,6 @@ const Header = () => {
                 alt="Logo"
               />
             </Link>
-            {/* <span className="ml-2 text-xl font-bold">
-            <span className="text-orange-500">Browse</span> Order{" "}
-            <span className="text-orange-500">Enjoy!</span>
-          </span> */}
-
-            {/* <div className="flex md:space-x-6 mt-4 md:mt-0"> */}
-              {/* Hamburger Menu Button */}
-              {/* <button
-                onClick={toggleMenu}
-                className="md:hidden focus:outline-none"
-              >
-                {!isMenuOpen ? (
-                  <FontAwesomeIcon icon={faBars} className="w-6 h-6 pb-3" />
-                ) : (
-                  <FontAwesomeIcon icon={faTimes} className="w-7 h-7 pb-2" />
-                )}
-              </button> */}
-            {/* </div> */}
           </div>
           {/* Navigation Links (Hidden on Small Screens) */}
           <ul className="flex text-[10px] sm:text-[16px] md:text-[18px] font-semibold items-center space-x-2 sm:space-x-3 md:space-x-4">
