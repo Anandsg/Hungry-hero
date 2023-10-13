@@ -12,7 +12,6 @@ import {
 import Contact from "./components/Contact";
 import RestruarantCards from "./components/RestruarantCards";
 import RestruarantMenu from "./components/RestaurantMenu";
-import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 import Help from "./components/Help";
 import Cart from "./components/Cart";
@@ -37,9 +36,7 @@ const appRouter = createBrowserRouter(
       errorElement={<Error />}
     >
       <Route index element={<Body />} />
-      <Route path="About" element={<About />}>
-        <Route path="Profile" element={<Profile />} />
-      </Route>
+      <Route path="About" element={<About />} />
       <Route path="Contact" element={<Contact />} />
       <Route path="Help" element={<Help />} />
       <Route path="restaurants/:resId" element={<RestruarantMenu />} />
@@ -50,5 +47,4 @@ const appRouter = createBrowserRouter(
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-// rendering functional component
 root.render(<RouterProvider router={appRouter} />);
