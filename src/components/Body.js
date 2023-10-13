@@ -277,7 +277,7 @@ const Body = () => {
         {message && (
           <div
             style={{ right: 0, top: 40, position: "fixed" }}
-            className="z-10 absolute fixed w-100 border-2 border-orange-300 block p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center"
+            className="z-10 text-[14px] mt-[27px] md:mt-[65px] mr-2 border-2 border-orange-300 p-1 pr-2 bg-white/70 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center drop-shadow-md backdrop-blur-lg"
           >
             <span style={{ color: "red", padding: "10px" }}>
               <GrNotification />

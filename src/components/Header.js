@@ -83,7 +83,7 @@ const Header = () => {
   return (
     <>
       <ScrollToTop />
-      <div className="shadow-md">
+      <div className="shadow-md fixed bg-white w-full z-50">
         <div className="container mx-auto py-1 px-4 md:flex md:justify-between md:items-center">
           <div className="flex items-center justify-between">
             <Link to="/">
@@ -106,7 +106,7 @@ const Header = () => {
                 className="md:hidden focus:outline-none"
               >
                 {!isMenuOpen && (
-                  <FontAwesomeIcon icon={faBars} className="w-6 h-6" />
+                  <FontAwesomeIcon icon={faBars} className="w-6 h-6 pb-3" />
                 )}
               </button>
             </div>
