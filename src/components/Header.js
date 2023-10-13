@@ -72,6 +72,7 @@ const Header = () => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+
   //For retrieving the accessToken on page referesh
   useEffect(() => {
     if (localStorage.getItem("accessToken")) {
@@ -105,8 +106,10 @@ const Header = () => {
                 onClick={toggleMenu}
                 className="md:hidden focus:outline-none"
               >
-                {!isMenuOpen && (
+                {!isMenuOpen ? (
                   <FontAwesomeIcon icon={faBars} className="w-6 h-6 pb-3" />
+                ) : (
+                  <FontAwesomeIcon icon={faTimes} className="w-7 h-7 pb-2" />
                 )}
               </button>
             </div>
@@ -205,14 +208,11 @@ const Header = () => {
 
           {/* Menu for Small Screens */}
           {isMenuOpen && (
-            <div className="fixed inset-0 flex items-center justify-center bg-white z-10">
-              <div className="w-full h-full p-4 flex flex-col items-center">
-                <button
-                  onClick={toggleMenu}
-                  className="md:hidden focus:outline-none absolute top-4 right-4"
-                >
-                  <FontAwesomeIcon icon={faTimes} className="w-6 h-6" />
-                </button>
+            <div
+              className={`fixed top-[64px] right-0 w-[100vw] flex items-center justify-center font-semibold bg-white md:hidden drop-shadow-md z-50`}
+            >
+              <div className="absolute top-[318px] bg-black/40 h-[100vh] w-full z-40 " />
+              <div className="w-full ml-[16px] p-4 flex flex-col items-center m-auto">
                 <ul className="flex flex-col space-y-4">
                   <NavLink
                     to="/"
