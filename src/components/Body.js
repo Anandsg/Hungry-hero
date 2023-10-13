@@ -26,6 +26,7 @@ const Body = () => {
   const [showFitler, setShowFitler] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [message, setMessage] = useState(null);
+  const [favourites, setFavourites] = useState([]);
 
   useEffect(() => {
     // Fetch API
@@ -40,10 +41,15 @@ const Body = () => {
   function initiateSearch() {
     setShowFav(false);
     setShowFitler(false);
+    let searchList = showFav ? favourites : listOfRestaurants;
+    console.log(showFav, searchList);
     if (searchText === "") {
-      setFilteredListOfRestaurants(listOfRestaurants);
+      setFilteredListOfRestaurants(searchList);
     } else {
-      const data = filterData(searchText, listOfRestaurants);
+      console.log(searchList, searchText);
+      const data = filterData(searchText, searchList);
+      console.log("data", data);
+
       setFilteredListOfRestaurants(data);
 
       //Check for toggling Searchbar back button
@@ -199,15 +205,16 @@ const Body = () => {
                       : ""
                   }`}
                   onClick={() => {
-                    let filteredList = listOfRestaurants;
+                    let favouriteList = listOfRestaurants;
                     if (!showFav) {
-                      filteredList = listOfRestaurants.filter((res) =>
+                      favouriteList = listOfRestaurants.filter((res) =>
                         favlist.includes(res.info.id)
                       );
                     }
                     setShowFav(!showFav);
                     setShowFitler(false);
-                    setFilteredListOfRestaurants(filteredList);
+                    setFilteredListOfRestaurants(favouriteList);
+                    setFavourites(favouriteList);
                   }}
                 >
                   Favourites
@@ -232,7 +239,7 @@ const Body = () => {
           </div>
         ) : (
           <div className="h-full w-full flex justify-center items-center px-10 flex-col">
-            {showFav ? (
+            {showFav && favlist.length === 0 ? (
               <>
                 <img src={EmptyFavTab} alt="icon" className="mt-8" />
                 <div className="flex sm:flex-row flex-col items-center mt-2">
@@ -261,7 +268,7 @@ const Body = () => {
         {message && (
           <div
             style={{ right: 0, top: 40, position: "fixed" }}
-            className="z-10 absolute fixed w-100 border-2 border-orange-300 block p-2 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center"
+            className="z-10 text-[14px] mt-[27px] md:mt-[65px] mr-2 border-2 border-orange-300 p-1 pr-2 bg-white/70 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center drop-shadow-md backdrop-blur-lg"
           >
             <span style={{ color: "red", padding: "10px" }}>
               <GrNotification />

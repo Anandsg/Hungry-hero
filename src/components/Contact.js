@@ -5,15 +5,19 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [msg, setMsg] = useState("");
-  const [emailError, setEmailError] = useState(true);
-  const [nameError, setNameError] = useState(true);
-  const [msgError, setMsgError] = useState(true);
+  const [emailError, setEmailError] = useState(false);
+  const [nameError, setNameError] = useState(false);
+  const [msgError, setMsgError] = useState(false);
 
-  const emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
   const nameRegex = /^[A-Za-z\s'-]+$/;
   const allspace = /^\s*$/;
   const validateName = (e) => {
-    if ( e.target.value.match(allspace) || e.target.value.length < 3 || !e.target.value.match(nameRegex)) {
+    if (
+      e.target.value.match(allspace) ||
+      e.target.value.length < 3 ||
+      !e.target.value.match(nameRegex)
+    ) {
       setNameError(true);
     } else {
       setNameError(false);
@@ -31,25 +35,41 @@ const Contact = () => {
   };
 
   const checkMsg = (e) => {
-    if(e.target.value == '' || e.target.value.match(allspace))
-      setMsgError(true)
-    else
-      setMsgError(false)
-    
-    setMsg(e.target.value)
-  }
+    if (e.target.value == "" || e.target.value.match(allspace))
+      setMsgError(true);
+    else setMsgError(false);
+
+    setMsg(e.target.value);
+  };
 
   const handleSubmitButton = (e) => {
     e.preventDefault();
-    if (!nameError && !emailError && !msgError) {
+    if (name == "" && email == "" && msg == "") {
+      setNameError(true);
+      setEmailError(true);
+      setMsgError(true);
+    }
+    if (
+      name != "" &&
+      email != "" &&
+      msg != "" &&
+      !nameError &&
+      !emailError &&
+      !msgError
+    ) {
       alert("Thanks for your submission, we will get back to you soon...");
       setTimeout(() => {
         window.location.href = "/";
       }, 1000);
-    } else if(nameError || emailError){
-      alert("Please Fill Valid name or Email.");
-    } else if(msgError)
-      alert("Kindly fill suggestion/feedback message")
+    }
+  };
+  const handleClearButton = () => {
+    setName("");
+    setEmail("");
+    setMsg("");
+    setNameError(false);
+    setEmailError(false);
+    setMsgError(false);
   };
 
   return (
@@ -68,11 +88,13 @@ const Contact = () => {
               type="text"
               className="mb-2 border p-2 mt-3 border-black rounded-lg w-[400px]"
               name="userName"
+              onBlur={validateName}
               onChange={validateName}
             ></input>
             {nameError && (
               <p className="mt-[-8px] text-xs text-red-400 font-semibold">
-                Name should not be blank, <br/> must be minimun 3 charcters, <br/> integers not allowed
+                Name should not be blank, <br /> must be minimun 3 charcters,{" "}
+                <br /> integers not allowed
               </p>
             )}
           </div>
@@ -85,6 +107,7 @@ const Contact = () => {
               type="email"
               className="mb-2 p-2 mt-3 border border-black rounded-lg w-[400px]"
               name="userEmail"
+              onBlur={validateEmail}
               onChange={validateEmail}
             ></input>
             {emailError && (
@@ -103,16 +126,23 @@ const Contact = () => {
               className="mb-2 p-2 mt-3 border border-black rounded w-[100%] lg:w-[400px] min-h-[100px]"
               name="message"
               placeholder="Type your message here..."
+              onBlur={checkMsg}
               onChange={checkMsg}
             ></textarea>
+            {msgError && (
+              <p className="mt-[-8px] text-xs text-red-400 font-semibold">
+                Enter a message.
+              </p>
+            )}
           </div>
 
           <div className="flex justify-around">
             <button
               type="reset"
               className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+              onClick={handleClearButton}
             >
-              Clear 
+              Clear
             </button>
             <input
               type="submit"
@@ -127,6 +157,4 @@ const Contact = () => {
   );
 };
 
-
 export default Contact;
-
