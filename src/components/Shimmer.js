@@ -2,10 +2,12 @@ import React from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 import Skeleton from "react-loading-skeleton";
 
-
 const Shimmer = () => {
   return (
-    <div className="flex flex-wrap gap-6 py-8 justify-center" data-testid="shimmer">
+    <div
+      className="flex flex-wrap gap-6 py-8 justify-center"
+      data-testid="shimmer"
+    >
       <ShimmerCard />
       <ShimmerCard />
       <ShimmerCard />
@@ -30,7 +32,7 @@ const Shimmer = () => {
 
 const ShimmerCard = () => {
   return (
-    <div className="flex bg-white flex-col gap-2 m-auto md:m-0">
+    <div className="flex bg-white flex-col gap-2 m-auto mt-20 md:mt-24">
       <div className="rounded-lg overflow-hidden shimmer-bg">
         <Skeleton width={"200px"} height={"155px"} />
       </div>
@@ -45,7 +47,6 @@ const ShimmerCard = () => {
     </div>
   );
 };
-
 
 // export const ShimmerMenu = () => {
 //   return (

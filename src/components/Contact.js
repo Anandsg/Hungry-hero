@@ -13,7 +13,11 @@ const Contact = () => {
   const nameRegex = /^[A-Za-z\s'-]+$/;
   const allspace = /^\s*$/;
   const validateName = (e) => {
-    if ( e.target.value.match(allspace) || e.target.value.length < 3 || !e.target.value.match(nameRegex)) {
+    if (
+      e.target.value.match(allspace) ||
+      e.target.value.length < 3 ||
+      !e.target.value.match(nameRegex)
+    ) {
       setNameError(true);
     } else {
       setNameError(false);
@@ -31,13 +35,12 @@ const Contact = () => {
   };
 
   const checkMsg = (e) => {
-    if(e.target.value == '' || e.target.value.match(allspace))
-      setMsgError(true)
-    else
-      setMsgError(false)
-    
-    setMsg(e.target.value)
-  }
+    if (e.target.value == "" || e.target.value.match(allspace))
+      setMsgError(true);
+    else setMsgError(false);
+
+    setMsg(e.target.value);
+  };
 
   const handleSubmitButton = (e) => {
     e.preventDefault();
@@ -46,15 +49,14 @@ const Contact = () => {
       setTimeout(() => {
         window.location.href = "/";
       }, 1000);
-    } else if(nameError || emailError){
+    } else if (nameError || emailError) {
       alert("Please Fill Valid name or Email.");
-    } else if(msgError)
-      alert("Kindly fill suggestion/feedback message")
+    } else if (msgError) alert("Kindly fill suggestion/feedback message");
   };
 
   return (
     <>
-      <div className="max-w-[1320px] mx-6 lg:mx-auto flex justify-center items-center flex-wrap flex-col my-16">
+      <div className="max-w-[1320px] mx-6 lg:mx-auto flex justify-center items-center flex-wrap flex-col my-16 mt-28 md:mt-32">
         <p className=" text-gray-500 text-1xl font-bold text-gradient-orange">
           We're Eager to Receive Your Feedback and Suggestions!
         </p>
@@ -72,7 +74,8 @@ const Contact = () => {
             ></input>
             {nameError && (
               <p className="mt-[-8px] text-xs text-red-400 font-semibold">
-                Name should not be blank, <br/> must be minimun 3 charcters, <br/> integers not allowed
+                Name should not be blank, <br /> must be minimun 3 charcters,{" "}
+                <br /> integers not allowed
               </p>
             )}
           </div>
@@ -112,7 +115,7 @@ const Contact = () => {
               type="reset"
               className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
             >
-              Clear 
+              Clear
             </button>
             <input
               type="submit"
@@ -127,6 +130,4 @@ const Contact = () => {
   );
 };
 
-
 export default Contact;
-
