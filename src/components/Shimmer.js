@@ -2,10 +2,12 @@ import React from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 import Skeleton from "react-loading-skeleton";
 
-
 const Shimmer = () => {
   return (
-    <div className="flex flex-wrap gap-6 py-8 justify-center" data-testid="shimmer">
+    <div
+      className="flex flex-wrap gap-6 py-8 justify-center"
+      data-testid="shimmer"
+    >
       <ShimmerCard />
       <ShimmerCard />
       <ShimmerCard />
@@ -45,7 +47,6 @@ const ShimmerCard = () => {
     </div>
   );
 };
-
 
 // export const ShimmerMenu = () => {
 //   return (
