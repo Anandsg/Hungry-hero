@@ -1,117 +1,124 @@
-import React from "react"
-import RestruarantCards from "./RestruarantCards"
-import { useState, useEffect } from "react"
-import Shimmer from "./Shimmer"
-import { filterData } from "../utils/helper"
-import { GrNotification } from "react-icons/gr"
-import { ImSad } from "react-icons/im"
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons"
-import EmptyFavTab from "../assets/Empty-fav-tab-img.png"
-import ArrowIcon from "../assets/arrow-icon.png"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useFocus } from "../utils/useFocus"
+import React from "react";
+import RestruarantCards from "./RestruarantCards";
+import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
+import { filterData } from "../utils/helper";
+import { GrNotification } from "react-icons/gr";
+import { ImSad } from "react-icons/im";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import EmptyFavTab from "../assets/Empty-fav-tab-img.png";
+import ArrowIcon from "../assets/arrow-icon.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useFocus } from "../utils/useFocus";
 
 //useEffect wrapper hook for rendering on first & secondtime
-const useMountEffect = (fun) => useEffect(fun, console.log("rendered focus element"), [])
+const useMountEffect = (fun) =>
+  useEffect(fun, console.log("rendered focus element"), []);
 
 const Body = () => {
-  const [listOfRestaurants, setListOfRestaurants] = useState([])
-  const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState([])
-  let [favlist, setFavList] = useState([])
-  const [showFav, setShowFav] = useState(false)
-  const [showBackBtn, setShowBackBtn] = useState(false)
-  const [showFitler, setShowFitler] = useState(false)
-  const [searchText, setSearchText] = useState("")
-  const [message, setMessage] = useState(null)
-  const [favourites, setFavourites] = useState([])
+  const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState(
+    []
+  );
+  let [favlist, setFavList] = useState([]);
+  const [showFav, setShowFav] = useState(false);
+  const [showBackBtn, setShowBackBtn] = useState(false);
+  const [showFitler, setShowFitler] = useState(false);
+  const [searchText, setSearchText] = useState("");
+  const [message, setMessage] = useState(null);
+  const [favourites, setFavourites] = useState([]);
 
   // focus hook
-  const [focusElement, setFocusElement] = useFocus()
+  const [focusElement, setFocusElement] = useFocus();
 
   useEffect(() => {
     // Fetch API
-    getRestaurants()
-  }, [])
+    getRestaurants();
+  }, []);
 
   useEffect(() => {
-    initiateSearch()
-  }, [searchText])
+    initiateSearch();
+  }, [searchText]);
 
   //Focus search
-  useMountEffect(setFocusElement)
+  useMountEffect(setFocusElement);
 
   //Search function
   function initiateSearch() {
-    setShowFav(false)
-    setShowFitler(false)
-    let searchList = showFav ? favourites : listOfRestaurants
-    console.log(showFav, searchList)
+    setShowFav(false);
+    setShowFitler(false);
+    let searchList = showFav ? favourites : listOfRestaurants;
+    console.log(showFav, searchList);
     if (searchText === "") {
-      setFilteredListOfRestaurants(searchList)
+      setFilteredListOfRestaurants(searchList);
     } else {
-      console.log(searchList, searchText)
-      const data = filterData(searchText, searchList)
-      console.log("data", data)
+      console.log(searchList, searchText);
+      const data = filterData(searchText, searchList);
+      console.log("data", data);
 
-      setFilteredListOfRestaurants(data)
+      setFilteredListOfRestaurants(data);
 
       //Check for toggling Searchbar back button
-      searchText !== "" ? setShowBackBtn(true) : setShowBackBtn(false)
+      searchText !== "" ? setShowBackBtn(true) : setShowBackBtn(false);
 
       if (data.length === 0 && searchText !== "") {
-        setFilteredListOfRestaurants([])
+        setFilteredListOfRestaurants([]);
       }
     }
   }
 
   //Reset to default on Back button press
   function handleBackBtn() {
-    setSearchText("")
-    setFilteredListOfRestaurants(listOfRestaurants)
-    setShowFitler(false)
-    setShowBackBtn(false)
+    setSearchText("");
+    setFilteredListOfRestaurants(listOfRestaurants);
+    setShowFitler(false);
+    setShowBackBtn(false);
   }
 
   //Listening to Enter key press
   const handleKeyUp = (e) => {
     //Check if keypressed is enter key (key code 13)
     if (e.keyCode === 13) {
-      initiateSearch()
+      initiateSearch();
     }
-  }
+  };
 
   async function getRestaurants() {
     const data = await fetch(
       "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
-    )
-    const json = await data.json()
-    console.log(json)
+    );
+    const json = await data.json();
+    console.log(json);
 
-    setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setListOfRestaurants(
+      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
     setFilteredListOfRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    )
+    );
   }
 
   const onClickFav = (id) => {
-    let idx = favlist.indexOf(id)
+    let idx = favlist.indexOf(id);
     if (idx >= 0) {
-      favlist.splice(idx, 1)
-      setMessage("Resturant removed from favorite list")
+      favlist.splice(idx, 1);
+      setMessage("Resturant removed from favorite list");
     } else {
-      favlist.push(id)
-      setMessage("Resturant added to favorite list")
+      favlist.push(id);
+      setMessage("Resturant added to favorite list");
     }
-    setFavList(favlist)
+    setFavList(favlist);
     setTimeout(() => {
-      setMessage(null)
-    }, 2000)
+      setMessage(null);
+    }, 2000);
     if (showFav) {
-      setFilteredListOfRestaurants(filteredListOfRestaurants.filter((it) => it.info.id !== id))
+      setFilteredListOfRestaurants(
+        filteredListOfRestaurants.filter((it) => it.info.id !== id)
+      );
     }
-  }
+  };
   // avoid rendering component (Early)
-  if (!listOfRestaurants) return null
+  if (!listOfRestaurants) return null;
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
@@ -134,53 +141,64 @@ const Body = () => {
               )}
               <input
                 type="text"
-                className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none rounded md:mr-4"
+                className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded-none md:mr-4"
                 placeholder="Search Restaurants"
                 value={searchText}
                 ref={focusElement}
                 onKeyUp={handleKeyUp}
                 onChange={(e) => {
-                  setSearchText(e.target.value)
+                  setSearchText(e.target.value);
                 }}
               />
 
               <button
                 data-testid="search-btn"
                 className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 md:mr-2 right-10 rounded border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded md:bg-white md:text-black"
-                onClick={() => initiateSearch()}>
+                onClick={() => initiateSearch()}
+              >
                 Search
               </button>
             </div>
             <div className="flex items-center  mt-2  md:mt-0">
               <span
                 className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${
-                  showFitler ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""
+                  showFitler
+                    ? "border-orange-300 text-orange-300 hover:border-orange-500"
+                    : ""
                 }`}
                 onClick={() => {
-                  let filteredList = listOfRestaurants
+                  let filteredList = listOfRestaurants;
                   if (!showFitler) {
-                    filteredList = listOfRestaurants.filter((res) => res.info.avgRating > 4)
+                    filteredList = listOfRestaurants.filter(
+                      (res) => res.info.avgRating > 4
+                    );
                   }
-                  setShowFitler(!showFitler)
-                  setShowFav(false)
-                  setFilteredListOfRestaurants(filteredList)
-                }}>
+                  setShowFitler(!showFitler);
+                  setShowFav(false);
+                  setFilteredListOfRestaurants(filteredList);
+                }}
+              >
                 Rating: 4.0+
               </span>
               <span
                 className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${
-                  showFav ? "border-orange-300 text-orange-300 hover:border-orange-500" : ""
+                  showFav
+                    ? "border-orange-300 text-orange-300 hover:border-orange-500"
+                    : ""
                 }`}
                 onClick={() => {
-                  let favouriteList = listOfRestaurants
+                  let favouriteList = listOfRestaurants;
                   if (!showFav) {
-                    favouriteList = listOfRestaurants.filter((res) => favlist.includes(res.info.id))
+                    favouriteList = listOfRestaurants.filter((res) =>
+                      favlist.includes(res.info.id)
+                    );
                   }
-                  setShowFav(!showFav)
-                  setShowFitler(false)
-                  setFilteredListOfRestaurants(favouriteList)
-                  setFavourites(favouriteList)
-                }}>
+                  setShowFav(!showFav);
+                  setShowFitler(false);
+                  setFilteredListOfRestaurants(favouriteList);
+                  setFavourites(favouriteList);
+                }}
+              >
                 Favourites
               </span>
             </div>
@@ -189,10 +207,7 @@ const Body = () => {
 
         {filteredListOfRestaurants?.length === 0 && searchText !== "" && (
           <div className="flex flex-col items-center">
-            <ImSad
-              size={100}
-              className="mt-8"
-            />
+            <ImSad size={100} className="mt-8" />
 
             <h2 className="font-bold text-center mt-12">
               The restaurant you're searching for doesn't exist.
@@ -201,8 +216,9 @@ const Body = () => {
             <button
               className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 right-10 border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none mt-4"
               onClick={() => {
-                window.location.href = "/"
-              }}>
+                window.location.href = "/";
+              }}
+            >
               Go back to Home
             </button>
           </div>
@@ -225,11 +241,7 @@ const Body = () => {
           <div className="h-full w-full flex justify-center items-center px-10 flex-col">
             {showFav && favlist.length === 0 ? (
               <>
-                <img
-                  src={EmptyFavTab}
-                  alt="icon"
-                  className="mt-8"
-                />
+                <img src={EmptyFavTab} alt="icon" className="mt-8" />
                 <div className="flex sm:flex-row flex-col items-center mt-2">
                   <span className="sm:text-start text-center">
                     Find your favourite restaurants now
@@ -242,13 +254,9 @@ const Body = () => {
                       padding: "2px",
                     }}
                     type="button"
-                    onClick={() => (window.location.href = "/")}>
-                    <img
-                      src={ArrowIcon}
-                      alt="arrow"
-                      height={30}
-                      width={30}
-                    />
+                    onClick={() => (window.location.href = "/")}
+                  >
+                    <img src={ArrowIcon} alt="arrow" height={30} width={30} />
                   </button>
                 </div>
               </>
@@ -260,7 +268,8 @@ const Body = () => {
         {message && (
           <div
             style={{ right: 0, top: 40, position: "fixed" }}
-            className="z-10 text-[14px] mt-[27px] md:mt-[65px] mr-2 border-2 border-orange-300 p-1 pr-2 bg-white/70 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center drop-shadow-md backdrop-blur-lg">
+            className="z-10 text-[14px] mt-[27px] md:mt-[65px] mr-2 border-2 border-orange-300 p-1 pr-2 bg-white/70 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg flex flex-row items-center drop-shadow-md backdrop-blur-lg"
+          >
             <span style={{ color: "red", padding: "10px" }}>
               <GrNotification />
             </span>
@@ -269,7 +278,7 @@ const Body = () => {
         )}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Body
+export default Body;
