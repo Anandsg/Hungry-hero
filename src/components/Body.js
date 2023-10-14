@@ -9,11 +9,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import EmptyFavTab from "../assets/Empty-fav-tab-img.png";
 import ArrowIcon from "../assets/arrow-icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useFocus } from "../utils/useFocus";
-
-//useEffect wrapper hook for rendering on first & secondtime
-const useMountEffect = (fun) =>
-  useEffect(fun, console.log("rendered focus element"), []);
+// import { useFocus } from "../utils/useFocus";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -27,8 +23,6 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [message, setMessage] = useState(null);
   const [favourites, setFavourites] = useState([]);
-  // focus hook
-  const [focusElement, setFocusElement] = useFocus();
 
   useEffect(() => {
     // Fetch API
@@ -38,8 +32,6 @@ const Body = () => {
   useEffect(() => {
     initiateSearch();
   }, [searchText]);
-  //Focus search
-  useMountEffect(setFocusElement);
 
   //Search function
   function initiateSearch() {
