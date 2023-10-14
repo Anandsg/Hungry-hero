@@ -1,4 +1,3 @@
-import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Body from "./components/Body";
 import About from "./components/About";
@@ -10,16 +9,11 @@ import {
   Route,
 } from "react-router-dom";
 import Contact from "./components/Contact";
-import RestruarantCards from "./components/RestruarantCards";
 import RestruarantMenu from "./components/RestaurantMenu";
-import Shimmer from "./components/Shimmer";
 import Help from "./components/Help";
 import Cart from "./components/Cart";
-import Main from "./components/Main";
 import AppLayout from "./components/AppLayout";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { element } from "prop-types";
-const Instamart = lazy(() => import("./components/Instamart"));
 
 const appRouter = createBrowserRouter(
   createRoutesFromElements(
