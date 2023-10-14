@@ -24,7 +24,7 @@ const Cart = () => {
           <div className="flex flex-col md:grid grid-cols-5 gap-x-4 gap-y-6 max-w-[1200px] mx-auto">
             <div className="flex flex-col md:col-span-3 w-full md:overflow-y-scroll md:pr-2">
               <div className="flex justify-between items-center mb-4 border-b-[1px] border-black/10 pb-2">
-                <h1 className="text-xl md:text-2xl font-semibold text-black/70 ">
+                <h1 className="text-xl md:text-2xl font-semibold">
                   Cart - {cartItems.length} Items
                 </h1>
                 <button
