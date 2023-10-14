@@ -254,7 +254,10 @@ const Body = () => {
                       padding: "2px",
                     }}
                     type="button"
-                    onClick={() => (window.location.href = "/")}
+                    onClick={() => {
+                      handleBackBtn();
+                      setShowFav(!showFav);
+                    }}
                   >
                     <img src={ArrowIcon} alt="arrow" height={30} width={30} />
                   </button>
