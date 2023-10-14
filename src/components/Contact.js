@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import React from "react";
+import { useFocus } from "../utils/useFocus";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -8,6 +9,11 @@ const Contact = () => {
   const [emailError, setEmailError] = useState(false);
   const [nameError, setNameError] = useState(false);
   const [msgError, setMsgError] = useState(false);
+
+  // focus hook
+  const [focusName, setFocusName] = useFocus();
+  const [focusEmail, setFocusEmail] = useFocus();
+  const [focusMessage, setFocusMessage] = useFocus();
 
   const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
   const nameRegex = /^[A-Za-z\s'-]+$/;
@@ -72,6 +78,12 @@ const Contact = () => {
     setMsgError(false);
   };
 
+  const handleKeyUp = (e, targetElem) => {
+    if (e.key === "Enter") {
+      targetElem?.current?.focus();
+    }
+  };
+
   return (
     <>
       <div className="max-w-[1320px] mx-6 lg:mx-auto flex justify-center items-center flex-wrap flex-col my-16">
@@ -84,12 +96,21 @@ const Contact = () => {
               Name:
             </label>
             <br />
+
             <input
               type="text"
               className="mb-2 border p-2 mt-3 border-black rounded-lg w-[400px]"
               name="userName"
+              value={name}
               onBlur={validateName}
-              onChange={validateName}
+              onKeyUp={(e) => {
+                handleKeyUp(e, focusEmail);
+              }}
+              onChange={(e) => {
+                const val = e.target.value;
+                setName(val);
+              }}
+              ref={focusName}
             ></input>
             {nameError && (
               <p className="mt-[-8px] text-xs text-red-400 font-semibold">
@@ -106,9 +127,17 @@ const Contact = () => {
             <input
               type="email"
               className="mb-2 p-2 mt-3 border border-black rounded-lg w-[400px]"
+              value={email}
+              ref={focusEmail}
+              onKeyUp={(e) => {
+                handleKeyUp(e, focusMessage);
+              }}
               name="userEmail"
               onBlur={validateEmail}
-              onChange={validateEmail}
+              onChange={(e) => {
+                const val = e.target.value;
+                setEmail(val);
+              }}
             ></input>
             {emailError && (
               <p className="mt-[-8px] text-xs text-red-400 font-semibold">
@@ -125,6 +154,11 @@ const Contact = () => {
               type="text"
               className="mb-2 p-2 mt-3 border border-black rounded w-[100%] lg:w-[400px] min-h-[100px]"
               name="message"
+              value={msg}
+              onKeyUp={(e) => {
+                handleKeyUp(e, focusMessage);
+              }}
+              ref={focusMessage}
               placeholder="Type your message here..."
               onBlur={checkMsg}
               onChange={checkMsg}
