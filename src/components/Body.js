@@ -6,7 +6,7 @@ import { filterData } from "../utils/helper";
 import { GrNotification } from "react-icons/gr";
 import { ImSad } from "react-icons/im";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import EmptyFavTab from "../assets/Empty-fav-tab-img.png";
+import EmptyFavTab from "../assets/empty-plate.jpg";
 import ArrowIcon from "../assets/arrow-icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useFocus } from "../utils/useFocus";
@@ -161,11 +161,10 @@ const Body = () => {
             </div>
             <div className="flex items-center  mt-2  md:mt-0">
               <span
-                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${
-                  showFitler
+                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${showFitler
                     ? "border-orange-300 text-orange-300 hover:border-orange-500"
                     : ""
-                }`}
+                  }`}
                 onClick={() => {
                   let filteredList = listOfRestaurants;
                   if (!showFitler) {
@@ -181,11 +180,10 @@ const Body = () => {
                 Rating: 4.0+
               </span>
               <span
-                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${
-                  showFav
+                className={`text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-black cursor-pointer ${showFav
                     ? "border-orange-300 text-orange-300 hover:border-orange-500"
                     : ""
-                }`}
+                  }`}
                 onClick={() => {
                   let favouriteList = listOfRestaurants;
                   if (!showFav) {
@@ -241,7 +239,10 @@ const Body = () => {
           <div className="h-full w-full flex justify-center items-center px-10 flex-col">
             {showFav && favlist.length === 0 ? (
               <>
-                <img src={EmptyFavTab} alt="icon" className="mt-8" />
+                <img src={EmptyFavTab} alt="icon" className="mt-8 h-52" />
+                <span className="font-bold text-lg">
+                  Oops, your plate is empty!
+                </span>
                 <div className="flex sm:flex-row flex-col items-center mt-2">
                   <span className="sm:text-start text-center">
                     Find your favourite restaurants now
