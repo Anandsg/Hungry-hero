@@ -3,7 +3,7 @@ import "../utils/index.css";
 
 const Footer = () => {
   return (
-    <div className="footer font-serif relative flex w-full justify-center items-center">
+    <div className="footer font-sans relative flex w-full justify-center items-center">
       Developed with 🧡 and a lot of ☕️ by Anand
       <i className="fa-solid fa-heart"></i>
       {/* <a>Anand</a> */}

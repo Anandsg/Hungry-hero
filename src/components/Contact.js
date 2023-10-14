@@ -55,12 +55,12 @@ const Contact = () => {
   return (
     <>
       <div className="max-w-[1320px] mx-6 lg:mx-auto flex justify-center items-center flex-wrap flex-col my-16">
-        <p className="font-serif text-gray-500 text-1xl font-bold text-gradient-orange">
+        <p className="font-sans text-gray-500 text-1xl font-bold text-gradient-orange">
           We're Eager to Receive Your Feedback and Suggestions!
         </p>
         <form className="mt-14">
           <div className="mb-4">
-            <label htmlFor="userName" className="font-semibold font-serif">
+            <label htmlFor="userName" className="font-semibold font-sans">
               Name:
             </label>
             <br />
@@ -77,7 +77,7 @@ const Contact = () => {
             )}
           </div>
           <div className="mb-4">
-            <label htmlFor="userEmail" className="font-semibold font-serif">
+            <label htmlFor="userEmail" className="font-semibold font-sans">
               Email:
             </label>
             <br />
@@ -94,7 +94,7 @@ const Contact = () => {
             )}
           </div>
           <div className="mb-4">
-            <label htmlFor="message" className="font-semibold font-serif">
+            <label htmlFor="message" className="font-semibold font-sans">
               Message:
             </label>
             <br />

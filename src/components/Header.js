@@ -113,7 +113,7 @@ const Header = () => {
           {/* Navigation Links (Hidden on Small Screens) */}
           <ul className="hidden md:flex items-center space-x-4">
             <Link to="/">
-              <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+              <li className="hover:text-orange-400 transition-all font-sans duration-300 ease-in-out flex items-center gap-2 bg-cyan-100 p-3 rounded-lg font-semibold ">
                 <span>
                   <HiHome />
                 </span>
@@ -121,7 +121,7 @@ const Header = () => {
               </li>
             </Link>
             <Link to="/About">
-              <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+              <li className="hover:text-orange-400 transition-all font-sans duration-300 ease-in-out flex items-center gap-2 bg-cyan-100 p-3 rounded-lg font-semibold">
                 <span>
                   <HiBuildingOffice />
                 </span>
@@ -129,7 +129,7 @@ const Header = () => {
               </li>
             </Link>
             <Link to="/Contact">
-              <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+              <li className="hover:text-orange-400 transition-all font-sans duration-300 ease-in-out flex items-center gap-2 bg-cyan-100 p-3 rounded-lg font-semibold">
                 <span>
                   <HiPhone />
                 </span>
@@ -137,7 +137,7 @@ const Header = () => {
               </li>
             </Link>
             <Link to="/Help">
-              <li className="hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+              <li className="hover:text-orange-400 transition-all font-sans duration-300 ease-in-out flex items-center gap-2 bg-cyan-100 p-3 rounded-lg font-semibold">
                 <span>
                   <FaQuestionCircle />
                 </span>
@@ -163,7 +163,7 @@ const Header = () => {
 
             {isLoggedIn ? (
               <button
-                className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+                className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer bg-cyan-100 p-3 rounded-lg font-semibold "
                 onClick={() => {
                   login();
                 }}
@@ -192,7 +192,7 @@ const Header = () => {
                 </button>
                 <ul className="flex flex-col space-y-4">
                   <Link to="/" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-sans duration-300 ease-in-out flex items-center gap-2">
                       <span>
                         <HiHome />
                       </span>
@@ -200,7 +200,7 @@ const Header = () => {
                     </li>
                   </Link>
                   <Link to="/About" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-sans duration-300 ease-in-out flex items-center gap-2">
                       <span>
                         <HiBuildingOffice />
                       </span>
@@ -208,7 +208,7 @@ const Header = () => {
                     </li>
                   </Link>
                   <Link to="/Contact" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-sans duration-300 ease-in-out flex items-center gap-2">
                       <span>
                         <HiPhone />
                       </span>
@@ -216,7 +216,7 @@ const Header = () => {
                     </li>
                   </Link>
                   <Link to="/Help" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-sans duration-300 ease-in-out flex items-center gap-2">
                       <span>
                         <FaQuestionCircle />
                       </span>
@@ -224,7 +224,7 @@ const Header = () => {
                     </li>
                   </Link>
                   <Link to="/Cart" onClick={closeMenu}>
-                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-serif duration-300 ease-in-out flex items-center gap-2">
+                    <li className="text-2xl text-gray-800 hover:text-orange-400 transition-all font-sans duration-300 ease-in-out flex items-center gap-2">
                       <span>
                         <HiShoppingBag />
                       </span>

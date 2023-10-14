@@ -82,7 +82,7 @@ const Body = () => {
     const isOnline = useOnline();
     if (!isOnline) {
         return (
-            <h3 className="flex flex-col items-center justify-center font-serif h-screen bg-gray-100 text-2xl font-bold text-red-500 mb-4">
+            <h3 className="flex flex-col items-center justify-center font-sans h-screen bg-gray-100 text-2xl font-bold text-red-500 mb-4">
                 {" "}
                 it appears that the user is currently offline
             </h3>
@@ -117,7 +117,7 @@ const Body = () => {
                 {filteredlistOfRestuarants?.length === 0 &&
                 searchText !== "" ? (
                     <div className="flex flex-col items-center">
-                        <h2 className="font-bold text-center font-serif">
+                        <h2 className="font-bold text-center font-sans">
                             The restaurant you're searching for doesn't exist.
                         </h2>
                         <button
