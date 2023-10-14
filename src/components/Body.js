@@ -3,14 +3,9 @@ import RestruarantCards from "./RestruarantCards";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { filterData } from "../utils/helper";
-import useOnline from "../utils/useOnline";
 import { GrNotification } from "react-icons/gr";
 import { ImSad } from "react-icons/im";
-import {
-  faArrowLeft,
-  faArrowLeftLong,
-  faArrowLeftRotate,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import EmptyFavTab from "../assets/Empty-fav-tab-img.png";
 import ArrowIcon from "../assets/arrow-icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -92,15 +87,6 @@ const Body = () => {
     );
   }
 
-  // const isOnline = useOnline();
-  // if (!isOnline) {
-  //   return (
-  //     <h3 className="flex flex-col items-center justify-center h-screen bg-gray-100 text-2xl font-bold text-red-500 mb-4">
-  //       {" "}
-  //       it appears that the user is currently offline
-  //     </h3>
-  //   );
-  // }
   const onClickFav = (id) => {
     let idx = favlist.indexOf(id);
     if (idx >= 0) {

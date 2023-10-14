@@ -6,7 +6,6 @@ const Footer = () => {
     <div className="footer relative flex w-full justify-center items-center">
       Developed with 🧡 and a lot of ☕️ by Anand
       <i className="fa-solid fa-heart"></i>
-      {/* <a>Anand</a> */}
       <a
         href="https://github.com/Anandsg"
         target="_blank"
