@@ -10,6 +10,7 @@ import EmptyFavTab from "../assets/Empty-fav-tab-img.png";
 import ArrowIcon from "../assets/arrow-icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useFocus } from "../utils/useFocus";
+import { Link } from "react-router-dom"
 
 //useEffect wrapper hook for rendering on first & secondtime
 const useMountEffect = (fun) =>
@@ -254,9 +255,11 @@ const Body = () => {
                       padding: "2px",
                     }}
                     type="button"
-                    onClick={() => (window.location.href = "/")}
+                    onClick={handleBackBtn}
                   >
-                    <img src={ArrowIcon} alt="arrow" height={30} width={30} />
+                    <Link to="/">
+                      <img src={ArrowIcon} alt="arrow" height={30} width={30} />
+                    </Link>
                   </button>
                 </div>
               </>
