@@ -3,21 +3,21 @@ import "../utils/index.css";
 
 const Footer = () => {
   return (
-    <div className="footer relative flex w-full justify-center items-center">
+    <div className="footer relative flex flex-col sm:flex-row gap-x-3 w-full justify-center items-center">
       Developed with 🧡 and a lot of ☕️ by Anand
       <i className="fa-solid fa-heart"></i>
-      <a
-        href="https://github.com/Anandsg"
-        target="_blank"
-        title="Anand's Github profile"
-      >
-        <img
-          src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
-          alt="GitHub"
-          className="github-logo mx-3"
-        />
-      </a>
-      <div>
+      <div class="flex flex-row gap-x-2 justify-center items-center">
+        <a
+          href="https://github.com/Anandsg"
+          target="_blank"
+          title="Anand's Github profile"
+        >
+          <img
+            src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+            alt="GitHub"
+            className="github-logo"
+          />
+        </a>
         <a
           href="https://peerlist.io/anandsg"
           target="_blank"
