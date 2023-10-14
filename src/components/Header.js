@@ -83,9 +83,9 @@ const Header = () => {
   return (
     <>
       <ScrollToTop />
-      <div className="shadow-md fixed bg-white w-full z-50">
-        <div className="container mx-auto py-1 px-4 md:flex md:justify-between md:items-center">
-          <div className="flex items-center justify-between">
+      <div className="shadow-md fixed bg-white w-full z-50 sm:pr-4">
+        <div className="flex justify-between container mx-auto py-1 px-4 md:flex md:justify-between md:items-center">
+          <div className="flex items-center -ml-5 sm:ml-0 justify-between">
             <Link to="/">
               <img
                 data-testid="logo"
@@ -94,21 +94,8 @@ const Header = () => {
                 alt="Logo"
               />
             </Link>
-
-            <div className="flex md:space-x-6 mt-4 md:mt-0">
-              {/* Hamburger Menu Button */}
-              <button
-                onClick={toggleMenu}
-                className="md:hidden focus:outline-none"
-              >
-                {!isMenuOpen && (
-                  <FontAwesomeIcon icon={faBars} className="w-6 h-6 pb-3" />
-                )}
-              </button>
-            </div>
           </div>
-          {/* Navigation Links (Hidden on Small Screens) */}
-          <ul className="hidden md:flex items-center space-x-4">
+          <ul className="flex text-[10px] sm:text-[16px] font-semibold md:font-normal items-center space-x-2 sm:space-x-3 md:space-x-4">
             <NavLink
               to="/"
               className={({ isActive }) =>
@@ -116,7 +103,7 @@ const Header = () => {
               }
             >
               <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
-                <span>
+                <span className="hidden md:block">
                   <HiHome />
                 </span>
                 Home
@@ -129,7 +116,7 @@ const Header = () => {
               }
             >
               <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
-                <span>
+                <span className="hidden md:block">
                   <HiBuildingOffice />
                 </span>
                 About
@@ -142,7 +129,7 @@ const Header = () => {
               }
             >
               <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
-                <span>
+                <span className="hidden md:block">
                   <HiPhone />
                 </span>
                 Contact
@@ -155,7 +142,7 @@ const Header = () => {
               }
             >
               <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
-                <span>
+                <span className="hidden md:block">
                   <FaQuestionCircle />
                 </span>
                 Help
@@ -167,10 +154,13 @@ const Header = () => {
                 isActive ? "text-orange-400 " : "text-black"
               }
             >
-              <div className="relative flex items-center hover:text-orange-400 transition-all duration-300 ease-in-out">
-                <FontAwesomeIcon icon={faShoppingCart} className="w-5 h-5" />
+              <div className="relative flex items-center hover:text-orange-400 transition-all duration-300 ease-in-out sm:mr-4">
+                <FontAwesomeIcon
+                  icon={faShoppingCart}
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                />
                 <span
-                  className="absolute top-[-20%] right-[-32%] inline-flex items-center justify-center w-3 h-3.5 bg-orange-500 text-white rounded-full text-xs"
+                  className="absolute top-[-50%] right-[-20%] sm:top-[-20%] sm:right-[-32%] inline-flex items-center justify-center w-3 h-3.5 bg-orange-500 text-white rounded-full text-xs"
                   data-testid="cart"
                 >
                   {cartItems.length}
@@ -179,7 +169,6 @@ const Header = () => {
             </NavLink>
 
             {/* Will enable login feature once i setup google client ID */}
-
             {isLoggedIn ? (
               <button
                 className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
@@ -187,7 +176,7 @@ const Header = () => {
                   login();
                 }}
               >
-                Login ⇦
+                Login
               </button>
             ) : (
               <button
@@ -198,110 +187,6 @@ const Header = () => {
               </button>
             )}
           </ul>
-
-          {/* Menu for Small Screens */}
-          {isMenuOpen && (
-            <div className="fixed inset-0 flex items-center justify-center bg-white z-10">
-              <div className="w-full h-full p-4 flex flex-col items-center">
-                <button
-                  onClick={toggleMenu}
-                  className="md:hidden focus:outline-none absolute top-4 right-4"
-                >
-                  <FontAwesomeIcon icon={faTimes} className="w-6 h-6" />
-                </button>
-                <ul className="flex flex-col space-y-4">
-                  <NavLink
-                    to="/"
-                    onClick={closeMenu}
-                    className={({ isActive }) =>
-                      isActive ? "text-orange-400 " : "text-black"
-                    }
-                  >
-                    <li className="text-2xl hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
-                      <span>
-                        <HiHome />
-                      </span>
-                      Home
-                    </li>
-                  </NavLink>
-                  <NavLink
-                    to="/About"
-                    onClick={closeMenu}
-                    className={({ isActive }) =>
-                      isActive ? "text-orange-400 " : "text-gray-800"
-                    }
-                  >
-                    <li className="text-2xl hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
-                      <span>
-                        <HiBuildingOffice />
-                      </span>
-                      About
-                    </li>
-                  </NavLink>
-                  <NavLink
-                    to="/Contact"
-                    onClick={closeMenu}
-                    className={({ isActive }) =>
-                      isActive ? "text-orange-400 " : "text-gray-800"
-                    }
-                  >
-                    <li className="text-2xl  hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
-                      <span>
-                        <HiPhone />
-                      </span>
-                      Contact
-                    </li>
-                  </NavLink>
-                  <NavLink
-                    to="/Help"
-                    onClick={closeMenu}
-                    className={({ isActive }) =>
-                      isActive ? "text-orange-400 " : "text-gray-800"
-                    }
-                  >
-                    <li className="text-2xl hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
-                      <span>
-                        <FaQuestionCircle />
-                      </span>
-                      Help
-                    </li>
-                  </NavLink>
-                  <NavLink
-                    to="/Cart"
-                    onClick={closeMenu}
-                    className={({ isActive }) =>
-                      isActive ? "text-orange-400 " : "text-gray-800"
-                    }
-                  >
-                    <li className="text-2xl hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
-                      <span>
-                        <HiShoppingBag />
-                      </span>
-                      Cart
-                    </li>
-                  </NavLink>
-
-                  {isLoggedIn ? (
-                    <button
-                      className="w-24 text-lg font-medium shadow-md py-2 outline-none m-2 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
-                      onClick={() => {
-                        login();
-                      }}
-                    >
-                      Login ⇦
-                    </button>
-                  ) : (
-                    <button
-                      className="w-24 text-lg font-medium shadow-md py-2 outline-none m-2 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
-                      onClick={() => logout()}
-                    >
-                      Logout
-                    </button>
-                  )}
-                </ul>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </>
