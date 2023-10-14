@@ -129,7 +129,7 @@ const Body = () => {
         <div className="md:flex md:justify-center md:items-center">
           <div className="flex flex-col md:flex-row items-center  md:items-center lg:pl-9">
             <div className="flex items-center ">
-              {showBackBtn && (
+              {searchText.length !== 0 && showBackBtn ? (
                 <FontAwesomeIcon
                   icon={faArrowLeft}
                   color="#000"
@@ -138,7 +138,7 @@ const Body = () => {
                   style={{ cursor: "pointer" }}
                   onClick={handleBackBtn}
                 />
-              )}
+              ) : null}
               <input
                 type="text"
                 className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded-none md:mr-4"
