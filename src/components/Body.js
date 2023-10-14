@@ -9,7 +9,11 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import EmptyFavTab from "../assets/Empty-fav-tab-img.png";
 import ArrowIcon from "../assets/arrow-icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { useFocus } from "../utils/useFocus";
+import { useFocus } from "../utils/useFocus";
+
+//useEffect wrapper hook for rendering on first & secondtime
+const useMountEffect = (fun) =>
+  useEffect(fun, console.log("rendered focus element"), []);
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -24,6 +28,9 @@ const Body = () => {
   const [message, setMessage] = useState(null);
   const [favourites, setFavourites] = useState([]);
 
+  // focus hook
+  const [focusElement, setFocusElement] = useFocus();
+
   useEffect(() => {
     // Fetch API
     getRestaurants();
@@ -32,6 +39,9 @@ const Body = () => {
   useEffect(() => {
     initiateSearch();
   }, [searchText]);
+
+  //Focus search
+  useMountEffect(setFocusElement);
 
   //Search function
   function initiateSearch() {
@@ -134,6 +144,7 @@ const Body = () => {
                 className="w-64 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none  rounded-none md:mr-4"
                 placeholder="Search Restaurants"
                 value={searchText}
+                ref={focusElement}
                 onKeyUp={handleKeyUp}
                 onChange={(e) => {
                   setSearchText(e.target.value);
