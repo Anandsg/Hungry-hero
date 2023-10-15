@@ -17,9 +17,7 @@ const useMountEffect = (fun) =>
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState(
-    []
-  );
+  const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState([]);
   let [favlist, setFavList] = useState([]);
   const [showFav, setShowFav] = useState(false);
   const [showBackBtn, setShowBackBtn] = useState(false);
@@ -212,15 +210,15 @@ const Body = () => {
             <h2 className="font-bold text-center mt-12">
               The restaurant you're searching for doesn't exist.
             </h2>
-
-            <button
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 right-10 border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none mt-4"
-              onClick={() => {
-                window.location.href = "/";
-              }}
-            >
-              Go back to Home
-            </button>
+              <button
+                className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 right-10 border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none mt-4"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = "/";
+                }}
+              >
+                Go back to Home
+              </button>
           </div>
         )}
       </div>
@@ -246,18 +244,24 @@ const Body = () => {
                   <span className="sm:text-start text-center">
                     Find your favourite restaurants now
                   </span>
-                  <button
-                    className="sm:ms-2 sm:mt-0 mt-2"
-                    style={{
-                      backgroundColor: "rgb(255, 99, 71,0.5)",
-                      borderRadius: "8px",
-                      padding: "2px",
-                    }}
-                    type="button"
-                    onClick={() => (window.location.href = "/")}
-                  >
-                    <img src={ArrowIcon} alt="arrow" height={30} width={30} />
-                  </button>
+                  
+                    <button
+                      className="sm:ms-2 sm:mt-0 mt-2"
+                      style={{
+                        backgroundColor: "rgb(255, 99, 71,0.5)",
+                        borderRadius: "8px",
+                        padding: "2px",
+                      }}
+                      type="button"
+                      onClick={(e) =>{
+                        e.preventDefault();
+                        window.location.href = "/"
+                        // history.push("/")
+                      }}
+                    >
+                      <img src={ArrowIcon} alt="arrow" height={30} width={30} />
+                    </button>
+                  
                 </div>
               </>
             ) : null}
