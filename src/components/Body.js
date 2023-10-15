@@ -217,9 +217,7 @@ const Body = () => {
 
             <button
               className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 right-10 border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none mt-4"
-              onClick={() => {
-                window.location.href = "/";
-              }}
+              onClick={handleBackBtn}
             >
               Go back to Home
             </button>
