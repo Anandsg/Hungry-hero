@@ -8,7 +8,7 @@ const Section = ({ title, description, isVisible, onClick }) => {
     <Accordion
       expanded={isVisible}
       onChange={onClick}
-      style={{ borderRadius: '1rem', transition: 'ease-in-out .13s', boxShadow: 'rgba(17, 17, 26, 0.1) 0px 0px 16px' }}
+      style={{ borderRadius: '1rem', transition: 'ease-in-out .13s', boxShadow: 'rgba(17, 17, 26, 0.1) 0px 0px 16px', width: '85%' }}
       className="border rounded-2xl m-4 overflow-hidden transition-all transform hover:scale-105 duration-300 ease-in"
     >
       <AccordionSummary
@@ -19,7 +19,13 @@ const Section = ({ title, description, isVisible, onClick }) => {
           {title}
         </Typography>
       </AccordionSummary>
-      <AccordionDetails>
+      <AccordionDetails
+      style={{
+          transform: isVisible ? 'scaleY(1)' : 'scaleY(0)',
+          transformOrigin: 'bottom', // Set the transform origin to the bottom
+          transition: 'transform 0.3s ease-in-out',
+        }}
+        >
         <Typography>{description}</Typography>
       </AccordionDetails>
     </Accordion>
@@ -35,10 +41,11 @@ const Help = () => {
   };
 
   return (
-    <div className="container mx-auto p-8">
+    <div className="container mx-auto p-8" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%'  }}>
       <Typography variant="h4" align="center" className="text-gray-900 mb-8">
         FAQs
       </Typography>
+      
       {faqsData.map((item, index) => (
         <Section
           key={item.id}
