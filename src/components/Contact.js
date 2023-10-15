@@ -15,10 +15,16 @@ const Contact = () => {
   const [focusEmail, setFocusEmail] = useFocus();
   const [focusMessage, setFocusMessage] = useFocus();
 
+  //onfocus, onBlur states
+  const [isFocus, setIsFocus] = useState(false);
+  const [isBlur, setIsBlur] = useState(false);
+
   const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
   const nameRegex = /^[A-Za-z\s'-]+$/;
   const allspace = /^\s*$/;
   const validateName = (e) => {
+    console.log("Is blur=" + isBlur);
+    setIsFocus(false);
     if (
       e.target.value.match(allspace) ||
       e.target.value.length < 3 ||
@@ -32,6 +38,7 @@ const Contact = () => {
   };
 
   const validateEmail = (e) => {
+    setIsFocus(false);
     if (!e.target.value.match(emailRegex)) {
       setEmailError(true);
     } else {
@@ -41,6 +48,7 @@ const Contact = () => {
   };
 
   const checkMsg = (e) => {
+    setIsFocus(false);
     if (e.target.value == "" || e.target.value.match(allspace))
       setMsgError(true);
     else setMsgError(false);
@@ -78,10 +86,25 @@ const Contact = () => {
     setMsgError(false);
   };
 
-  const handleKeyUp = (e, targetElem) => {
-    if (e.key === "Enter") {
-      targetElem?.current?.focus();
+  const handleNameKeyUp = (e, targetElem, name, nameError) => {
+    if (e.key === "Enter" && name != "") {
+      nameError ? null : targetElem?.current?.focus();
+      console.log(nameError);
     }
+  };
+
+  const handleEmailKeyUp = (e, targetElem, email, emailError) => {
+    if (e.key === "Enter" && email != "") {
+      emailError ? null : targetElem?.current?.focus();
+      console.log(emailError);
+    }
+  };
+
+  const OnFocusHandler = (e) => {
+    console.log(e.target.value);
+    console.log("on focus");
+    setIsFocus(true);
+    setIsBlur(false);
   };
 
   return (
@@ -90,7 +113,7 @@ const Contact = () => {
         <p className=" text-gray-500 text-1xl font-bold text-gradient-orange">
           We're Eager to Receive Your Feedback and Suggestions!
         </p>
-        <form className="mt-14">
+        <form className="mt-14" onSubmit={handleSubmitButton}>
           <div className="mb-4">
             <label htmlFor="userName" className="font-semibold">
               Name:
@@ -103,12 +126,14 @@ const Contact = () => {
               name="userName"
               value={name}
               onBlur={validateName}
+              onFocus={OnFocusHandler}
               onKeyUp={(e) => {
-                handleKeyUp(e, focusEmail);
+                handleNameKeyUp(e, focusEmail, name, nameError);
               }}
               onChange={(e) => {
                 const val = e.target.value;
                 setName(val);
+                validateName(e);
               }}
               ref={focusName}
             ></input>
@@ -129,14 +154,22 @@ const Contact = () => {
               className="mb-2 p-2 mt-3 border border-black rounded-lg w-[400px]"
               value={email}
               ref={focusEmail}
+              onFocus={OnFocusHandler}
               onKeyUp={(e) => {
-                handleKeyUp(e, focusMessage);
+                handleEmailKeyUp(
+                  e,
+                  focusMessage,
+                  email,
+                  emailError,
+                  focusEmail
+                );
               }}
               name="userEmail"
               onBlur={validateEmail}
               onChange={(e) => {
                 const val = e.target.value;
                 setEmail(val);
+                validateEmail(e);
               }}
             ></input>
             {emailError && (
