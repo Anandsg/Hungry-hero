@@ -23,7 +23,6 @@ const Contact = () => {
   const nameRegex = /^[A-Za-z\s'-]+$/;
   const allspace = /^\s*$/;
   const validateName = (e) => {
-    console.log("Is blur=" + isBlur);
     setIsFocus(false);
     if (
       e.target.value.match(allspace) ||
@@ -89,20 +88,16 @@ const Contact = () => {
   const handleNameKeyUp = (e, targetElem, name, nameError) => {
     if (e.key === "Enter" && name != "") {
       nameError ? null : targetElem?.current?.focus();
-      console.log(nameError);
     }
   };
 
   const handleEmailKeyUp = (e, targetElem, email, emailError) => {
     if (e.key === "Enter" && email != "") {
       emailError ? null : targetElem?.current?.focus();
-      console.log(emailError);
     }
   };
 
   const OnFocusHandler = (e) => {
-    console.log(e.target.value);
-    console.log("on focus");
     setIsFocus(true);
     setIsBlur(false);
   };
@@ -188,9 +183,6 @@ const Contact = () => {
               className="mb-2 p-2 mt-3 border border-black rounded w-[100%] lg:w-[400px] min-h-[100px]"
               name="message"
               value={msg}
-              onKeyUp={(e) => {
-                handleKeyUp(e, focusMessage);
-              }}
               ref={focusMessage}
               placeholder="Type your message here..."
               onBlur={checkMsg}
