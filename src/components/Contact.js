@@ -2,8 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import React from "react";
 import { useFocus } from "../utils/useFocus";
 
-import { FormControl, TextField, Button } from "@mui/material";
-import InputAdornment from "@mui/material/InputAdornment";
+import { FormControl, TextField, Button, InputAdornment } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import EmailIcon from "@mui/icons-material/Email";
 import MessageIcon from "@mui/icons-material/Message";
