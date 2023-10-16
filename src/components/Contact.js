@@ -104,20 +104,21 @@ const Contact = () => {
 
   return (
     <>
-      <div className="max-w-[1320px] mx-6 lg:mx-auto flex justify-center items-center flex-wrap flex-col my-16">
-        <p className=" text-gray-500 text-1xl font-bold text-gradient-orange">
+      <div className="max-w-[1320px] p-4 lg:mx-auto flex justify-center items-center flex-wrap flex-col md:my-12">
+        <p className=" text-gray-500 text-center text-1xl font-bold text-gradient-orange">
           We're Eager to Receive Your Feedback and Suggestions!
         </p>
-        <form className="mt-14" onSubmit={handleSubmitButton}>
-          <div className="mb-4">
+        <form
+          className="flex flex-col md:gap-y-1 pt-4 md:pt-12 w-full md:w-[400px]"
+          onSubmit={handleSubmitButton}
+        >
+          <div className="md:mb-4 flex flex-col w-full">
             <label htmlFor="userName" className="font-semibold">
               Name:
             </label>
-            <br />
-
             <input
               type="text"
-              className="mb-2 border p-2 mt-3 border-black rounded-lg w-[400px]"
+              className="mb-2 border p-2 mt-3 border-black rounded-lg"
               name="userName"
               value={name}
               onBlur={validateName}
@@ -139,14 +140,13 @@ const Contact = () => {
               </p>
             )}
           </div>
-          <div className="mb-4">
+          <div className="md:mb-4 flex flex-col w-full">
             <label htmlFor="userEmail" className="font-semibold">
               Email:
             </label>
-            <br />
             <input
               type="email"
-              className="mb-2 p-2 mt-3 border border-black rounded-lg w-[400px]"
+              className="mb-2 p-2 mt-3 border border-black rounded-lg"
               value={email}
               ref={focusEmail}
               onFocus={OnFocusHandler}
@@ -173,11 +173,10 @@ const Contact = () => {
               </p>
             )}
           </div>
-          <div className="mb-4">
+          <div className="md:mb-4 flex flex-col w-full">
             <label htmlFor="message" className="font-semibold">
               Message:
             </label>
-            <br />
             <textarea
               type="text"
               className="mb-2 p-2 mt-3 border border-black rounded w-[100%] lg:w-[400px] min-h-[100px]"
