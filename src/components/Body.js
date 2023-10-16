@@ -33,10 +33,6 @@ const Body = () => {
   // focus hook
   const [focusElement, setFocusElement] = useFocus();
 
-  // useEffect(() => {
-  //   window.localStorage.setItem("favlist", JSON.stringify(favlist));
-  // }, [favlist]);
-
   useEffect(() => {
     // Fetch API
     getRestaurants();
