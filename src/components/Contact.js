@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import React from "react";
 import { useFocus } from "../utils/useFocus";
+import './CustomContact.css'
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -104,7 +105,7 @@ const Contact = () => {
 
   return (
     <>
-      <div className="max-w-[1320px] mx-6 lg:mx-auto flex justify-center items-center flex-wrap flex-col my-16">
+      <div className="max-width-container mx-3 lg:mx-auto  justify-center items-center flex-wrap flex-col my-16">
         <p className=" text-gray-500 text-1xl font-bold text-gradient-orange">
           We're Eager to Receive Your Feedback and Suggestions!
         </p>
@@ -117,7 +118,7 @@ const Contact = () => {
 
             <input
               type="text"
-              className="mb-2 border p-2 mt-3 border-black rounded-lg w-[400px]"
+              className="mb-2 border p-2 mt-3 border-black rounded-lg "
               name="userName"
               value={name}
               onBlur={validateName}
@@ -146,7 +147,7 @@ const Contact = () => {
             <br />
             <input
               type="email"
-              className="mb-2 p-2 mt-3 border border-black rounded-lg w-[400px]"
+              className="mb-2 p-2 mt-3 border border-black rounded-lg "
               value={email}
               ref={focusEmail}
               onFocus={OnFocusHandler}
@@ -180,7 +181,7 @@ const Contact = () => {
             <br />
             <textarea
               type="text"
-              className="mb-2 p-2 mt-3 border border-black rounded w-[100%] lg:w-[400px] min-h-[100px]"
+              className="mb-2 p-2 mt-3 border border-black rounded-lg min-h-[100px]"
               name="message"
               value={msg}
               ref={focusMessage}
@@ -195,10 +196,10 @@ const Contact = () => {
             )}
           </div>
 
-          <div className="flex justify-around">
+          <div className="flex justify-center items-center">
             <button
               type="reset"
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+              className="btn text-s font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
               onClick={handleClearButton}
             >
               Clear
@@ -206,7 +207,7 @@ const Contact = () => {
             <input
               type="submit"
               value="Submit"
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
+              className="btn text-s font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
               onClick={handleSubmitButton}
             ></input>
           </div>
