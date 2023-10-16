@@ -20,7 +20,9 @@ const Body = () => {
   const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState(
     []
   );
-  let [favlist, setFavList] = useState([]);
+  if(window.localStorage.favlist===undefined) window.localStorage.setItem("favlist", JSON.stringify([]));
+  const savedFavList = JSON.parse(window.localStorage.getItem("favlist"));
+  let [favlist, setFavList] = useState(savedFavList);
   const [showFav, setShowFav] = useState(false);
   const [showBackBtn, setShowBackBtn] = useState(false);
   const [showFitler, setShowFitler] = useState(false);
@@ -30,6 +32,10 @@ const Body = () => {
 
   // focus hook
   const [focusElement, setFocusElement] = useFocus();
+
+  // useEffect(() => {
+  //   window.localStorage.setItem("favlist", JSON.stringify(favlist));
+  // }, [favlist]);
 
   useEffect(() => {
     // Fetch API

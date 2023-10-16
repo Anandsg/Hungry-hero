@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CDN_URL } from "../utils/constants";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 const RestruarantCards = (props) => {
   const { resData, id, favlist, onClickFav } = props;
   const [isfav, setfav] = useState(favlist.indexOf(id) > -1);
+  const [isHovered, setIsHovered] = useState(false);
+
   const {
     cloudinaryImageId,
     name,
@@ -15,8 +17,14 @@ const RestruarantCards = (props) => {
     costForTwo,
     aggregatedDiscountInfo,
   } = resData;
+
   return (
-    <div className="overflow-hidden shadow-md md:shadow-none py-4 px-4 md:py-2  hover:shadow-xl rounded flex flex-col gap-1 text-[0.7rem] text-[#535665] ">
+    <div
+      className={`overflow-hidden shadow-md md:shadow-none py-4 px-4 md:py-2 rounded flex flex-col gap-1 text-[0.7rem] text-[#535665] hover:bg-gray-200 hover:text-black hover:shadow-xl cursor-pointer ${isHovered&&"scale-105"}`}
+      style={{ position: "relative" }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <Link to={"/restaurants/" + id}>
         <div className="relative">
           <img
@@ -27,7 +35,7 @@ const RestruarantCards = (props) => {
                 : cloudinaryImageId)
             }
             alt=""
-            className=" rounded object-cover"
+            className="rounded object-cover"
           />
           <span
             className={
@@ -36,15 +44,23 @@ const RestruarantCards = (props) => {
             onClick={(e) => {
               setfav(!isfav);
               onClickFav(id);
+              window.localStorage.setItem("favlist", JSON.stringify(favlist));
               e.preventDefault();
             }}
           >
-            <AiFillHeart
-              className={`${
-                isfav ? "text-red-500" : "text-black"
-              } group-hover:text-red-500`}
-            />
-            <AiOutlineHeart className="absolute top-0" color="white" />
+            {isHovered || isfav ? (
+              <>
+                <AiFillHeart
+                  className={`${isfav ? "text-red-500" : "text-black"
+                    } group-hover:scale-110`}
+                />
+
+                <AiOutlineHeart
+                  className="absolute top-0 text-white group-hover:scale-110"
+                  style={{ display: "block" }}
+                />
+              </>
+            ) : null}
           </span>
         </div>
         <div className="res-details px-2">
@@ -52,13 +68,12 @@ const RestruarantCards = (props) => {
           <span className="text-[0.8rem]">{cuisines.join(", ")}</span>
           <div className="flex justify-between items-center my-2 font-medium">
             <div
-              className={`flex items-center gap-1 px-1 text-white ${
-                avgRating >= 4
+              className={`flex items-center gap-1 px-1 text-white ${avgRating >= 4
                   ? "bg-green-500"
                   : avgRating >= 2
-                  ? "bg-amber-500"
-                  : "bg-red-500"
-              } font-semibold`}
+                    ? "bg-amber-500"
+                    : "bg-red-500"
+                } font-semibold`}
             >
               <span className="text-[0.6rem]">&#9733;</span>
               <span className="text-[0.6rem]">

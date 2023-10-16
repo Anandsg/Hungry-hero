@@ -7,13 +7,13 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY;
+      const scrolled = window.scrollY - 100;
       const maxScroll =
-        document.documentElement.scrollHeight - window.innerHeight;
+        document.documentElement.scrollHeight - window.innerHeight - 100;
       const progress = (scrolled / maxScroll) * 100;
       setScrollProgress(progress);
 
-      if (scrolled > 100) {
+      if (scrolled > 0) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
