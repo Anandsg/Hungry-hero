@@ -2,6 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import React from "react";
 import { useFocus } from "../utils/useFocus";
 
+import { FormControl, TextField, Button, InputAdornment } from "@mui/material";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import EmailIcon from "@mui/icons-material/Email";
+import MessageIcon from "@mui/icons-material/Message";
+
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -109,46 +114,51 @@ const Contact = () => {
           We're Eager to Receive Your Feedback and Suggestions!
         </p>
         <form className="mt-14" onSubmit={handleSubmitButton}>
-          <div className="mb-4">
-            <label htmlFor="userName" className="font-semibold">
-              Name:
-            </label>
-            <br />
-
-            <input
-              type="text"
-              className="mb-2 border p-2 mt-3 border-black rounded-lg w-[400px]"
-              name="userName"
+          <FormControl>
+            <TextField
+              label={"Name"}
+              name="name"
+              variant="outlined"
+              margin="normal"
               value={name}
               onBlur={validateName}
-              onFocus={OnFocusHandler}
+              onChange={(event) => {
+                setName(event.target.value);
+                validateName(event);
+              }}
               onKeyUp={(e) => {
                 handleNameKeyUp(e, focusEmail, name, nameError);
               }}
-              onChange={(e) => {
-                const val = e.target.value;
-                setName(val);
-                validateName(e);
+              inputRef={focusName}
+              autoFocus
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccountCircle />
+                  </InputAdornment>
+                ),
               }}
-              ref={focusName}
-            ></input>
+            />
             {nameError && (
               <p className="mt-[-8px] text-xs text-red-400 font-semibold">
                 Name should not be blank, <br /> must be minimun 3 charcters,{" "}
                 <br /> integers not allowed
               </p>
             )}
-          </div>
-          <div className="mb-4">
-            <label htmlFor="userEmail" className="font-semibold">
-              Email:
-            </label>
-            <br />
-            <input
-              type="email"
-              className="mb-2 p-2 mt-3 border border-black rounded-lg w-[400px]"
+
+            <TextField
+              label={"Email"}
+              name="userEmail"
+              margin="normal"
+              variant="outlined"
               value={email}
-              ref={focusEmail}
+              inputRef={focusEmail}
+              onBlur={validateEmail}
+              onChange={(e) => {
+                const val = e.target.value;
+                setEmail(val);
+                validateEmail(e);
+              }}
               onFocus={OnFocusHandler}
               onKeyUp={(e) => {
                 handleEmailKeyUp(
@@ -159,57 +169,61 @@ const Contact = () => {
                   focusEmail
                 );
               }}
-              name="userEmail"
-              onBlur={validateEmail}
-              onChange={(e) => {
-                const val = e.target.value;
-                setEmail(val);
-                validateEmail(e);
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <EmailIcon />
+                  </InputAdornment>
+                ),
               }}
-            ></input>
+            />
             {emailError && (
               <p className="mt-[-8px] text-xs text-red-400 font-semibold">
                 Enter a valid email address.
               </p>
             )}
-          </div>
-          <div className="mb-4">
-            <label htmlFor="message" className="font-semibold">
-              Message:
-            </label>
-            <br />
-            <textarea
-              type="text"
-              className="mb-2 p-2 mt-3 border border-black rounded w-[100%] lg:w-[400px] min-h-[100px]"
+            <TextField
+              label={"Message"}
+              variant="outlined"
               name="message"
-              value={msg}
-              ref={focusMessage}
               placeholder="Type your message here..."
+              margin="normal"
+              value={msg}
+              inputRef={focusMessage}
               onBlur={checkMsg}
               onChange={checkMsg}
-            ></textarea>
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <MessageIcon />
+                  </InputAdornment>
+                ),
+              }}
+            />
             {msgError && (
               <p className="mt-[-8px] text-xs text-red-400 font-semibold">
                 Enter a message.
               </p>
             )}
-          </div>
-
-          <div className="flex justify-around">
-            <button
-              type="reset"
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
-              onClick={handleClearButton}
-            >
-              Clear
-            </button>
-            <input
-              type="submit"
-              value="Submit"
-              className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
-              onClick={handleSubmitButton}
-            ></input>
-          </div>
+            <div className="flex justify-around" style={{ marginTop: 20 }}>
+              <Button
+                variant="outlined"
+                margin="normal"
+                type="reset"
+                onClick={handleClearButton}
+              >
+                Clear
+              </Button>
+              <Button
+                variant="contained"
+                type="submit"
+                value="Submit"
+                onClick={handleSubmitButton}
+              >
+                Submit
+              </Button>
+            </div>
+          </FormControl>
         </form>
       </div>
     </>
