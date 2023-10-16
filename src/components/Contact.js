@@ -3,6 +3,10 @@ import React from "react";
 import { useFocus } from "../utils/useFocus";
 
 import { FormControl, TextField, Button } from "@mui/material";
+import InputAdornment from "@mui/material/InputAdornment";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import EmailIcon from "@mui/icons-material/Email";
+import MessageIcon from "@mui/icons-material/Message";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -128,6 +132,13 @@ const Contact = () => {
               }}
               inputRef={focusName}
               autoFocus
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <AccountCircle />
+                  </InputAdornment>
+                ),
+              }}
             />
             {nameError && (
               <p className="mt-[-8px] text-xs text-red-400 font-semibold">
@@ -159,6 +170,13 @@ const Contact = () => {
                   focusEmail
                 );
               }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <EmailIcon />
+                  </InputAdornment>
+                ),
+              }}
             />
             {emailError && (
               <p className="mt-[-8px] text-xs text-red-400 font-semibold">
@@ -175,6 +193,13 @@ const Contact = () => {
               inputRef={focusMessage}
               onBlur={checkMsg}
               onChange={checkMsg}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <MessageIcon />
+                  </InputAdornment>
+                ),
+              }}
             />
             {msgError && (
               <p className="mt-[-8px] text-xs text-red-400 font-semibold">
