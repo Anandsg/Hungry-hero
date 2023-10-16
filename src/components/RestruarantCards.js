@@ -16,13 +16,14 @@ const RestruarantCards = (props) => {
     aggregatedDiscountInfo,
   } = resData;
   return (
-    <div className="overflow-hidden shadow-md md:shadow-none py-4 px-4 md:py-2  hover:shadow-xl rounded flex flex-col gap-1 text-[0.7rem] text-[#535665] ">
+    <div className="overflow-hidden shadow-md md:shadow-none py-4 px-4 md:py-2 hover:shadow-2xl hover:bg-orange-300 transition duration-300 ease-in-out hover:scale-110 rounded flex flex-col gap-1 text-[0.7rem] text-[#535665]">
+    
       <Link to={"/restaurants/" + id}>
         <div className="relative">
           <img
             src={
               CDN_URL +
-              (cloudinaryImageId === ""
+              (cloudinaryImageId === "" //19-49
                 ? "s6fhwzl0tss0vgrqvcid"
                 : cloudinaryImageId)
             }
@@ -47,6 +48,8 @@ const RestruarantCards = (props) => {
             <AiOutlineHeart className="absolute top-0" color="white" />
           </span>
         </div>
+
+        
         <div className="res-details px-2">
           <h4 className="font-medium text-base text-black">{name}</h4>
           <span className="text-[0.8rem]">{cuisines.join(", ")}</span>
