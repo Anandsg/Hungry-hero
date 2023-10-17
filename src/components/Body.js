@@ -17,9 +17,7 @@ const useMountEffect = (fun) =>
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
-  const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState(
-    []
-  );
+  const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState([]);
   let [favlist, setFavList] = useState([]);
   const [showFav, setShowFav] = useState(false);
   const [showBackBtn, setShowBackBtn] = useState(false);
@@ -217,7 +215,9 @@ const Body = () => {
 
             <button
               className="text-xs font-medium shadow-md px-2 py-2 outline-none ml-0 right-10 border border-gray-300 bg-orange-500 hover:border-gray-500 transition-all duration-200 ease-in-out text-white rounded-none mt-4"
-              onClick={handleBackBtn}
+              onClick={() => {
+                window.location.href = "/";
+              }}
             >
               Go back to Home
             </button>
@@ -254,10 +254,7 @@ const Body = () => {
                       padding: "2px",
                     }}
                     type="button"
-                    onClick={() => {
-                      handleBackBtn();
-                      setShowFav(!showFav);
-                    }}
+                    onClick={() => (window.location.href = "/")}
                   >
                     <img src={ArrowIcon} alt="arrow" height={30} width={30} />
                   </button>
