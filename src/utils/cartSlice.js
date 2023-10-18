@@ -15,9 +15,9 @@ const cartSlice = createSlice({
       console.log(index, "Index");
       console.log(state.items[index], "Index");
       if (index < 0) {
-        state.items.push({ ...action.payload.card });
-        state.items[state.items.length - 1].info.quantity = 1;
-      } else {
+        let data = { ...action.payload.card, info: { ...action.payload.card.info, quantity: 1 } };
+        state.items.push(data)
+       } else {
         state.items[index].info.quantity++;
       }
 
@@ -35,8 +35,14 @@ const cartSlice = createSlice({
       const index = state.items.findIndex(
         ({ info }) => info.id === action.payload
       );
-      if (index >= 0 && state.items[index].info.quantity > 1) {
+      if (index >= 0 && state.items[index].info.quantity >= 1) {
         state.items[index].info.quantity--;
+
+        if (state.items[index].info.quantity == 0) {
+          // state.items[index].info.quantity--;
+          state.items.splice(index, 1);
+          // removeItem(state,action)
+        }
       }
     },
     removeItem: (state, action) => {
