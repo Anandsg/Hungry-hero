@@ -1,8 +1,12 @@
 import React from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { CDN_URL } from "../utils/constants";
-import { useDispatch,useSelector } from "react-redux";
-import { addItem,increaseQuantity,decreaseQuantity } from "../utils/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addItem,
+  increaseQuantity,
+  decreaseQuantity,
+} from "../utils/cartSlice";
 
 const RestaurantMenuAccordionDetails = (props) => {
   const { cardInfo, onClickAddFoodItem } = props;
@@ -15,7 +19,7 @@ const RestaurantMenuAccordionDetails = (props) => {
     onClickAddFoodItem();
   };
 
-  const increaseItemHandler=(id)=> {
+  const increaseItemHandler = (id) => {
     dispatch(increaseQuantity(id));
   };
   const decreaseItemHandler = (id) => {
@@ -64,17 +68,14 @@ const RestaurantMenuAccordionDetails = (props) => {
             className="w-32 h-20 rounded self-center object-cover"
           />
           {itemInCart ? (
-            <div
-              className="flex space-x-5 absolute bottom-[-8px] bg-white shadow-md text-[10px] py-1 px-4 border self-center  font-medium rounded"
-              style={{ width: "100px" }}
-            >
+            <div className="flex space-x-5 absolute bottom-[-8px] bg-white shadow-md text-[10px] py-1 px-4 border self-center  font-medium rounded">
               <FaMinus
                 onClick={() => decreaseItemHandler(card?.card?.info?.id)}
                 className="hover:scale-110 cursor-pointer transition-all duration-300 ease-in-out align-middle mt-1"
               />
-              <span> {itemInCart.info.quantity}</span>{" "}
+              <span> {itemInCart.info.quantity}</span>
               <FaPlus
-                onClick={() =>increaseItemHandler(card?.card?.info?.id)}
+                onClick={() => increaseItemHandler(card?.card?.info?.id)}
                 className="hover:scale-110 cursor-pointer transition-all duration-300 ease-in-out mt-1"
               />
             </div>
@@ -82,7 +83,6 @@ const RestaurantMenuAccordionDetails = (props) => {
             <button
               className="absolute bottom-[-8px] bg-white shadow-md border self-center text-[10px] py-1 px-4 font-medium rounded  active:scale-90 hover:bg-orange-200 transition-all duration-300 ease-in-out"
               onClick={() => addItemHandler(card)}
-              style={{ width: "100px" }}
             >
               ADD TO CART
             </button>
