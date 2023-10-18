@@ -26,7 +26,7 @@ const About = () => {
             href="https://www.linkedin.com/in/anand-gadagin-6a8a96184/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-700 hover:text-green-700"
+            className="text-gray-700 hover:text-[#0072b1]"
           >
             <FaLinkedin size={24} />
           </a>
@@ -34,7 +34,7 @@ const About = () => {
             href="https://www.instagram.com/anand_gadagin_"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-700 hover:text-green-700"
+            className="text-gray-700 hover:text-[#d62976]"
           >
             <FaInstagram size={24} />
           </a>
