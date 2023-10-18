@@ -1,19 +1,35 @@
 import React from "react";
-
+import { FaMinus, FaPlus } from "react-icons/fa";
 import { CDN_URL } from "../utils/constants";
-import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addItem,
+  increaseQuantity,
+  decreaseQuantity,
+} from "../utils/cartSlice";
 
 const RestaurantMenuAccordionDetails = (props) => {
   const { cardInfo, onClickAddFoodItem } = props;
   console.log(cardInfo.card.card.itemCards);
+  const cartItems = useSelector((store) => store.cart.items);
+
   const dispatch = useDispatch();
   const addItemHandler = (card) => {
     dispatch(addItem(card));
     onClickAddFoodItem();
   };
 
+  const increaseItemHandler = (id) => {
+    dispatch(increaseQuantity(id));
+  };
+  const decreaseItemHandler = (id) => {
+    dispatch(decreaseQuantity(id));
+  };
+
   return cardInfo.card?.card?.itemCards?.map((card) => {
+    const itemInCart = cartItems.find(
+      (item) => item.info.id === card.card.info.id
+    );
     return (
       <div
         className="flex flex-col justify-between border-b pb-6 mx-2 mb-4 gap-6 md:flex-row"
@@ -51,12 +67,26 @@ const RestaurantMenuAccordionDetails = (props) => {
             alt=""
             className="w-32 h-20 rounded self-center object-cover"
           />
-          <button
-            className="absolute bottom-[-8px] bg-white shadow-md border self-center text-[10px] py-1 px-4 font-medium rounded  active:scale-90 hover:bg-orange-200 transition-all duration-300 ease-in-out"
-            onClick={() => addItemHandler(card)}
-          >
-            ADD TO CART
-          </button>
+          {itemInCart ? (
+            <div className="flex space-x-5 absolute bottom-[-8px] bg-white shadow-md text-[10px] py-1 px-4 border self-center  font-medium rounded">
+              <FaMinus
+                onClick={() => decreaseItemHandler(card?.card?.info?.id)}
+                className="hover:scale-110 cursor-pointer transition-all duration-300 ease-in-out align-middle mt-1"
+              />
+              <span> {itemInCart.info.quantity}</span>
+              <FaPlus
+                onClick={() => increaseItemHandler(card?.card?.info?.id)}
+                className="hover:scale-110 cursor-pointer transition-all duration-300 ease-in-out mt-1"
+              />
+            </div>
+          ) : (
+            <button
+              className="absolute bottom-[-8px] bg-white shadow-md border self-center text-[10px] py-1 px-4 font-medium rounded  active:scale-90 hover:bg-orange-200 transition-all duration-300 ease-in-out"
+              onClick={() => addItemHandler(card)}
+            >
+              ADD TO CART
+            </button>
+          )}
         </div>
       </div>
     );
