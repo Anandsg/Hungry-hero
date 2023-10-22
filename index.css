@@ -1,3 +1,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.para{
+    border-bottom: 1px solid gray;
+    
+}
+.para:nth-child(1) {
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+    animation: scaleAndFade .5s ease-in-out .2s forwards;
+    opacity: 0;
+}
+
+.para:nth-child(2) {
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+    animation: scaleAndFade .5s ease-in-out forwards;
+    animation-delay: .5s; 
+    opacity: 0;
+}
+
+.para:nth-child(3) {
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+    animation: scaleAndFade .5s ease-in-out  forwards;
+    animation-delay: .8s;
+    opacity: 0;
+}
+.para:nth-child(4) {
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+    animation: scaleAndFade .5s ease-in-out  forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+.para:nth-child(5) {
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+    animation: scaleAndFade .5s ease-in-out  forwards;
+    animation-delay: 1.2s;
+    opacity: 0;
+}
+
+
+.confirmTitle{
+    text-align: center;
+    font-weight: 600;
+    font-size: 25px;
+    
+}
+
+@keyframes scaleAndFade {
+    from {
+        transform: scale(1);
+       
+    }
+    to {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
