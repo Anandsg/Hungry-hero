@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="footer relative flex flex-col sm:flex-row gap-x-3 w-full justify-center items-center">
       Developed with 🧡 and a lot of ☕️ by Anand
       <i className="fa-solid fa-heart"></i>
-      <div class="flex flex-row gap-x-2 justify-center items-center">
+      <div className="flex flex-row gap-x-2 justify-center items-center">
         <a
           href="https://github.com/Anandsg"
           target="_blank"
