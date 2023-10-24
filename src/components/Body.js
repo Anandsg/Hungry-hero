@@ -141,7 +141,7 @@ const Body = () => {
               ) : null}
               <input
                 type="text"
-                className=" w-96 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none rounded-lg md:mr-4"
+                className="w-64 md:w-96 text-xs border border-gray-300 shadow-md focus:border-gray-500 transition-all duration-300 px-2 py-2 outline-none rounded-none md:rounded-lg md:mr-4"
                 placeholder="Search Restaurants"
                 value={searchText}
                 ref={focusElement}
