@@ -16,11 +16,8 @@ const useRestaurant = (resid) => {
         "&submitAction=ENTER"
     );
     const json = await data.json();
-    console.log(json);
-    setRestaurants(json.data?.cards[0]?.card?.card?.info); //47589
-    // console.log(restaurants);
+    setRestaurants(json.data?.cards[0]?.card?.card?.info);
     setResMenu(json.data?.cards[2]);
-    // console.log(resmenu);
   }
 
   return [restaurants, resmenu];

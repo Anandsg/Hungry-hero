@@ -46,7 +46,6 @@ const Header = () => {
 
       const data = await response.json();
       const {name, email, picture} = data;
-      console.log(data);
       setUserInfo({
         name:name,
         email:email,

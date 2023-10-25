@@ -10,7 +10,6 @@ import {
 
 const RestaurantMenuAccordionDetails = (props) => {
   const { cardInfo, onClickAddFoodItem } = props;
-  console.log(cardInfo.card.card.itemCards);
   const cartItems = useSelector((store) => store.cart.items);
 
   const dispatch = useDispatch();
