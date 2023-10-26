@@ -18,7 +18,7 @@ const Section = ({ title, description, isVisible, onClick }) => {
         transition: "ease-in-out .13s",
         boxShadow: "rgba(17, 17, 26, 0.1) 0px 0px 16px",
       }}
-      className="border rounded-2xl m-4 overflow-hidden transition-all transform hover:scale-105  duration-300 ease-in"
+      className="border hover:text-orange-400 rounded-2xl m-4 overflow-hidden transition-all transform hover:scale-105  duration-300 ease-in"
     >
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
@@ -27,13 +27,13 @@ const Section = ({ title, description, isVisible, onClick }) => {
         <Typography
           variant="h6"
           style={{ fontSize: "1.25rem", fontWeight: "500" }}
-          className="text-gray-800 hover:text-orange-400"
+          className=""
         >
           {title}
         </Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>{description}</Typography>
+        <Typography className="text-gray-800">{description}</Typography>
       </AccordionDetails>
     </Accordion>
   );
