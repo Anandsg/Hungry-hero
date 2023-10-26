@@ -145,7 +145,6 @@ const RestruarantMenu = () => {
                 </style>
                 {resOffers?.card?.card?.gridElements?.infoWithStyle?.offers.map(
                   (offer, index) => {
-                    console.log(offer);
                     return (
                       <div
                         className="flex-shrink-0 border border-p px-2 py-3 mr-4 rounded-md"

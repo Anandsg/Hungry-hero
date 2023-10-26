@@ -8,12 +8,9 @@ const cartSlice = createSlice({
 
   reducers: {
     addItem: (state, action) => {
-      console.log(state.items, "STATE.ITEMS");
       const index = state.items.findIndex(
         ({ info }) => info.id === action.payload.card.info.id
       );
-      console.log(index, "Index");
-      console.log(state.items[index], "Index");
       if (index < 0) {
         let data = { ...action.payload.card, info: { ...action.payload.card.info, quantity: 1 } };
         state.items.push(data)
@@ -21,7 +18,6 @@ const cartSlice = createSlice({
         state.items[index].info.quantity++;
       }
 
-      console.log(state.items.length, "this is cart payload");
     },
     increaseQuantity: (state, action) => {
       const index = state.items.findIndex(

@@ -11,10 +11,6 @@ import ArrowIcon from "../assets/arrow-icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useFocus } from "../utils/useFocus";
 
-//useEffect wrapper hook for rendering on first & secondtime
-const useMountEffect = (fun) =>
-  useEffect(fun, console.log("rendered focus element"), []);
-
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredListOfRestaurants, setFilteredListOfRestaurants] = useState(
@@ -40,21 +36,15 @@ const Body = () => {
     initiateSearch();
   }, [searchText]);
 
-  //Focus search
-  useMountEffect(setFocusElement);
-
   //Search function
   function initiateSearch() {
     setShowFav(false);
     setShowFitler(false);
     let searchList = showFav ? favourites : listOfRestaurants;
-    console.log(showFav, searchList);
     if (searchText === "") {
       setFilteredListOfRestaurants(searchList);
     } else {
-      console.log(searchList, searchText);
       const data = filterData(searchText, searchList);
-      console.log("data", data);
 
       setFilteredListOfRestaurants(data);
 
@@ -88,7 +78,6 @@ const Body = () => {
       "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json);
 
     setListOfRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
