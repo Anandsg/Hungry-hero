@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const RestruarantCards = (props) => {
   const { resData, id, favlist, onClickFav } = props;
   const [isfav, setfav] = useState(favlist.indexOf(id) > -1);
+  const [wiggleEffect, setWiggleEffect] = useState(false);
   const {
     cloudinaryImageId,
     name,
@@ -30,12 +31,13 @@ const RestruarantCards = (props) => {
             className=" rounded object-cover"
           />
           <span
-            className={
-              "group absolute text-xl top-0.5 right-0.5 cursor-pointer"
-            }
+            className={`${
+              wiggleEffect && "wiggle-scale"
+            } group absolute text-xl top-0.5 right-0.5 cursor-pointer`}
             onClick={(e) => {
               setfav(!isfav);
               onClickFav(id);
+              setWiggleEffect(!wiggleEffect);
               e.preventDefault();
             }}
           >
