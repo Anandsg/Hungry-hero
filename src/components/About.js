@@ -9,17 +9,18 @@ const About = () => {
           About Our Platform
         </p>
         <p className="text-base mb-4 my-9 text-gray-500">
-          Our platform is dedicated to providing the best food delivery experience.
-          We're passionate about delivering your favorite restaurant meals right
-          to your doorstep. Our team of Frontend Developers is committed to creating
-          a top-notch online food delivery platform that combines artistic creativity
-          with technical excellence.
+          Our platform is dedicated to providing the best food delivery
+          experience. We're passionate about delivering your favorite restaurant
+          meals right to your doorstep. Our team of Frontend Developers are
+          committed to creating a top-notch online food delivery platform that
+          combines artistic creativity with technical excellence.
         </p>
         <p className="text-base mb-4 my-9 text-gray-500">
-          We believe in the power of open-source collaboration. Our app is open for
-          contributions from developers like you. You can contribute in any way,
-          whether it's improving code, suggesting features, or helping us enhance
-          the user experience. Join us in making our platform even better!
+          We believe in the power of open-source collaboration. Our app is open
+          for contributions from developers like you. You can contribute in any
+          way, whether it's improving code, suggesting features, or helping us
+          enhance the user experience. Join us in making our platform even
+          better!
         </p>
         <div className="flex space-x-4">
           <a
