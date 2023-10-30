@@ -40,7 +40,7 @@ const ScrollToTop = () => {
       onClick={scrollToTop}
       style={{ display: isVisible ? "block" : "none" }}
     >
-      <div className="w-10 h-10 rounded-full relative cursor-pointer">
+      <div className="w-10 h-10 rounded-full relative cursor-pointer hover:shadow-xl ease-in duration-200 hover:scale-105">
         <div
           className="w-full h-full rounded-full"
           style={{
@@ -58,6 +58,3 @@ const ScrollToTop = () => {
 };
 
 export default ScrollToTop;
-
-
-

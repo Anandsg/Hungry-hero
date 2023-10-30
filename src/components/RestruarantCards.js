@@ -17,8 +17,11 @@ const RestruarantCards = (props) => {
     aggregatedDiscountInfo,
   } = resData;
   return (
-    <div className="overflow-hidden shadow-md md:shadow-none py-4 px-4 md:py-2  hover:shadow-xl rounded flex flex-col gap-1 text-[0.7rem] text-[#535665] ">
-      <Link to={"/restaurants/" + id}>
+    <Link
+      className="shadow-md md:shadow-none hover:shadow-xl ease-in duration-200 rounded"
+      to={"/restaurants/" + id}
+    >
+      <div className="overflow-hidden py-4 px-4 md:py-2 flex flex-col gap-1 text-[0.7rem] text-[#535665] ">
         <div className="relative">
           <img
             src={
@@ -82,8 +85,8 @@ const RestruarantCards = (props) => {
             </span>
           </div>
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 
