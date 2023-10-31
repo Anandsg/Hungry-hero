@@ -8,24 +8,9 @@ const Shimmer = () => {
       className="flex flex-wrap gap-6 py-8 justify-center"
       data-testid="shimmer"
     >
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
-      <ShimmerCard />
+      {Array.from({ length: 20 }).map((_, index) => (
+        <ShimmerCard key={index} />
+      ))}
     </div>
   );
 };

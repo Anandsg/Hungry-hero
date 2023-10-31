@@ -138,10 +138,10 @@ const RestruarantMenu = () => {
               <div className="flex overflow-x-auto mt-2">
                 <style>
                   {`
-      .flex::-webkit-scrollbar {
-        width: 0 !important;
-      }
-    `}
+                    .flex::-webkit-scrollbar {
+                      width: 0 !important;
+                    }
+                  `}
                 </style>
                 {resOffers?.card?.card?.gridElements?.infoWithStyle?.offers.map(
                   (offer, index) => {
@@ -173,6 +173,7 @@ const RestruarantMenu = () => {
                   }
                 )}
               </div>
+              <div className="border border-dashed my-2"></div>
               {resmenu?.groupedCard?.cardGroupMap?.REGULAR?.cards
                 .slice(1)
                 .map((cardInfo, index) => {
