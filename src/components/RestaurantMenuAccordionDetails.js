@@ -7,6 +7,12 @@ import {
   increaseQuantity,
   decreaseQuantity,
 } from "../utils/cartSlice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCircleDot,
+  faSquareCaretUp,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
 
 const RestaurantMenuAccordionDetails = (props) => {
   const { cardInfo, onClickAddFoodItem } = props;
@@ -35,8 +41,28 @@ const RestaurantMenuAccordionDetails = (props) => {
         key={card?.card?.info?.id}
       >
         <div className="flex flex-col gap-2 w-full md:w-3/4">
+          <div className="flex items-center gap-2">
+            {card?.card?.info?.itemAttribute?.vegClassifier === "VEG" && (
+              <FontAwesomeIcon
+                icon={faCircleDot}
+                className="w-3 h-3 text-green-600"
+              />
+            )}
+            {card?.card?.info?.itemAttribute?.vegClassifier === "NONVEG" && (
+              <FontAwesomeIcon
+                icon={faSquareCaretUp}
+                className="w-3 h-3 text-red-600"
+              />
+            )}
+            {card?.card?.info?.isBestseller && (
+              <span className="flex gap-1 text-orange-300 mt-[1px]">
+                <FontAwesomeIcon icon={faStar} className="w-3 h-3" />
+                <span className="-mt-[1px]">Bestseller</span>
+              </span>
+            )}
+          </div>
           <span className="font-semibold text-base">
-            {card?.card?.info?.name}
+            {card?.card?.info?.name}{" "}
           </span>
           <div className="flex items-center gap-2">
             <span className="font-semibold">
@@ -52,7 +78,7 @@ const RestaurantMenuAccordionDetails = (props) => {
               </span>
             )}
           </div>
-          <p className="text-xs text-[#535665] ">
+          <p className="text-xs text-gray-500 font-light ">
             {card?.card?.info?.description}
           </p>
         </div>
@@ -80,7 +106,7 @@ const RestaurantMenuAccordionDetails = (props) => {
             </div>
           ) : (
             <button
-              className="absolute bottom-[-8px] bg-white shadow-md border self-center text-[10px] py-1 px-4 font-medium rounded  active:scale-90 hover:bg-orange-200 transition-all duration-300 ease-in-out"
+              className="absolute bottom-[-8px] bg-white text-black shadow-md border self-center text-[10px] py-1 px-4 font-medium rounded  active:scale-90 hover:bg-orange-200 transition-all duration-300 ease-in-out"
               onClick={() => addItemHandler(card)}
             >
               ADD TO CART
