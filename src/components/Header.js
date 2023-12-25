@@ -16,7 +16,7 @@ import { FaQuestionCircle } from "react-icons/fa";
 
 import ScrollToTop from "./ScrollToTop";
 import { useGoogleLogin } from "@react-oauth/google";
-import avatar from './avatar.png';
+import avatar from '../assets/avatar.png'
 
 const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
