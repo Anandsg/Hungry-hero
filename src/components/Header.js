@@ -16,16 +16,16 @@ import { FaQuestionCircle } from "react-icons/fa";
 
 import ScrollToTop from "./ScrollToTop";
 import { useGoogleLogin } from "@react-oauth/google";
-import avatar from '../assets/avatar.png'
+import avatar from "../assets/avatar.png";
 
 const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Track whether the menu is open
   const [isProfileOpen, setisProfileOpen] = useState(false);
   const [userInfo, setUserInfo] = useState({
-      name:"",
-      picture:"",
-      email:""
+    name: "",
+    picture: "",
+    email: "",
   });
 
   const isOnline = useOnline();
@@ -45,11 +45,11 @@ const Header = () => {
       }
 
       const data = await response.json();
-      const {name, email, picture} = data;
+      const { name, email, picture } = data;
       setUserInfo({
-        name:name,
-        email:email,
-        picture:picture
+        name: name,
+        email: email,
+        picture: picture,
       });
     } catch (error) {
       console.error("Error fetching user info:", error);
@@ -179,8 +179,6 @@ const Header = () => {
                 </span>
               </div>
             </NavLink>
-
-            {/* Will enable login feature once i setup google client ID */}
             {isLoggedIn ? (
               <button
                 className="text-xs font-medium shadow-md px-2 py-2 outline-none m-2 right-10 rounded border border-gray-300 hover:border-gray-500 transition-all duration-200 ease-in-out text-gray-700 cursor-pointer"
@@ -200,35 +198,53 @@ const Header = () => {
                 </button>
                 <button
                   className="outline-none m-2 right-10 transition-all duration-200 ease-in-out cursor-pointer"
-                  onClick={() => {setisProfileOpen(!isProfileOpen)}}
+                  onClick={() => {
+                    setisProfileOpen(!isProfileOpen);
+                  }}
                 >
-                  <img src={userInfo.picture?userInfo.picture:avatar} alt="pic" className="w-9 h-9 right-10 rounded-full" />
+                  <img
+                    src={userInfo.picture ? userInfo.picture : avatar}
+                    alt="pic"
+                    className="w-9 h-9 right-10 rounded-full"
+                  />
                 </button>
               </>
             )}
-              
           </ul>
         </div>
       </div>
-      {isProfileOpen && !isLoggedIn? (
+      {isProfileOpen && !isLoggedIn ? (
         <div className="flex items-center justify-center fixed h-full right-5 sm:right-20 z-20">
           <div className="w-50 h-2/3 bg-white p-10 rounded shadow-lg flex flex-col justify-evenly ">
             <div className="flex items-center justify-center w-full">
-              <img src={userInfo.picture?userInfo.picture:avatar} alt="pic" className="w-1/2 h-100 rounded-full" />  
+              <img
+                src={userInfo.picture ? userInfo.picture : avatar}
+                alt="pic"
+                className="w-1/2 h-100 rounded-full"
+              />
             </div>
             <hr />
-            <div className="text-0.5rem font-semibold justify-start my-5" v>Name: {userInfo.name}</div>
+            <div className="text-0.5rem font-semibold justify-start my-5" v>
+              Name: {userInfo.name}
+            </div>
             <hr />
-            <div className="text-0.5rem font-semibold justify-start my-5">Email: {userInfo.email}</div>
-            <div className="text-blue-500 text-0.5rem justify-start my-5" onClick={() => {
-              logout();
-              login();
-            }}>switch account</div>
+            <div className="text-0.5rem font-semibold justify-start my-5">
+              Email: {userInfo.email}
+            </div>
+            <div
+              className="text-blue-500 text-0.5rem justify-start my-5"
+              onClick={() => {
+                logout();
+                login();
+              }}
+            >
+              switch account
+            </div>
           </div>
         </div>
-          ) : (
+      ) : (
         <div></div>
-        )}
+      )}
     </>
   );
 };
