@@ -32,7 +32,7 @@ const About = () => {
             <FaLinkedin size={24} />
           </a>
           <a
-            href="https://www.instagram.com/anand_gadagin_"
+            href="https://www.instagram.com/anand_gadagin"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-700 hover:text-[#d62976]"
