@@ -17,6 +17,7 @@ import { FaQuestionCircle } from "react-icons/fa";
 import ScrollToTop from "./ScrollToTop";
 import { useGoogleLogin } from "@react-oauth/google";
 import avatar from "../assets/avatar.png";
+import mobile_menu from "../assets/mobile-menu.svg";
 
 const Header = () => {
   const [isLoggedIn, setisLoggedIn] = useState(true);
@@ -114,7 +115,7 @@ const Header = () => {
                 isActive ? "text-orange-400 " : "text-black"
               }
             >
-              <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
+              <li className="hover:text-orange-400 transition-all duration-300 ease-in-out hidden md:flex items-center gap-2">
                 <span className="hidden md:block">
                   <HiHome />
                 </span>
@@ -127,7 +128,7 @@ const Header = () => {
                 isActive ? "text-orange-400 " : "text-black"
               }
             >
-              <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
+              <li className="hover:text-orange-400 transition-all duration-300 ease-in-out hidden md:flex items-center gap-2">
                 <span className="hidden md:block">
                   <HiBuildingOffice />
                 </span>
@@ -140,7 +141,7 @@ const Header = () => {
                 isActive ? "text-orange-400 " : "text-black"
               }
             >
-              <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
+              <li className="hover:text-orange-400 transition-all duration-300 ease-in-out hidden md:flex items-center gap-2">
                 <span className="hidden md:block">
                   <HiPhone />
                 </span>
@@ -153,7 +154,7 @@ const Header = () => {
                 isActive ? "text-orange-400 " : "text-black"
               }
             >
-              <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
+              <li className="hover:text-orange-400 transition-all duration-300 ease-in-out hidden md:flex items-center gap-2">
                 <span className="hidden md:block">
                   <FaQuestionCircle />
                 </span>
@@ -210,7 +211,16 @@ const Header = () => {
                 </button>
               </>
             )}
+            <button onClick={() => {
+              setIsMenuOpen(!isMenuOpen);
+            }}
+              className="md:hidden">
+              <div className="navbar-burger flex items-center text-orange-600 p-3">
+                <img src={mobile_menu} className="block h-4 w-4 fill-current" />
+              </div>
+            </button>
           </ul>
+
         </div>
       </div>
       {isProfileOpen && !isLoggedIn ? (
@@ -245,6 +255,56 @@ const Header = () => {
       ) : (
         <div></div>
       )}
+
+      {isMenuOpen ? (
+        <div className="fixed top-0 left-0 z-20">
+          <div class="shadow-xl w-72 py-14 bg-white h-screen">
+            <ul className="flex-col text-[16px] px-4 py-8 sm:text-[16px] font-semibold md:font-normal items-center space-x-2 sm:space-x-3 md:space-x-4">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "text-orange-400 " : "text-black"
+                }
+              >
+                <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
+                  <span className="hidden md:block">
+                    <HiHome />
+                  </span>
+                  Home
+                </li>
+              </NavLink>
+              <NavLink
+                to="/About"
+                className={({ isActive }) =>
+                  isActive ? "text-orange-400 " : "text-black"
+                }
+              >
+                <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
+                  <span className="hidden md:block">
+                    <HiBuildingOffice />
+                  </span>
+                  About
+                </li>
+              </NavLink>
+              <NavLink
+                to="/Contact"
+                className={({ isActive }) =>
+                  isActive ? "text-orange-400 " : "text-black"
+                }
+              >
+                <li className="hover:text-orange-400 transition-all duration-300 ease-in-out flex items-center gap-2">
+                  <span className="hidden md:block">
+                    <HiPhone />
+                  </span>
+                  Contact
+                </li>
+              </NavLink>
+            </ul>
+          </div>
+        </div>
+      ) : (<> </>)
+
+      }
     </>
   );
 };
