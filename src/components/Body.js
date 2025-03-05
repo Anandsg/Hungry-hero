@@ -85,6 +85,9 @@ const Body = () => {
     setFilteredListOfRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    // console.log(
+    //   json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
   }
 
   const handleClick = () => {
